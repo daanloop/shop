@@ -1,0 +1,358 @@
+﻿@charset "UTF-8";
+
+@import url(reset.css);
+@import url(fonts.css);
+
+/*---------------------------基本設定*/
+/*IEのチラつき対応*/
+html { 
+    filter: expression(document.execCommand("BackgroundImageCache", false, true)); 
+}
+/*--- clearfix ---*/
+
+.clearfix:after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+
+.clearfix{
+	display:inline-block;
+	min-height:1%;  /* for IE 7*/
+}
+
+/* Hides from IE-mac \*/
+* html .clearfix{height: 1%;}
+.clearfix{display: block;}
+/* End hide from IE-mac */
+
+/*--- font size ---*/
+
+.fontSmaller{
+	font-size:85%;
+}
+.fontLager{
+	font-size:108%;
+}
+
+/*---- ロールオーバー ---------------------------------------*/
+a.overImg{
+	display:block;
+}
+
+a.overImg:hover{
+	background-color:transparent;
+}
+
+a.overImg:hover img{
+	visibility: hidden;
+}
+
+a:link{
+	color:#043b0d;
+	text-decoration:none;
+}
+
+a:visited{
+	color:#043b0d;
+	text-decoration:none;
+}
+a:hover{
+	color:#043b0d;
+	text-decoration:underline;
+}
+
+
+/*---------------------------index*/
+html{
+	margin:0;
+	padding:0;
+	color:#043b0d;
+}
+
+body{
+	text-align:center;
+}
+
+#wrapper{
+	width:967px;
+	background:url(../../images/akarui/bg.gif) repeat-y ;
+	margin:0 auto;
+	text-align:left;
+}
+
+#contentsArea{
+	width:939px;
+	margin-left:14px;
+}
+
+
+/* header */
+#header{
+	padding:6px 6px 3px 26px;
+	background-color:#FFF;
+}
+
+#header p{
+	float:left;
+	margin-right:170px;
+}
+
+#header h1{
+	float:left;
+}
+#header ul{
+	float:right;
+	margin-top:63px;
+	width:236px;
+}
+#header ul li{
+	float:left;
+	margin-right:22px;
+}
+
+
+/* navi */
+#navi li{
+	float:left;
+	height:31px;
+}
+#navi a{
+	height:31px;
+}
+
+#navi #n01{
+	width:102px;
+	background: url(../../images/akarui/navi_01_on.gif) top left no-repeat;
+}
+
+#navi #n02{
+	width:153px;
+	background: url(../../images/akarui/navi_02_on.gif) top left no-repeat;
+}
+#navi #n03{
+	width:128px;
+	background: url(../../images/akarui/navi_03_on.gif) top left no-repeat;
+}
+#navi #n04{
+	width:97px;
+	background: url(../../images/akarui/navi_04_on.gif) top left no-repeat;
+}
+#navi #n05{
+	width:97px;
+	background: url(../../images/akarui/navi_05_on.gif) top left no-repeat;
+}
+#navi #n06{
+	width:89px;
+	background: url(../../images/akarui/navi_06_on.gif) top left no-repeat;
+}
+#navi #n07{
+	width:91px;
+	background: url(../../images/akarui/navi_07_on.gif) top left no-repeat;
+}
+#navi #n08{
+	width:66px;
+	background: url(../../images/akarui/navi_08_on.gif) top left no-repeat;
+}
+#navi #n09{
+	width:116px;
+	background: url(../../images/akarui/navi_09_on.gif) top left no-repeat;
+}
+
+/*  mainContents  */
+#mainContents{
+	padding:20px 8px 20px 28px;
+}
+
+#mainContents #leftBox{
+	width:432px;
+	float:left;
+}
+
+#mainContents #rightBox{
+	width:450px;
+	float:right;
+}
+
+/*  #leftBox  */
+/*  news  */
+#leftBox .news .title{
+	border-bottom:1px solid #043b0d;
+	padding-bottom:4px;
+	margin-bottom:8px;
+}
+
+#leftBox .news .title h2{
+	float:left;
+}
+
+#leftBox .news .title p{
+	float:right;
+}
+
+#leftBox .news .newsList li{
+	margin-bottom:10px;
+}
+#leftBox .news .newsList li img{
+	margin-left:10px;
+	vertical-align:middle;
+}
+
+/*  consept  */
+#leftBox .consept{
+	margin-top:15px;
+	padding-bottom:8px;
+}
+
+#leftBox .consept .title{
+	border-top:1px solid #043b0d;
+	border-bottom:1px solid #043b0d;
+	padding:9px 0 4px 0;
+	margin-bottom:8px;
+}
+
+#leftBox .consept .title h2{
+	float:left;
+}
+
+#leftBox .consept .title p{
+	float:right;
+}
+
+/*  location  */
+#leftBox .location{
+	margin-top:15px;
+}
+
+#leftBox .location .title{
+	border-top:1px solid #043b0d;
+	border-bottom:1px solid #043b0d;
+	padding:9px 0 4px 0;
+	margin-bottom:8px;
+}
+
+#leftBox .location .title h2{
+	float:left;
+}
+
+#leftBox .location .title p{
+	float:right;
+}
+
+#leftBox .location div.data{
+	width:182px;
+	float:left;
+}
+
+#leftBox .location .mail{
+	margin-top:5px;
+}
+
+#leftBox .location .open{
+	margin:10px 0;
+}
+
+#leftBox .location .map{
+	float:right;
+	width:227px;
+}
+
+#leftBox .location .contactAct{
+	margin-top:10px;
+}
+
+/*  #rightBox  */
+
+/*   NetShop  */
+#rightBox .netShop .title{
+	border-bottom:1px solid #043b0d;
+	padding-bottom:4px;
+	margin-bottom:8px;
+}
+
+#rightBox .netShop .title h2{
+	float:left;
+	width:235px;
+}
+
+#rightBox .netShop .title .buttons{
+	float:right;
+}
+
+/*   present  */
+#rightBox .present{
+	margin-top:10px;
+	width:432px;
+}
+
+#rightBox .present .photo{
+	float:left;
+}
+
+#rightBox .present div.txt{
+	float:right;
+}
+
+#rightBox .present div .title{
+	float:left;
+}
+
+#rightBox .present div .more{
+	float:right;
+}
+
+#rightBox .present div div{
+	margin:10px 0 15px 0;
+}
+
+/*   Random Selector  */
+#rightBox .selector{
+	margin-top:15px;
+}
+
+#rightBox .selector h2{
+	border-top:1px solid #043b0d;
+	border-bottom:1px solid #043b0d;
+	padding:9px 0 4px 0;
+	width:432px;
+}
+
+#rightBox .selector ul{
+	padding:0;
+	font-size:1px;
+	line-height:0;
+}
+
+#rightBox .selector ul li{
+	float:left;
+}
+#rightBox .selector ul li img{
+	margin-right:14px;
+	margin-top:13px;
+}
+
+/*  #footer  */
+
+#copyright{
+	font-size:85%;
+	padding-bottom:10px;
+	padding-right:25px;
+	text-align:right;
+}
+
+#footer{
+	font-size:85%;
+	background:url(../../images/akarui/bg_bottom.gif) no-repeat left bottom ;
+	padding:0 13px 15px 13px;
+}
+
+#footer ul{
+	background:#043b0d;
+}
+
+#footer ul li{
+	float:left;
+	height:31px;
+}

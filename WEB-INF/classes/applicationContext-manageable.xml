@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <!-- CRUD Service Transactional Interceptor -->
+    <bean id="manageableServiceTransactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+        <property name="transactionManager"><ref bean="transactionManager"/></property>
+        <property name="transactionAttributeSource">
+            <value>
+                net.malta.model.crud.DbFileManageableService.create=PROPAGATION_REQUIRED
+                net.malta.model.crud.DbFileManageableService.read=PROPAGATION_REQUIRED
+                net.malta.model.crud.DbFileManageableService.readAll=PROPAGATION_REQUIRED
+                net.malta.model.crud.DbFileManageableService.getData=PROPAGATION_REQUIRED
+                net.malta.model.crud.DbFileManageableService.update=PROPAGATION_REQUIRED
+                net.malta.model.crud.DbFileManageableService.delete=PROPAGATION_REQUIRED
+                net.malta.model.crud.AttachmentManageableService.create=PROPAGATION_REQUIRED
+                net.malta.model.crud.AttachmentManageableService.read=PROPAGATION_REQUIRED
+                net.malta.model.crud.AttachmentManageableService.readAll=PROPAGATION_REQUIRED
+                net.malta.model.crud.AttachmentManageableService.readBackingLists=PROPAGATION_REQUIRED
+                net.malta.model.crud.AttachmentManageableService.update=PROPAGATION_REQUIRED
+                net.malta.model.crud.AttachmentManageableService.delete=PROPAGATION_REQUIRED
+                net.malta.model.crud.PublicUserManageableService.create=PROPAGATION_REQUIRED
+                net.malta.model.crud.PublicUserManageableService.read=PROPAGATION_REQUIRED
+                net.malta.model.crud.PublicUserManageableService.readAll=PROPAGATION_REQUIRED
+                net.malta.model.crud.PublicUserManageableService.readBackingLists=PROPAGATION_REQUIRED
+                net.malta.model.crud.PublicUserManageableService.update=PROPAGATION_REQUIRED
+                net.malta.model.crud.PublicUserManageableService.delete=PROPAGATION_REQUIRED
+                net.malta.model.crud.ItemManageableService.create=PROPAGATION_REQUIRED
+                net.malta.model.crud.ItemManageableService.read=PROPAGATION_REQUIRED
+                net.malta.model.crud.ItemManageableService.readAll=PROPAGATION_REQUIRED
+                net.malta.model.crud.ItemManageableService.readBackingLists=PROPAGATION_REQUIRED
+                net.malta.model.crud.ItemManageableService.update=PROPAGATION_REQUIRED
+                net.malta.model.crud.ItemManageableService.delete=PROPAGATION_REQUIRED
+                net.malta.model.crud.PurchaseManageableService.create=PROPAGATION_REQUIRED
+                net.malta.model.crud.PurchaseManageableService.read=PROPAGATION_REQUIRED
+                net.malta.model.crud.PurchaseManageableService.readAll=PROPAGATION_REQUIRED
+                net.malta.model.crud.PurchaseManageableService.readBackingLists=PROPAGATION_REQUIRED
+                net.malta.model.crud.PurchaseManageableService.update=PROPAGATION_REQUIRED
+                net.malta.model.crud.PurchaseManageableService.delete=PROPAGATION_REQUIRED
+                net.malta.model.crud.ProductManageableService.create=PROPAGATION_REQUIRED
+                net.malta.model.crud.ProductManageableService.read=PROPAGATION_REQUIRED
+                net.malta.model.crud.ProductManageableService.readAll=PROPAGATION_REQUIRED
+                net.malta.model.crud.ProductManageableService.readBackingLists=PROPAGATION_REQUIRED
+                net.malta.model.crud.ProductManageableService.update=PROPAGATION_REQUIRED
+                net.malta.model.crud.ProductManageableService.delete=PROPAGATION_REQUIRED
+                net.malta.model.crud.ChoiseManageableService.create=PROPAGATION_REQUIRED
+                net.malta.model.crud.ChoiseManageableService.read=PROPAGATION_REQUIRED
+                net.malta.model.crud.ChoiseManageableService.readAll=PROPAGATION_REQUIRED
+                net.malta.model.crud.ChoiseManageableService.readBackingLists=PROPAGATION_REQUIRED
+                net.malta.model.crud.ChoiseManageableService.update=PROPAGATION_REQUIRED
+                net.malta.model.crud.ChoiseManageableService.delete=PROPAGATION_REQUIRED
+                net.malta.model.crud.CategoryManageableService.create=PROPAGATION_REQUIRED
+                net.malta.model.crud.CategoryManageableService.read=PROPAGATION_REQUIRED
+                net.malta.model.crud.CategoryManageableService.readAll=PROPAGATION_REQUIRED
+                net.malta.model.crud.CategoryManageableService.readBackingLists=PROPAGATION_REQUIRED
+                net.malta.model.crud.CategoryManageableService.update=PROPAGATION_REQUIRED
+                net.malta.model.crud.CategoryManageableService.delete=PROPAGATION_REQUIRED
+                net.malta.model.crud.DeliveryAddressManageableService.create=PROPAGATION_REQUIRED
+                net.malta.model.crud.DeliveryAddressManageableService.read=PROPAGATION_REQUIRED
+                net.malta.model.crud.DeliveryAddressManageableService.readAll=PROPAGATION_REQUIRED
+                net.malta.model.crud.DeliveryAddressManageableService.readBackingLists=PROPAGATION_REQUIRED
+                net.malta.model.crud.DeliveryAddressManageableService.update=PROPAGATION_REQUIRED
+                net.malta.model.crud.DeliveryAddressManageableService.delete=PROPAGATION_REQUIRED
+                net.malta.model.crud.DeliveryAddressChoiseManageableService.create=PROPAGATION_REQUIRED
+                net.malta.model.crud.DeliveryAddressChoiseManageableService.read=PROPAGATION_REQUIRED
+                net.malta.model.crud.DeliveryAddressChoiseManageableService.readAll=PROPAGATION_REQUIRED
+                net.malta.model.crud.DeliveryAddressChoiseManageableService.readBackingLists=PROPAGATION_REQUIRED
+                net.malta.model.crud.DeliveryAddressChoiseManageableService.update=PROPAGATION_REQUIRED
+                net.malta.model.crud.DeliveryAddressChoiseManageableService.delete=PROPAGATION_REQUIRED
+                net.malta.model.crud.GiftCardManageableService.create=PROPAGATION_REQUIRED
+                net.malta.model.crud.GiftCardManageableService.read=PROPAGATION_REQUIRED
+                net.malta.model.crud.GiftCardManageableService.readAll=PROPAGATION_REQUIRED
+                net.malta.model.crud.GiftCardManageableService.readBackingLists=PROPAGATION_REQUIRED
+                net.malta.model.crud.GiftCardManageableService.update=PROPAGATION_REQUIRED
+                net.malta.model.crud.GiftCardManageableService.delete=PROPAGATION_REQUIRED
+                net.malta.model.crud.StaticDataManageableService.create=PROPAGATION_REQUIRED
+                net.malta.model.crud.StaticDataManageableService.read=PROPAGATION_REQUIRED
+                net.malta.model.crud.StaticDataManageableService.readAll=PROPAGATION_REQUIRED
+                net.malta.model.crud.StaticDataManageableService.getNoimage=PROPAGATION_REQUIRED
+                net.malta.model.crud.StaticDataManageableService.update=PROPAGATION_REQUIRED
+                net.malta.model.crud.StaticDataManageableService.delete=PROPAGATION_REQUIRED
+                net.malta.model.crud.CarriageManageableService.create=PROPAGATION_REQUIRED
+                net.malta.model.crud.CarriageManageableService.read=PROPAGATION_REQUIRED
+                net.malta.model.crud.CarriageManageableService.readAll=PROPAGATION_REQUIRED
+                net.malta.model.crud.CarriageManageableService.readBackingLists=PROPAGATION_REQUIRED
+                net.malta.model.crud.CarriageManageableService.update=PROPAGATION_REQUIRED
+                net.malta.model.crud.CarriageManageableService.delete=PROPAGATION_REQUIRED
+                net.malta.model.crud.PaymentMethodManageableService.create=PROPAGATION_REQUIRED
+                net.malta.model.crud.PaymentMethodManageableService.read=PROPAGATION_REQUIRED
+                net.malta.model.crud.PaymentMethodManageableService.readAll=PROPAGATION_REQUIRED
+                net.malta.model.crud.PaymentMethodManageableService.readBackingLists=PROPAGATION_REQUIRED
+                net.malta.model.crud.PaymentMethodManageableService.update=PROPAGATION_REQUIRED
+                net.malta.model.crud.PaymentMethodManageableService.delete=PROPAGATION_REQUIRED
+                net.malta.model.crud.PrefectureManageableService.create=PROPAGATION_REQUIRED
+                net.malta.model.crud.PrefectureManageableService.read=PROPAGATION_REQUIRED
+                net.malta.model.crud.PrefectureManageableService.readAll=PROPAGATION_REQUIRED
+                net.malta.model.crud.PrefectureManageableService.readBackingLists=PROPAGATION_REQUIRED
+                net.malta.model.crud.PrefectureManageableService.update=PROPAGATION_REQUIRED
+                net.malta.model.crud.PrefectureManageableService.delete=PROPAGATION_REQUIRED
+            </value>
+        </property>
+    </bean>
+
+     <!-- DbFileManageableDao Entity Proxy -->
+     <bean id="DbFileManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="DbFileManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.DbFileManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- DbFileManageableDao Implementation  -->
+    <bean id="DbFileManageableDaoBase" class="net.malta.model.crud.DbFileManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="dbFileDao"/></property>
+    </bean>
+
+    <!-- DbFileManageableService Service Implementation  -->
+    <bean id="DbFileManageableServiceBase" class="net.malta.model.crud.DbFileManageableServiceBase">
+        <property name="dao"><ref local="DbFileManageableDao"/></property>
+    </bean>
+
+    <!-- DbFileManageableService Service Proxy  -->
+    <bean id="DbFileManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="DbFileManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.DbFileManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- AttachmentManageableDao Entity Proxy -->
+     <bean id="AttachmentManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="AttachmentManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.AttachmentManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- AttachmentManageableDao Implementation  -->
+    <bean id="AttachmentManageableDaoBase" class="net.malta.model.crud.AttachmentManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="attachmentDao"/></property>
+        <property name="dbFileDao"><ref bean="dbFileDao"/></property>
+        <property name="aszoomDao"><ref bean="itemDao"/></property>
+        <property name="asdetailedDao"><ref bean="itemDao"/></property>
+        <property name="asdefaultDao"><ref bean="itemDao"/></property>
+    </bean>
+
+    <!-- AttachmentManageableService Service Implementation  -->
+    <bean id="AttachmentManageableServiceBase" class="net.malta.model.crud.AttachmentManageableServiceBase">
+        <property name="dao"><ref local="AttachmentManageableDao"/></property>
+    </bean>
+
+    <!-- AttachmentManageableService Service Proxy  -->
+    <bean id="AttachmentManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="AttachmentManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.AttachmentManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- PublicUserManageableDao Entity Proxy -->
+     <bean id="PublicUserManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="PublicUserManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.PublicUserManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- PublicUserManageableDao Implementation  -->
+    <bean id="PublicUserManageableDaoBase" class="net.malta.model.crud.PublicUserManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="publicUserDao"/></property>
+        <property name="purchasesDao"><ref bean="purchaseDao"/></property>
+        <property name="deliveryAddressesDao"><ref bean="deliveryAddressDao"/></property>
+        <property name="prefectureDao"><ref bean="prefectureDao"/></property>
+    </bean>
+
+    <!-- PublicUserManageableService Service Implementation  -->
+    <bean id="PublicUserManageableServiceBase" class="net.malta.model.crud.PublicUserManageableServiceBase">
+        <property name="dao"><ref local="PublicUserManageableDao"/></property>
+    </bean>
+
+    <!-- PublicUserManageableService Service Proxy  -->
+    <bean id="PublicUserManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="PublicUserManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.PublicUserManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- ItemManageableDao Entity Proxy -->
+     <bean id="ItemManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ItemManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.ItemManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- ItemManageableDao Implementation  -->
+    <bean id="ItemManageableDaoBase" class="net.malta.model.crud.ItemManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="itemDao"/></property>
+        <property name="productDao"><ref bean="productDao"/></property>
+        <property name="choisesDao"><ref bean="choiseDao"/></property>
+        <property name="carriageDao"><ref bean="carriageDao"/></property>
+        <property name="zoomDao"><ref bean="attachmentDao"/></property>
+        <property name="detailedDao"><ref bean="attachmentDao"/></property>
+        <property name="defaultattachmentDao"><ref bean="attachmentDao"/></property>
+    </bean>
+
+    <!-- ItemManageableService Service Implementation  -->
+    <bean id="ItemManageableServiceBase" class="net.malta.model.crud.ItemManageableServiceBase">
+        <property name="dao"><ref local="ItemManageableDao"/></property>
+    </bean>
+
+    <!-- ItemManageableService Service Proxy  -->
+    <bean id="ItemManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ItemManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.ItemManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- PurchaseManageableDao Entity Proxy -->
+     <bean id="PurchaseManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="PurchaseManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.PurchaseManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- PurchaseManageableDao Implementation  -->
+    <bean id="PurchaseManageableDaoBase" class="net.malta.model.crud.PurchaseManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="purchaseDao"/></property>
+        <property name="publicUserDao"><ref bean="publicUserDao"/></property>
+        <property name="choisesDao"><ref bean="choiseDao"/></property>
+        <property name="paymentMethodDao"><ref bean="paymentMethodDao"/></property>
+    </bean>
+
+    <!-- PurchaseManageableService Service Implementation  -->
+    <bean id="PurchaseManageableServiceBase" class="net.malta.model.crud.PurchaseManageableServiceBase">
+        <property name="dao"><ref local="PurchaseManageableDao"/></property>
+    </bean>
+
+    <!-- PurchaseManageableService Service Proxy  -->
+    <bean id="PurchaseManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="PurchaseManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.PurchaseManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- ProductManageableDao Entity Proxy -->
+     <bean id="ProductManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ProductManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.ProductManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- ProductManageableDao Implementation  -->
+    <bean id="ProductManageableDaoBase" class="net.malta.model.crud.ProductManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="productDao"/></property>
+        <property name="itemsDao"><ref bean="itemDao"/></property>
+        <property name="categoryDao"><ref bean="categoryDao"/></property>
+        <property name="thumnailDao"><ref bean="attachmentDao"/></property>
+        <property name="slideshowDao"><ref bean="attachmentDao"/></property>
+    </bean>
+
+    <!-- ProductManageableService Service Implementation  -->
+    <bean id="ProductManageableServiceBase" class="net.malta.model.crud.ProductManageableServiceBase">
+        <property name="dao"><ref local="ProductManageableDao"/></property>
+    </bean>
+
+    <!-- ProductManageableService Service Proxy  -->
+    <bean id="ProductManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ProductManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.ProductManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- ChoiseManageableDao Entity Proxy -->
+     <bean id="ChoiseManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ChoiseManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.ChoiseManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- ChoiseManageableDao Implementation  -->
+    <bean id="ChoiseManageableDaoBase" class="net.malta.model.crud.ChoiseManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="choiseDao"/></property>
+        <property name="purchaseDao"><ref bean="purchaseDao"/></property>
+        <property name="itemDao"><ref bean="itemDao"/></property>
+        <property name="deliveryAddressChoisesDao"><ref bean="deliveryAddressChoiseDao"/></property>
+    </bean>
+
+    <!-- ChoiseManageableService Service Implementation  -->
+    <bean id="ChoiseManageableServiceBase" class="net.malta.model.crud.ChoiseManageableServiceBase">
+        <property name="dao"><ref local="ChoiseManageableDao"/></property>
+    </bean>
+
+    <!-- ChoiseManageableService Service Proxy  -->
+    <bean id="ChoiseManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ChoiseManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.ChoiseManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- CategoryManageableDao Entity Proxy -->
+     <bean id="CategoryManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="CategoryManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.CategoryManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- CategoryManageableDao Implementation  -->
+    <bean id="CategoryManageableDaoBase" class="net.malta.model.crud.CategoryManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="categoryDao"/></property>
+        <property name="productsDao"><ref bean="productDao"/></property>
+    </bean>
+
+    <!-- CategoryManageableService Service Implementation  -->
+    <bean id="CategoryManageableServiceBase" class="net.malta.model.crud.CategoryManageableServiceBase">
+        <property name="dao"><ref local="CategoryManageableDao"/></property>
+    </bean>
+
+    <!-- CategoryManageableService Service Proxy  -->
+    <bean id="CategoryManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="CategoryManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.CategoryManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- DeliveryAddressManageableDao Entity Proxy -->
+     <bean id="DeliveryAddressManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="DeliveryAddressManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.DeliveryAddressManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- DeliveryAddressManageableDao Implementation  -->
+    <bean id="DeliveryAddressManageableDaoBase" class="net.malta.model.crud.DeliveryAddressManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="deliveryAddressDao"/></property>
+        <property name="deliveryAddressChoisesDao"><ref bean="deliveryAddressChoiseDao"/></property>
+        <property name="publicUserDao"><ref bean="publicUserDao"/></property>
+        <property name="giftCardDao"><ref bean="giftCardDao"/></property>
+        <property name="prefectureDao"><ref bean="prefectureDao"/></property>
+    </bean>
+
+    <!-- DeliveryAddressManageableService Service Implementation  -->
+    <bean id="DeliveryAddressManageableServiceBase" class="net.malta.model.crud.DeliveryAddressManageableServiceBase">
+        <property name="dao"><ref local="DeliveryAddressManageableDao"/></property>
+    </bean>
+
+    <!-- DeliveryAddressManageableService Service Proxy  -->
+    <bean id="DeliveryAddressManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="DeliveryAddressManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.DeliveryAddressManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- DeliveryAddressChoiseManageableDao Entity Proxy -->
+     <bean id="DeliveryAddressChoiseManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="DeliveryAddressChoiseManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.DeliveryAddressChoiseManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- DeliveryAddressChoiseManageableDao Implementation  -->
+    <bean id="DeliveryAddressChoiseManageableDaoBase" class="net.malta.model.crud.DeliveryAddressChoiseManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="deliveryAddressChoiseDao"/></property>
+        <property name="deliveryAddressDao"><ref bean="deliveryAddressDao"/></property>
+        <property name="choiseDao"><ref bean="choiseDao"/></property>
+        <property name="giftCardDao"><ref bean="giftCardDao"/></property>
+    </bean>
+
+    <!-- DeliveryAddressChoiseManageableService Service Implementation  -->
+    <bean id="DeliveryAddressChoiseManageableServiceBase" class="net.malta.model.crud.DeliveryAddressChoiseManageableServiceBase">
+        <property name="dao"><ref local="DeliveryAddressChoiseManageableDao"/></property>
+    </bean>
+
+    <!-- DeliveryAddressChoiseManageableService Service Proxy  -->
+    <bean id="DeliveryAddressChoiseManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="DeliveryAddressChoiseManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.DeliveryAddressChoiseManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- GiftCardManageableDao Entity Proxy -->
+     <bean id="GiftCardManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="GiftCardManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.GiftCardManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- GiftCardManageableDao Implementation  -->
+    <bean id="GiftCardManageableDaoBase" class="net.malta.model.crud.GiftCardManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="giftCardDao"/></property>
+        <property name="deliveryAddressesDao"><ref bean="deliveryAddressDao"/></property>
+        <property name="deliveryAddressChoisesDao"><ref bean="deliveryAddressChoiseDao"/></property>
+    </bean>
+
+    <!-- GiftCardManageableService Service Implementation  -->
+    <bean id="GiftCardManageableServiceBase" class="net.malta.model.crud.GiftCardManageableServiceBase">
+        <property name="dao"><ref local="GiftCardManageableDao"/></property>
+    </bean>
+
+    <!-- GiftCardManageableService Service Proxy  -->
+    <bean id="GiftCardManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="GiftCardManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.GiftCardManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- StaticDataManageableDao Entity Proxy -->
+     <bean id="StaticDataManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="StaticDataManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.StaticDataManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- StaticDataManageableDao Implementation  -->
+    <bean id="StaticDataManageableDaoBase" class="net.malta.model.crud.StaticDataManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="staticDataDao"/></property>
+    </bean>
+
+    <!-- StaticDataManageableService Service Implementation  -->
+    <bean id="StaticDataManageableServiceBase" class="net.malta.model.crud.StaticDataManageableServiceBase">
+        <property name="dao"><ref local="StaticDataManageableDao"/></property>
+    </bean>
+
+    <!-- StaticDataManageableService Service Proxy  -->
+    <bean id="StaticDataManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="StaticDataManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.StaticDataManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- CarriageManageableDao Entity Proxy -->
+     <bean id="CarriageManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="CarriageManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.CarriageManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- CarriageManageableDao Implementation  -->
+    <bean id="CarriageManageableDaoBase" class="net.malta.model.crud.CarriageManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="carriageDao"/></property>
+        <property name="itemsDao"><ref bean="itemDao"/></property>
+    </bean>
+
+    <!-- CarriageManageableService Service Implementation  -->
+    <bean id="CarriageManageableServiceBase" class="net.malta.model.crud.CarriageManageableServiceBase">
+        <property name="dao"><ref local="CarriageManageableDao"/></property>
+    </bean>
+
+    <!-- CarriageManageableService Service Proxy  -->
+    <bean id="CarriageManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="CarriageManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.CarriageManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- PaymentMethodManageableDao Entity Proxy -->
+     <bean id="PaymentMethodManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="PaymentMethodManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.PaymentMethodManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- PaymentMethodManageableDao Implementation  -->
+    <bean id="PaymentMethodManageableDaoBase" class="net.malta.model.crud.PaymentMethodManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="paymentMethodDao"/></property>
+        <property name="purchasesDao"><ref bean="purchaseDao"/></property>
+    </bean>
+
+    <!-- PaymentMethodManageableService Service Implementation  -->
+    <bean id="PaymentMethodManageableServiceBase" class="net.malta.model.crud.PaymentMethodManageableServiceBase">
+        <property name="dao"><ref local="PaymentMethodManageableDao"/></property>
+    </bean>
+
+    <!-- PaymentMethodManageableService Service Proxy  -->
+    <bean id="PaymentMethodManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="PaymentMethodManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.PaymentMethodManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- PrefectureManageableDao Entity Proxy -->
+     <bean id="PrefectureManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="PrefectureManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.PrefectureManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- PrefectureManageableDao Implementation  -->
+    <bean id="PrefectureManageableDaoBase" class="net.malta.model.crud.PrefectureManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="prefectureDao"/></property>
+        <property name="publicUsersDao"><ref bean="publicUserDao"/></property>
+        <property name="deliveryAddressesDao"><ref bean="deliveryAddressDao"/></property>
+    </bean>
+
+    <!-- PrefectureManageableService Service Implementation  -->
+    <bean id="PrefectureManageableServiceBase" class="net.malta.model.crud.PrefectureManageableServiceBase">
+        <property name="dao"><ref local="PrefectureManageableDao"/></property>
+    </bean>
+
+    <!-- PrefectureManageableService Service Proxy  -->
+    <bean id="PrefectureManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="PrefectureManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>net.malta.model.crud.PrefectureManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+</beans>

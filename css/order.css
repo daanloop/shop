@@ -1,0 +1,394 @@
+﻿@charset "UTF-8";
+
+/*#mainContents{
+	padding:20px 0 20px 55px;
+}*/
+
+#copyright{
+	margin-left:14px;
+	padding-right:14px;
+	text-align:right;
+}
+
+.linkBox{
+	padding-right:55px;
+	margin-bottom:10px;
+}
+
+.linkBox p{
+	float:left;
+}
+
+.linkBox ul{
+	float:right;
+}
+
+.plaisirLink{
+	float:right;
+	padding-bottom:7px;
+}
+.plaisirLink li{
+	float:left;
+}
+
+.plaisirLink li.prev{
+	margin-right:4px;
+}
+
+/* detail  */
+
+#contentsArea{
+	background:url(../information/images/bg.gif) repeat-y left top;
+}
+#detailContents{
+	padding:20px 14px 10px 14px;
+}
+
+#subNavi{
+	background:url(../information/images/s_navi_bg.gif) repeat-x left top;
+	padding-left:190px;
+}
+
+#subNavi li{
+	float:left;
+	margin-right:15px;
+}
+
+#subNavi li#sub01{
+	width:100px;
+	background:url(../information/images/s_navi_01_on.gif) no-repeat left top;	
+}
+#subNavi li#sub02{
+	width:117px;
+	background:url(../information/images/s_navi_02_on.gif) no-repeat left top;	
+}
+#subNavi li#sub03{
+	width:109px;
+	background:url(../information/images/s_navi_03_on.gif) no-repeat left top;	
+}
+#subNavi li#sub04{
+	width:145px;
+	background:url(../information/images/s_navi_04_on.gif) no-repeat left top;	
+}
+#subNavi li#sub05{
+	width:150px;
+	background:url(../information/images/s_navi_05_on.gif) no-repeat left top;	
+}
+#subNavi li#sub06{
+	width:127px;
+	background:url(../information/images/s_navi_06_on.gif) no-repeat left top;	
+}
+
+#detailContents #copyright{
+	padding-bottom:0;
+}
+#detailContents .title .date{
+	float:left;
+} 
+
+#detailContents .title ul{
+	float:right;
+}
+
+#detailContents .title ul li{
+	float:left;
+}
+
+#detailContents .title ul li.prv{
+	margin-right:10px;
+}
+
+#detailContents .title h2{
+	font-size:108%;
+	clear:both;
+	padding:5px 0;
+	border-top:1px solid #043b0d;
+	border-bottom:1px solid #043b0d;
+	margin-bottom:3px;
+}
+
+#detailContents .title .cate{
+	text-align:right;
+	margin-bottom:7px;
+}
+
+#detailContents .leftBox{
+	width:210px;
+	float:left;
+}
+
+#detailContents .leftBox p{
+	margin-bottom:10px;
+}
+
+#detailContents .leftBox p.title{
+	margin-bottom:15px;
+	padding-left:0px;
+}
+
+#detailContents .leftBox p.titleAbout{
+	margin-bottom:15px;
+	padding-left:0px;
+}
+
+#detailContents .leftBox ul{
+	width:170px;
+	margin-left:5px;
+	margin-bottom:10px;
+}
+
+
+
+#detailContents .leftBox ul li{
+	padding-left:15px;
+	background:url(../images/ico_leftbox.gif) no-repeat left 5px;
+}
+
+
+#detailContents .rightBox{
+	width:696px;
+	float:right;
+}
+
+#detailContents .rightBox .entryContents p{
+	margin-bottom:20px;
+}
+
+/* アーカイブ */
+
+#detailContents .archiveList li{
+	float:left;
+	width:330px;
+	margin-top:20px;
+	margin-right:10px;
+	margin-bottom:17px;
+}
+
+#detailContents .archiveList li .photo{
+	float:left;
+	width:130px;
+}
+
+#detailContents .archiveList li .photo img{
+	border:5px solid #FFF;
+}
+
+#detailContents .archiveList li div{
+	float:left;
+	width:185px;
+}
+
+#detailContents .archiveList li a{
+	background:url(../information/images/ico_link.gif) no-repeat left center;
+	padding-left:17px;
+}
+
+#detailContents .archiveList strong{
+	margin:0;
+}
+
+#detailContents .archiveList a{
+	margin:0;
+}
+
+#detailContents .archiveList p{
+	margin:0;
+}
+
+#detailContents .title h2.aboutTitle{
+	background:url(../information/present/images/ico.gif) no-repeat left center;
+	font-size:108%;
+	padding:5px 0 5px 10px;
+	border-top:1px solid #043b0d;
+	border-bottom:1px solid #043b0d;
+	margin-bottom:3px;
+}
+
+#detailContents .title .about{
+	margin-bottom:10px;
+	padding-left:5px;
+} 
+
+#detailContents .aboutContents{
+	margin-top:10px;
+	margin-bottom:15px;
+	padding-left:18px;
+}
+
+#detailContents .aboutContents .photo{
+	float:left;
+	width:209px;
+}
+
+#detailContents .aboutContents .txt{
+	float:right;
+	width:430px;
+}
+
+#detailContents .aboutContents .txt img{
+	margin-bottom:5px;
+}
+
+#detailContents .aboutContents .staffPhoto{
+	float:left;
+	width:208px;
+}
+
+#detailContents .aboutContents .staffTxt{
+	float:right;
+	width:460px;
+}
+
+#detailContents .aboutContents .mapImg{
+	float:left;
+	width:338px;
+}
+
+#detailContents .aboutContents .mapTxt{
+	float:right;
+	width:460px;
+}
+
+#detailContents .aboutContents .mapTxt p{
+	margin-bottom:10px;
+}
+
+#detailContents .aboutContents li{
+	float:left;
+	margin-right:25px;
+	margin-bottom:10px;
+	width:150px;
+}
+
+#detailContents .aboutContents li.nomargin{
+	margin-right:0;
+}
+
+#detailContents .aboutContents li .junleTitle{
+	background-color: #d9cde8 ;
+	text-align:center;
+	margin-bottom:5px;
+	padding:1px 0 2px 0;
+}
+
+.spacingRight05{
+	margin-right:5px;
+}
+
+.spacingRight10{
+	margin-right:10px;
+}
+
+.spacing05{
+	margin-bottom:5px;
+}
+.spacing15{
+	margin-bottom:15px;
+}
+.leftTxt{
+	float:left;
+}
+.rightAction{
+	float:right;
+}
+
+.red{
+	color:#bf0000;
+}
+
+#detailContents table{
+	border-right:1px solid #425945;
+	border-top:1px solid #425945;
+	margin-left:10px;
+	margin-top:15px;
+	width:98.5%;
+}
+
+#detailContents table th{
+	border-left:1px solid #425945;
+	border-bottom:1px solid #425945;
+	padding:4px;
+	background-color:#769392;
+	color:#FFF;
+}
+
+#detailContents table td{
+	border-left:1px solid #425945;
+	border-bottom:1px solid #425945;
+	padding:4px;
+	vertical-align:top;
+}
+
+#detailContents table td.koumoku{
+	width:165px;
+}
+
+#detailContents table td.noline{
+	border-bottom:none;
+	padding-bottom:0;
+}
+
+#detailContents table td input{
+ vertical-align:middle;
+}
+
+#detailContents table td .smallerEx{
+	width:33px;
+	padding:2px;
+}
+
+#detailContents table td .smaller{
+	width:63px;
+	padding:2px;
+}
+
+#detailContents table td .smalleMiddle{
+	width:130px;
+	padding:2px;
+}
+
+#detailContents table td .smalleLonger{
+	width:190px;
+	padding:2px;
+}
+
+#detailContents table td .middle{
+	width:310px;
+	padding:2px;
+}
+
+#detailContents table td .longer{
+	width:477px;
+	padding:2px;
+}
+
+#detailContents table td ul li{
+	float:left;
+	width:120px;
+}
+
+.action{
+	text-align:right;
+	margin-top:25px;
+	margin-bottom:25px;
+}
+
+.ssl{
+	margin-bottom:50px;
+}
+
+.ssl .txt{
+	width:560px;
+	float:right;
+}
+
+.ssl .globalsign{
+	float:left;
+	width:125px;
+}
+
+#error{
+	margin-left:10px;
+	margin-top:15px;
+	margin-bottom:100px;
+}

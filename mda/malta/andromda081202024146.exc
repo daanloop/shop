@@ -1,0 +1,47 @@
+------- AndroMDA Exception Recording -------
+Version ........: 3.2
+Error ..........: Error performing ModelProcessor.process with model(s) --> 'C:\current\workspace\malta\mda\malta\mda\src\uml\malta.xmi'
+Build ..........: ${build.date}
+Build System ...: Linux-2.4.29-su-1.2
+Build JDK ......: Sun Microsystems Inc.-1.5.0_07-b03
+Build Builder ..: su-builder
+Run System .....: Windows XP5.1
+Run JDK ........: Sun Microsystems Inc.1.5.0_16-b02
+Main Exception .: java.io.FileNotFoundException: C:\current\workspace\malta\mda\malta\mda\src\uml\malta.xmi (指定されたパスが見つかりません。)
+Root Exception .: java.io.FileNotFoundException: C:\current\workspace\malta\mda\malta\mda\src\uml\malta.xmi (指定されたパスが見つかりません。)
+java.io.FileNotFoundException: C:\current\workspace\malta\mda\malta\mda\src\uml\malta.xmi (指定されたパスが見つかりません。)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:106)
+	at java.io.FileInputStream.<init>(FileInputStream.java:66)
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:70)
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:161)
+	at java.net.URL.openStream(URL.java:1007)
+	at org.andromda.core.transformation.XslTransformer.transform(XslTransformer.java:104)
+	at org.andromda.core.repository.Repositories.loadModel(Repositories.java:160)
+	at org.andromda.core.engine.ModelProcessor.loadModelIfNecessary(ModelProcessor.java:344)
+	at org.andromda.core.engine.ModelProcessor.loadIfNecessary(ModelProcessor.java:533)
+	at org.andromda.core.engine.ModelProcessor.processModels(ModelProcessor.java:225)
+	at org.andromda.core.engine.ModelProcessor.process(ModelProcessor.java:146)
+	at org.andromda.core.engine.ModelProcessor.process(ModelProcessor.java:82)
+	at org.andromda.core.engine.Engine.run(Engine.java:82)
+	at org.andromda.core.AndroMDA.run(AndroMDA.java:197)
+	at org.andromda.maven.plugin.AndroMDAMojo.execute(AndroMDAMojo.java:92)
+	at org.andromda.maven.plugin.AbstractAndroMDAMojo.execute(AbstractAndroMDAMojo.java:106)
+	at org.apache.maven.plugin.DefaultPluginManager.executeMojo(DefaultPluginManager.java:451)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeGoals(DefaultLifecycleExecutor.java:558)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeGoalWithLifecycle(DefaultLifecycleExecutor.java:499)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeGoal(DefaultLifecycleExecutor.java:478)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeGoalAndHandleFailures(DefaultLifecycleExecutor.java:330)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeTaskSegments(DefaultLifecycleExecutor.java:291)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.execute(DefaultLifecycleExecutor.java:142)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:336)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:129)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:287)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.codehaus.classworlds.Launcher.launchEnhanced(Launcher.java:315)
+	at org.codehaus.classworlds.Launcher.launch(Launcher.java:255)
+	at org.codehaus.classworlds.Launcher.mainWithExitCode(Launcher.java:430)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:375)

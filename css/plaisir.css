@@ -1,0 +1,263 @@
+﻿@charset "UTF-8";
+
+#mainContents{
+	padding:20px 0 20px 55px;
+}
+#indexBg{
+	background-color:#e5e5e5!important;
+}
+
+#copyright{
+	margin-left:14px;
+	padding-right:14px;
+	text-align:right;
+}
+
+.linkBox{
+	padding-right:55px;
+	margin-bottom:10px;
+}
+
+.linkBox p{
+	float:left;
+}
+
+.linkBox ul{
+	float:right;
+}
+
+.plaisirLink{
+	float:right;
+	padding-bottom:7px;
+}
+.plaisirLink li{
+	float:left;
+}
+
+.plaisirLink li.prev{
+	margin-right:4px;
+}
+
+#plaisirList{
+	clear:both;
+}
+
+#plaisirList div.plaisirEntry {
+	width: 100px;
+	margin-bottom:10px;
+	margin-right:44px;
+	vertical-align:top;
+	display: -moz-inline-box; /*Fx2 and older*/
+	display: inline-block;
+	/display: inline; /*IE 7 and older*/
+	/zoom: 1; /*IE 7 and older*/
+}
+#plaisirList div.plaisirEntry > div{
+	width:100px;
+	display:block;
+}
+
+#plaisirList div.plaisirEntry .photo{
+	margin-bottom:3px;
+}
+#plaisirList div.plaisirEntry .photo img{
+	border:10px solid #FFF;
+}
+#plaisirList div.plaisirEntry .txt{
+	width:100px;
+	font-size:85%;
+	text-align:center;
+}
+
+
+
+/* detail  */
+
+#contentsArea{
+	background:url(../plaisir/images/detail_bg.gif) repeat-y left top;
+}
+#detailContents{
+	padding:20px 14px 0 14px;
+	background:url(../plaisir/images/detail_bg_top.gif) repeat-x left top;
+}
+
+#detailContents #copyright{
+	padding-bottom:0;
+}
+
+#detailContents div.photoBox {
+	width: 482px;
+	margin-right:10px;
+	display: -moz-inline-box; /*Fx2 and older*/
+	display: inline-block;
+	/display: inline; /*IE 7 and older*/
+	/zoom: 1; /*IE 7 and older*/
+}
+#detailContents div.photoBox > div{
+	width:482px;
+	display:block;
+}
+
+#detailContents div.dataBox {
+	width: 200px;
+	vertical-align:bottom;
+	font-size:85%;
+	display: -moz-inline-box; /*Fx2 and older*/
+	display: inline-block;
+	/display: inline; /*IE 7 and older*/
+	/zoom: 1; /*IE 7 and older*/
+}
+#detailContents div.dataBox > div{
+	width:200px;
+	display:block;
+}
+
+#detailContents div.photoBox .photo p{
+	border:1px solid #c5c5c5;
+	height:480px;
+}
+
+#detailContents div.photoBox .photo img{
+	border:10px solid #FFF;
+}
+
+#detailContents div.dataBox dl{
+	width:200px;
+	margin-bottom:10px;
+}
+
+#detailContents div.dataBox dt{
+	clear:both;
+	float:left;
+	width:3.8em;
+}
+
+#detailContents div.dataBox dd{
+	margin-left:3.8em;
+}
+
+#detailContents .title h2{
+	font-size:138.5%;
+	float:left;
+	padding:5px 0 5px 15px;
+	background:url(../plaisir/images/detail_ico.gif) no-repeat left center
+}
+
+#detailContents .title ul{
+	float:right;
+	background:url(../plaisir/images/link_01.gif) no-repeat left top #FFF;
+	padding-left: 13px;
+	font-size:1px;
+	line-height:0;
+	border-right:1px solid #c5c5c5;
+}
+
+#detailContents .title ul li{
+	float:left;
+}
+
+#detailContents .entryTitle{
+	margin-bottom:10px;
+}
+
+#detailContents .entryTitle h3{
+	font-size:138.5%;
+	float:left;
+	padding:5px 0 ;
+	margin-right:30px;
+}
+
+#detailContents .entryTitle p{
+	float:left;
+	padding-top:8px;
+}
+
+
+
+
+#detailContents .leftBox{
+	width:168px;
+	float:left;
+}
+
+#detailContents p{
+	margin-bottom:10px;
+}
+
+#detailContents p.linkIndex{
+	text-align:right;
+	padding-bottom:6px;
+	border-bottom:1px solid #043b0d;
+}
+
+#detailContents .leftBox dt{
+	clear:both;
+	width:2.5em;
+	float:left;
+	padding-left:17px;
+}
+
+#detailContents .leftBox dd{
+	margin-left:2.5em;
+}
+
+#detailContents .leftBox dt.here{
+	background:url(../plaisir/images/detail_ico.gif) no-repeat left center;
+}
+
+#detailContents .rightBox{
+	width:696px;
+	float:right;
+}
+
+/*######   コメント  ######*/
+
+#detailContents .commentBox{
+	margin:20px 0 0 0;
+}
+
+#detailContents .commentBox h4{
+	border-top:2px solid #043b0d;
+	border-bottom:2px solid #043b0d;
+	padding:4px 0 4px 13px;
+	margin-bottom:8px;
+	background:url(../blog/images/detail_ico.gif) no-repeat left 5px
+}
+#detailContents .commentBox .commenter{
+	padding:0 0 10px 15px;
+	margin-bottom:10px;
+	border-bottom:1px dashed #043b0d;
+}
+
+#detailContents .commentBox .commenter p img{
+	vertical-align:middle;
+}
+
+#detailContents .commentBox textarea{
+	border:1px solid #999;
+	padding:3px;
+	height:100px;
+	width:100%;
+}
+
+#detailContents .commentBox #comment-form-name input,
+#detailContents .commentBox #comment-form-email input{
+	border:1px solid #999;
+	padding:3px;
+}
+
+#comments-open-text,#comment-form-name,#comment-form-email{
+	margin-bottom:10px;
+}
+
+/*######   utilities  ######*/
+.hidden { display: none !important; }
+.visible { display: block; }
+.invisible { display: block !important;visibility: hidden !important;position: absolute !important;left: 0 !important;top: 0 !important;width: 0 !important;height: 0 !important;font-size: 0.1px !important;line-height: 0 !important; }
+.overflow-auto { overflow: auto; }
+.overflow-hidden { overflow: hidden; }
+.right { float: right; }
+.left { float: left; display: inline; /* ie hack */ }
+.center { margin-left: auto; margin-right: auto; }
+.inline { display: inline; }
+.nowrap { white-space: nowrap; }
