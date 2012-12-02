@@ -1,0 +1,49 @@
+﻿@charset "UTF-8";
+
+/* mainContents */
+
+#mainContents{
+	padding:66px 0 10px 0;
+	background-color:#FFF;
+	background:url(../error/images/bg.gif) repeat-x left top #FFF;
+}
+
+
+#copyright{
+	background-color:#FFF;
+	margin:100px 23px 0 0;
+	padding:0;
+}
+
+.errorContents{
+	width:400px;
+	margin:0 auto;
+	text-align:center;
+}
+#mainContents h2{
+	margin-bottom:24px;
+}
+
+#mainContents ul{
+	width:184px;
+	margin:0 auto;
+}
+
+#mainContents .errorMessage{
+	background:url(../error/images/ico.gif) no-repeat left top;
+	text-align:left;
+	padding:10px 0 50px 106px;
+	line-height:200%;
+}
+
+#mainContents ul li{
+	float:left;
+}
+
+#mainContents ul li.shop{
+	margin-right:18px;
+}
+
+p img{
+	vertical-align:middle;
+}

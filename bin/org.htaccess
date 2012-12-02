@@ -1,0 +1,8 @@
+authtype basic
+authname "Password required"
+authuserfile /var/www/html/test/.htpasswd
+
+AuthGroupFile /dev/null
+<limit GET POST>
+require valid-user
+</limit>

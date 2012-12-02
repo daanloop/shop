@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+    <!-- display-name merge point -->
+
+    <!-- description merge point -->
+
+    <data-sources>
+        <!-- data-sources merge point -->
+    </data-sources>
+
+    <form-beans>
+        <!-- form-beans merge-point -->
+        <form-bean name="manageDbFileForm" type="net.malta.model.crud.DbFileForm" />
+        <form-bean name="manageAttachmentForm" type="net.malta.model.crud.AttachmentForm" />
+        <form-bean name="managePublicUserForm" type="net.malta.model.crud.PublicUserForm" />
+        <form-bean name="manageItemForm" type="net.malta.model.crud.ItemForm" />
+        <form-bean name="managePurchaseForm" type="net.malta.model.crud.PurchaseForm" />
+        <form-bean name="manageProductForm" type="net.malta.model.crud.ProductForm" />
+        <form-bean name="manageChoiseForm" type="net.malta.model.crud.ChoiseForm" />
+        <form-bean name="manageCategoryForm" type="net.malta.model.crud.CategoryForm" />
+        <form-bean name="manageDeliveryAddressForm" type="net.malta.model.crud.DeliveryAddressForm" />
+        <form-bean name="manageDeliveryAddressChoiseForm" type="net.malta.model.crud.DeliveryAddressChoiseForm" />
+        <form-bean name="manageGiftCardForm" type="net.malta.model.crud.GiftCardForm" />
+        <form-bean name="manageStaticDataForm" type="net.malta.model.crud.StaticDataForm" />
+        <form-bean name="manageCarriageForm" type="net.malta.model.crud.CarriageForm" />
+        <form-bean name="managePaymentMethodForm" type="net.malta.model.crud.PaymentMethodForm" />
+        <form-bean name="managePrefectureForm" type="net.malta.model.crud.PrefectureForm" />
+    </form-beans>
+
+    <global-exceptions>
+        <!-- global-exceptions merge point -->
+        <exception
+            handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+            type="java.lang.Throwable"
+            key="error.exception.message"
+            path="/error-page.jsp?code=exception&amp;exception=true"
+            scope="request" />
+    </global-exceptions>
+
+    <global-forwards>
+        
+    </global-forwards>
+
+    <action-mappings>
+        <!-- action-mappings merge-point -->
+        <action
+            path="/DbFile/Manage"
+            type="net.malta.model.crud.ManageDbFile"
+            name="manageDbFileForm"
+            scope="request"
+            input="/net/malta/model/crud/dbfile-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="db.file.exception"
+                path="/net/malta/model/crud/dbfile-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/DbFile/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/DbFile/Manage.do"
+            parameter="/net/malta/model/crud/dbfile_help.jsp"/>
+        <action
+            path="/Attachment/Manage"
+            type="net.malta.model.crud.ManageAttachment"
+            name="manageAttachmentForm"
+            scope="request"
+            input="/net/malta/model/crud/attachment-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="attachment.exception"
+                path="/net/malta/model/crud/attachment-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Attachment/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Attachment/Manage.do"
+            parameter="/net/malta/model/crud/attachment_help.jsp"/>
+        <action
+            path="/PublicUser/Manage"
+            type="net.malta.model.crud.ManagePublicUser"
+            name="managePublicUserForm"
+            scope="request"
+            input="/net/malta/model/crud/publicuser-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="public.user.exception"
+                path="/net/malta/model/crud/publicuser-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/PublicUser/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/PublicUser/Manage.do"
+            parameter="/net/malta/model/crud/publicuser_help.jsp"/>
+        <action
+            path="/Item/Manage"
+            type="net.malta.model.crud.ManageItem"
+            name="manageItemForm"
+            scope="request"
+            input="/net/malta/model/crud/item-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="item.exception"
+                path="/net/malta/model/crud/item-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Item/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Item/Manage.do"
+            parameter="/net/malta/model/crud/item_help.jsp"/>
+        <action
+            path="/Purchase/Manage"
+            type="net.malta.model.crud.ManagePurchase"
+            name="managePurchaseForm"
+            scope="request"
+            input="/net/malta/model/crud/purchase-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="purchase.exception"
+                path="/net/malta/model/crud/purchase-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Purchase/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Purchase/Manage.do"
+            parameter="/net/malta/model/crud/purchase_help.jsp"/>
+        <action
+            path="/Product/Manage"
+            type="net.malta.model.crud.ManageProduct"
+            name="manageProductForm"
+            scope="request"
+            input="/net/malta/model/crud/product-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="product.exception"
+                path="/net/malta/model/crud/product-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Product/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Product/Manage.do"
+            parameter="/net/malta/model/crud/product_help.jsp"/>
+        <action
+            path="/Choise/Manage"
+            type="net.malta.model.crud.ManageChoise"
+            name="manageChoiseForm"
+            scope="request"
+            input="/net/malta/model/crud/choise-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="choise.exception"
+                path="/net/malta/model/crud/choise-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Choise/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Choise/Manage.do"
+            parameter="/net/malta/model/crud/choise_help.jsp"/>
+        <action
+            path="/Category/Manage"
+            type="net.malta.model.crud.ManageCategory"
+            name="manageCategoryForm"
+            scope="request"
+            input="/net/malta/model/crud/category-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="category.exception"
+                path="/net/malta/model/crud/category-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Category/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Category/Manage.do"
+            parameter="/net/malta/model/crud/category_help.jsp"/>
+        <action
+            path="/DeliveryAddress/Manage"
+            type="net.malta.model.crud.ManageDeliveryAddress"
+            name="manageDeliveryAddressForm"
+            scope="request"
+            input="/net/malta/model/crud/deliveryaddress-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="delivery.address.exception"
+                path="/net/malta/model/crud/deliveryaddress-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/DeliveryAddress/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/DeliveryAddress/Manage.do"
+            parameter="/net/malta/model/crud/deliveryaddress_help.jsp"/>
+        <action
+            path="/DeliveryAddressChoise/Manage"
+            type="net.malta.model.crud.ManageDeliveryAddressChoise"
+            name="manageDeliveryAddressChoiseForm"
+            scope="request"
+            input="/net/malta/model/crud/deliveryaddresschoise-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="delivery.address.choise.exception"
+                path="/net/malta/model/crud/deliveryaddresschoise-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/DeliveryAddressChoise/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/DeliveryAddressChoise/Manage.do"
+            parameter="/net/malta/model/crud/deliveryaddresschoise_help.jsp"/>
+        <action
+            path="/GiftCard/Manage"
+            type="net.malta.model.crud.ManageGiftCard"
+            name="manageGiftCardForm"
+            scope="request"
+            input="/net/malta/model/crud/giftcard-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="gift.card.exception"
+                path="/net/malta/model/crud/giftcard-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/GiftCard/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/GiftCard/Manage.do"
+            parameter="/net/malta/model/crud/giftcard_help.jsp"/>
+        <action
+            path="/StaticData/Manage"
+            type="net.malta.model.crud.ManageStaticData"
+            name="manageStaticDataForm"
+            scope="request"
+            input="/net/malta/model/crud/staticdata-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="static.data.exception"
+                path="/net/malta/model/crud/staticdata-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/StaticData/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/StaticData/Manage.do"
+            parameter="/net/malta/model/crud/staticdata_help.jsp"/>
+        <action
+            path="/Carriage/Manage"
+            type="net.malta.model.crud.ManageCarriage"
+            name="manageCarriageForm"
+            scope="request"
+            input="/net/malta/model/crud/carriage-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="carriage.exception"
+                path="/net/malta/model/crud/carriage-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Carriage/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Carriage/Manage.do"
+            parameter="/net/malta/model/crud/carriage_help.jsp"/>
+        <action
+            path="/PaymentMethod/Manage"
+            type="net.malta.model.crud.ManagePaymentMethod"
+            name="managePaymentMethodForm"
+            scope="request"
+            input="/net/malta/model/crud/paymentmethod-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="payment.method.exception"
+                path="/net/malta/model/crud/paymentmethod-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/PaymentMethod/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/PaymentMethod/Manage.do"
+            parameter="/net/malta/model/crud/paymentmethod_help.jsp"/>
+        <action
+            path="/Prefecture/Manage"
+            type="net.malta.model.crud.ManagePrefecture"
+            name="managePrefectureForm"
+            scope="request"
+            input="/net/malta/model/crud/prefecture-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="prefecture.exception"
+                path="/net/malta/model/crud/prefecture-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Prefecture/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Prefecture/Manage.do"
+            parameter="/net/malta/model/crud/prefecture_help.jsp"/>
+        <action
+            path="/applicationHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/application-help.jsp"/>
+        <action
+            path="/calendar"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/calendar-js.jsp"/>
+        <action
+            path="/formValidation"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/form-validation.jsp"/>
+        <action
+            path="/login"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/login/login-form.jsp"/>
+    </action-mappings>
+
+    <!-- controller merge point -->
+
+    <!-- message-resources merge-point -->
+    <message-resources parameter="application-resources" null="false"/>
+
+    <!-- plug-in merge-point -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml"/>
+        <set-property property="definitions-parser-validate" value="true"/>
+        <set-property property="moduleAware" value="true"/>
+    </plug-in>
+
+<!--
+  UNCOMMENT TO EXPOSE THE STRUTS-MENU TAGLIB
+
+    <plug-in className="net.sf.navigator.menu.MenuPlugIn">
+        <set-property property="menuConfig" value="/WEB-INF/menu-config.xml"/>
+    </plug-in>
+-->
+</struts-config>

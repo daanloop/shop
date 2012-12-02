@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <!-- ========================= Start of BEAN POSTPROCESSORS ======================== -->
+
+    <bean id="propertyPlaceholderConfigurer"
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="properties">
+            <props>
+                <prop key="remoteServer">localhost</prop>
+                <prop key="remotePort">8080</prop>
+            </props>
+        </property>
+        <property name="systemPropertiesModeName">
+            <value>SYSTEM_PROPERTIES_MODE_OVERRIDE</value>
+        </property>
+    </bean>
+
+    <!-- ========================= End of BEAN POSTPROCESSORS ========================== -->
+
+
+    <!-- ========================= Start of SERVICE DEFINITIONS ========================= -->
+
+    <!-- DbFileManageableService Remote Service Local Proxy with inner DbFileManageableService Remote Service invoker -->
+    <bean id="DbFileManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+                <property name="serviceUrl"><value></value></property>
+                <property name="serviceInterface"><value>net.malta.model.crud.DbFileManageableService</value></property>
+            </bean>
+        </property>
+        <property name="proxyInterfaces"><value>net.malta.model.crud.DbFileManageableService</value></property>
+    </bean>
+
+    <!-- AttachmentManageableService Remote Service Local Proxy with inner AttachmentManageableService Remote Service invoker -->
+    <bean id="AttachmentManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+                <property name="serviceUrl"><value></value></property>
+                <property name="serviceInterface"><value>net.malta.model.crud.AttachmentManageableService</value></property>
+            </bean>
+        </property>
+        <property name="proxyInterfaces"><value>net.malta.model.crud.AttachmentManageableService</value></property>
+    </bean>
+
+    <!-- PublicUserManageableService Remote Service Local Proxy with inner PublicUserManageableService Remote Service invoker -->
+    <bean id="PublicUserManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+                <property name="serviceUrl"><value></value></property>
+                <property name="serviceInterface"><value>net.malta.model.crud.PublicUserManageableService</value></property>
+            </bean>
+        </property>
+        <property name="proxyInterfaces"><value>net.malta.model.crud.PublicUserManageableService</value></property>
+    </bean>
+
+    <!-- ItemManageableService Remote Service Local Proxy with inner ItemManageableService Remote Service invoker -->
+    <bean id="ItemManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+                <property name="serviceUrl"><value></value></property>
+                <property name="serviceInterface"><value>net.malta.model.crud.ItemManageableService</value></property>
+            </bean>
+        </property>
+        <property name="proxyInterfaces"><value>net.malta.model.crud.ItemManageableService</value></property>
+    </bean>
+
+    <!-- PurchaseManageableService Remote Service Local Proxy with inner PurchaseManageableService Remote Service invoker -->
+    <bean id="PurchaseManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+                <property name="serviceUrl"><value></value></property>
+                <property name="serviceInterface"><value>net.malta.model.crud.PurchaseManageableService</value></property>
+            </bean>
+        </property>
+        <property name="proxyInterfaces"><value>net.malta.model.crud.PurchaseManageableService</value></property>
+    </bean>
+
+    <!-- ProductManageableService Remote Service Local Proxy with inner ProductManageableService Remote Service invoker -->
+    <bean id="ProductManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+                <property name="serviceUrl"><value></value></property>
+                <property name="serviceInterface"><value>net.malta.model.crud.ProductManageableService</value></property>
+            </bean>
+        </property>
+        <property name="proxyInterfaces"><value>net.malta.model.crud.ProductManageableService</value></property>
+    </bean>
+
+    <!-- ChoiseManageableService Remote Service Local Proxy with inner ChoiseManageableService Remote Service invoker -->
+    <bean id="ChoiseManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+                <property name="serviceUrl"><value></value></property>
+                <property name="serviceInterface"><value>net.malta.model.crud.ChoiseManageableService</value></property>
+            </bean>
+        </property>
+        <property name="proxyInterfaces"><value>net.malta.model.crud.ChoiseManageableService</value></property>
+    </bean>
+
+    <!-- CategoryManageableService Remote Service Local Proxy with inner CategoryManageableService Remote Service invoker -->
+    <bean id="CategoryManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+                <property name="serviceUrl"><value></value></property>
+                <property name="serviceInterface"><value>net.malta.model.crud.CategoryManageableService</value></property>
+            </bean>
+        </property>
+        <property name="proxyInterfaces"><value>net.malta.model.crud.CategoryManageableService</value></property>
+    </bean>
+
+    <!-- DeliveryAddressManageableService Remote Service Local Proxy with inner DeliveryAddressManageableService Remote Service invoker -->
+    <bean id="DeliveryAddressManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+                <property name="serviceUrl"><value></value></property>
+                <property name="serviceInterface"><value>net.malta.model.crud.DeliveryAddressManageableService</value></property>
+            </bean>
+        </property>
+        <property name="proxyInterfaces"><value>net.malta.model.crud.DeliveryAddressManageableService</value></property>
+    </bean>
+
+    <!-- DeliveryAddressChoiseManageableService Remote Service Local Proxy with inner DeliveryAddressChoiseManageableService Remote Service invoker -->
+    <bean id="DeliveryAddressChoiseManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+                <property name="serviceUrl"><value></value></property>
+                <property name="serviceInterface"><value>net.malta.model.crud.DeliveryAddressChoiseManageableService</value></property>
+            </bean>
+        </property>
+        <property name="proxyInterfaces"><value>net.malta.model.crud.DeliveryAddressChoiseManageableService</value></property>
+    </bean>
+
+    <!-- GiftCardManageableService Remote Service Local Proxy with inner GiftCardManageableService Remote Service invoker -->
+    <bean id="GiftCardManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+                <property name="serviceUrl"><value></value></property>
+                <property name="serviceInterface"><value>net.malta.model.crud.GiftCardManageableService</value></property>
+            </bean>
+        </property>
+        <property name="proxyInterfaces"><value>net.malta.model.crud.GiftCardManageableService</value></property>
+    </bean>
+
+    <!-- StaticDataManageableService Remote Service Local Proxy with inner StaticDataManageableService Remote Service invoker -->
+    <bean id="StaticDataManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+                <property name="serviceUrl"><value></value></property>
+                <property name="serviceInterface"><value>net.malta.model.crud.StaticDataManageableService</value></property>
+            </bean>
+        </property>
+        <property name="proxyInterfaces"><value>net.malta.model.crud.StaticDataManageableService</value></property>
+    </bean>
+
+    <!-- CarriageManageableService Remote Service Local Proxy with inner CarriageManageableService Remote Service invoker -->
+    <bean id="CarriageManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+                <property name="serviceUrl"><value></value></property>
+                <property name="serviceInterface"><value>net.malta.model.crud.CarriageManageableService</value></property>
+            </bean>
+        </property>
+        <property name="proxyInterfaces"><value>net.malta.model.crud.CarriageManageableService</value></property>
+    </bean>
+
+    <!-- PaymentMethodManageableService Remote Service Local Proxy with inner PaymentMethodManageableService Remote Service invoker -->
+    <bean id="PaymentMethodManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+                <property name="serviceUrl"><value></value></property>
+                <property name="serviceInterface"><value>net.malta.model.crud.PaymentMethodManageableService</value></property>
+            </bean>
+        </property>
+        <property name="proxyInterfaces"><value>net.malta.model.crud.PaymentMethodManageableService</value></property>
+    </bean>
+
+    <!-- PrefectureManageableService Remote Service Local Proxy with inner PrefectureManageableService Remote Service invoker -->
+    <bean id="PrefectureManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+                <property name="serviceUrl"><value></value></property>
+                <property name="serviceInterface"><value>net.malta.model.crud.PrefectureManageableService</value></property>
+            </bean>
+        </property>
+        <property name="proxyInterfaces"><value>net.malta.model.crud.PrefectureManageableService</value></property>
+    </bean>
+
+    <!-- ========================= End of SERVICE DEFINITIONS ========================= -->
+
+</beans>

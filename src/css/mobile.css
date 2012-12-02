@@ -1,0 +1,27 @@
+﻿@charset "UTF-8";
+
+#mainContents{
+	padding:20px 0 20px 55px;
+}
+
+#copyright{
+	margin-left:14px;
+	padding-right:14px;
+	text-align:right;
+}
+
+/* detail  */
+
+#contentsArea{
+}
+#detailContents{
+	padding:20px 14px 0 14px;
+	background:url(../mobile/images/detail_bg_top.gif) repeat-x left top;
+	text-align:center;
+}
+
+#detailContents h2{
+	width:534px;
+	margin:45px auto 400px auto;
+	padding-left:10px;
+}

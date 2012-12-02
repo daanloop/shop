@@ -1,0 +1,98 @@
+﻿@charset "UTF-8";
+
+#mainContents{
+	padding:20px 0 20px 55px;
+}
+
+#copyright{
+	margin-left:14px;
+	padding-right:14px;
+	text-align:right;
+}
+
+/* detail  */
+
+#contentsArea{
+	background:url(../privacy/images/detail_bg.gif) repeat-y left top;
+}
+#detailContents{
+	padding:20px 14px 0 14px;
+	background:url(../privacy/images/detail_bg_top.gif) repeat-x left top;
+}
+
+#detailContents .privacyBox h2{
+	float:left;
+	padding-left:20px;
+}
+
+#detailContents .privacyBox div.contents{
+	float:right;
+	width:678px;
+	margin-bottom:30px;
+}
+
+#detailContents .privacyBox div h3{
+	margin-bottom:10px;
+}
+
+#detailContents .privacyBox div h4{
+	border-top:1px solid #032107;
+	border-bottom:1px solid #032107;
+	padding:4px 0 4px 5px;
+	margin-bottom:7px;
+}
+
+#detailContents .privacyBox div.txtBox{	
+	padding-bottom:15px;
+	margin-bottom:15px;
+	margin-left:20px;
+}
+
+#detailContents .privacyBox .spacing10{
+	margin-bottom:10px;
+}
+
+#detailContents .privacyBox .spacing20{
+	margin-bottom:20px;
+}
+
+.ssl{
+	float:left;
+}
+
+.txt{
+	float:right;
+	width:524px;
+}
+
+
+#detailContents table{
+	border-right:1px solid #425945;
+	border-top:1px solid #425945;
+	margin-left:10px;
+	margin-top:15px;
+	width:98.5%;
+}
+
+#detailContents table th{
+	border-left:1px solid #425945;
+	border-bottom:1px solid #425945;
+	padding:4px;
+	width:135px;
+	vertical-align:top;
+}
+
+#detailContents table td{
+	border-left:1px solid #425945;
+	border-bottom:1px solid #425945;
+	padding:4px;
+	vertical-align:top;
+}
+
+.boxLine{
+	border-bottom:1px dashed #032107;
+}
+
+#detailContents ul ul {
+	margin-left:15px;
+}

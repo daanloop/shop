@@ -1,0 +1,260 @@
+@charset "UTF-8";
+
+@import url(reset.css);
+@import url(fonts.css);
+
+/*---------------------------基本設定*/
+/*--- clearfix ---*/
+
+.clearfix:after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+
+.clearfix{
+	display:inline-block;
+	min-height:1%;  /* for IE 7*/
+}
+
+/* Hides from IE-mac \*/
+* html .clearfix{height: 1%;}
+.clearfix{display: block;}
+/* End hide from IE-mac */
+
+/*---- 強調 ---------------------------------------*/
+
+em{font-style:nomal;
+	color:#990000;}
+
+/*---- ロールオーバー ---------------------------------------*/
+a.overImg{
+	display:block;
+}
+
+a.overImg:hover{
+	background-color:transparent;
+}
+
+a.overImg:hover img{
+	visibility: hidden;
+}
+/*---- リンク ---------------------------------------*/
+a:link{
+	color:#043b0d;
+	text-decoration:none;
+}
+
+a:visited{
+	color:#043b0d;
+	text-decoration:none;
+}
+a:hover{
+	color:#043b0d;
+	text-decoration:underline;
+}
+
+.fontSmaller{
+	font-size:85%;
+	line-height:130%;
+}
+
+
+/*---------------------------index ---------------------------------------*/
+body{
+	text-align:center;
+	color:#666;
+}
+
+#wrapper{
+	width:850px;
+	margin:0px auto;
+	text-align:center;
+	
+	padding-top:0px;
+}
+
+#contentsArea{
+	width:786px;
+	margin:0 auto;
+	text-align:left;
+	padding-bottom:50px;
+}
+
+#contentsArea .cartTxt{
+	margin-top:15px;
+}
+
+#header{
+	width:850px;
+	text-align:center;
+	/*border-bottom:5px solid #436c4a;*/
+	padding-bottom:10px;
+}
+
+#header ul{
+	margin:0 auto;
+}
+
+/*---- ナビゲーション ---------------------------------------*/
+
+#header ul li{
+	display:inline;
+	padding: 2px 10px 2px 0;
+	margin-right:10px;
+	border-right:1px solid #CCC;
+}
+#header ul li.first{
+	border-left:1px solid #CCC;
+	padding-left:10px;
+}
+
+#header #logout{
+	text-align:right;
+	width:820px;
+	margin:5px 0;
+	
+}
+
+/*---- コンテンツ ---------------------------------------*/
+#contentsArea h2{
+	margin-bottom:5px;
+}
+
+#contentsArea .catch{
+	margin-top:5px;
+}
+
+#contentsArea table{
+	margin-top:10px;
+	border-top:1px solid #CCC;
+	border-left:1px solid #CCC;
+	width:100%;
+}
+
+#contentsArea table thead th.del{
+	width:51px;
+}
+
+#contentsArea table th ,#contentsArea table td{
+	border-bottom:1px solid #CCC;
+	border-right:1px solid #CCC;
+	padding:2px 5px;
+	vertical-align:middle;
+}
+
+#contentsArea table thead th,#contentsArea table .price{
+	text-align:center;
+}
+
+#contentsArea table tr.total{
+	background-color:#8c8c8c;
+	color:#FFF;
+}
+
+#contentsArea table tr.postage{
+	background-color:#eee;
+}
+
+#contentsArea table td.photo{
+	border-right:none;
+	padding:0;
+	width:60px;
+}
+
+#contentsArea table tr .title{
+	text-align:right;
+}
+
+#contentsArea table tbody th{
+	width:130px;
+}
+
+#contentsArea table.formArea thead th{
+	text-align:left;
+}
+
+/*Formのサイズ*/
+#contentsArea table.formArea .longForm{
+	width:400px;
+	padding:2px 4px;
+	border:1px solid #999;
+}
+
+#contentsArea table.formArea .longFormEx{
+	width:400px;
+	height:80px;
+	padding:2px 4px;
+	border:1px solid #999;
+}
+
+#contentsArea table.formArea .shortForm{
+	width:125px;
+	padding:2px 4px;
+	border:1px solid #999;
+}
+/*//Formのサイズ*/
+
+#contentsArea table.formArea thead th p{
+	float:right;
+}
+
+#contentsArea table.formArea input{
+	vertical-align:middle;
+}
+#contentsArea .cartTxt .txt{
+	float:left;
+}
+
+#contentsArea .cartTxt p{
+	float:right;
+}
+
+#contentsArea .cartTxt ul li{
+	float:left;
+}
+
+#contentsArea .cartTxt ul li.change{
+	margin-right:10px;
+}
+
+#contentsArea .cartTxt p.change{
+	float:right;
+}
+
+/*---- Action ---------------------------------------*/
+.action{
+	margin-top:10px;
+	text-align:center;
+}
+
+.action .caption{
+	text-align:right;
+}
+
+.action li.rev{
+	float:left;
+}
+
+.action li.nxt{
+	float:right;
+}
+
+/*---- SSLについて ---------------------------------------*/
+
+#sslTxt{
+	width:586px;
+	margin:30px auto;
+	text-align:left;
+}
+
+/*---- エラー ---------------------------------------*/
+
+#alertTxt{
+	width:586px;
+	margin:30px auto;
+	text-align:left;
+}
+
