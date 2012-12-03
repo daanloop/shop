@@ -1,25 +1,24 @@
 package net.malta.web.app;
 
-import net.malta.model.*;
-import net.malta.beans.*;
-
-import java.io.File;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.enclosing.util.StringFullfiller;
 import net.enclosing.util.HTTPGetRedirection;
 import net.enclosing.util.HibernateSession;
-
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.lang.StringUtils;
+import net.enclosing.util.StringFullfiller;
+import net.malta.beans.ChoiseForm;
+import net.malta.model.Choise;
+import net.malta.model.ChoiseImpl;
+import net.malta.model.Purchase;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -66,26 +65,29 @@ public class PostChoiseVPAction extends Action{
 //		criteria2.add(Restrictions.idEq(purchaseInt));
 //		Purchase purchase = (Purchase) criteria2.uniqueResult();
 //		choise.setPurchase(purchase);
-		Criteria criteria2 = session.createCriteria(Item.class);
-		criteria2.add(Restrictions.idEq(itemInt));
-		Item item = (Item) criteria2.uniqueResult();
-		choise.setItem(item);
+//		Criteria criteria2 = session.createCriteria(Item.class);
+//		criteria2.add(Restrictions.idEq(itemInt));
+//		Item item = (Item) criteria2.uniqueResult();
+//		choise.setItem(item);
+		choise.setWp_posts_id(itemInt);
 		
-		if(item.getStocknum()<=0){
-			new HTTPGetRedirection(req, res, "ShowPurchase.do", null ,"zerostock=true");
-			return null;
-		}
+//		if(item.getStocknum()<=0){
+//			new HTTPGetRedirection(req, res, "ShowPurchase.do", null ,"zerostock=true");
+//			return null;
+//		}
 		
 		Purchase purchase = (Purchase)req.getSession().getAttribute("purchase");
 	
 		Criteria criteriaChoise = session.createCriteria(Choise.class);
-		criteriaChoise.add(Restrictions.eq("item", item));
+		criteriaChoise.add(Restrictions.eq("wp_post_id", itemInt));
 		criteriaChoise.add(Restrictions.eq("purchase", purchase));
 		Choise ch = (Choise) criteriaChoise.uniqueResult();
 		if(ch == null) {
 			choise.setPurchase(purchase);
 			//choise.setPricewithtax(item.getPricewithtax());
-			choise.setPricewithtax( ( item.getPricewithtax() + choise.getItem().getCarriage().getValue()) );
+			//////////////////////////////////here the codes to get the price of wp_post using wp_post_id 
+			choise.setPricewithtax(getPriceOf(choise.getWp_posts_id(), session));
+//			choise.setPricewithtax( ( item.getPricewithtax() + choise.getItem().getCarriage().getValue()) );
 			if(choise.getOrdernum()==0)
 				choise.setOrdernum(1);
 			session.evict(purchase);
@@ -99,20 +101,23 @@ public class PostChoiseVPAction extends Action{
 			transaction.commit();
 			session.flush();
 		}
-		
-		
-		
-		
-		
 
 		
-
-		
-//		new HTTPGetRedirection(req, res, "PostProductDetail.do.do", choise.getId().toString());
 		new HTTPGetRedirection(req, res, "ShowPurchase.do", null);
 		return null;
 
 		
+	}
+
+	private int getPriceOf(int wp_posts_id,Session session) {
+		 SQLQuery query = session.createSQLQuery("SELECT meta_value FROM wp_postmeta where meta_key = 'rate' and post_id = 773");
+		 Object result = query.uniqueResult();
+		 
+		 
+
+		// TODO Auto-generated method stub 
+		// here the codes to get the price of wp_post using wp_post_id 
+		return 0;
 	}
 	
 	
