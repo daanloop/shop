@@ -10,11 +10,15 @@ package net.malta.model;
  */
 public abstract class Choise
     implements java.io.Serializable
+    
 {
     /**
      * The serial version UID of this class. Needed for serialization.
      */
     private static final long serialVersionUID = -886770031888382102L;
+    
+    
+    private int wp_posts_id = 0;
 
     private java.lang.Integer id;
 
@@ -76,6 +80,17 @@ public abstract class Choise
         this.wrapping = wrapping;
     }
 
+
+	public int getWp_posts_id() {
+		return wp_posts_id;
+	}
+
+	public void setWp_posts_id(int wp_posts_id) {
+		this.wp_posts_id = wp_posts_id;
+	}
+    
+    
+    
     private net.malta.model.Purchase purchase;
 
     /**
@@ -198,6 +213,6 @@ public abstract class Choise
             return entity;
         }
     }
-    
+
 // HibernateEntity.vsl merge-point
 }
