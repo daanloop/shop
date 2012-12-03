@@ -39,7 +39,7 @@
 		<tbody>
 		<c:forEach items="${purchase.choises}" var="choise">
 			<tr>
-				<td class="photo"><img src="${choise.img}" alt="" width="60" height="60" /></td>
+				<td class="photo" style="padding:10px"><img src="${choise.img}" alt="" width="155"  /></td>
 				<td>&npsp;<br/>${choise.name}</td>
 			
 				<td>￥<fmt:formatNumber value="${choise.pricewithtax}" pattern="###,###,###"/></td>
