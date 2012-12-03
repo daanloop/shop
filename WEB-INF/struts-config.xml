@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <data-sources/>
+  <form-beans>
+    <form-bean name="manageDbFileForm" type="net.malta.model.crud.DbFileForm"/>
+    <form-bean name="DbFileForm" type="net.malta.beans.DbFileForm"/>
+    <form-bean name="manageAttachmentForm" type="net.malta.model.crud.AttachmentForm"/>
+    <form-bean name="AttachmentForm" type="net.malta.beans.AttachmentForm"/>
+    <form-bean name="managePublicUserForm" type="net.malta.model.crud.PublicUserForm"/>
+    <form-bean name="PublicUserForm" type="net.malta.beans.PublicUserForm"/>
+    <form-bean name="manageItemForm" type="net.malta.model.crud.ItemForm"/>
+    <form-bean name="ItemForm" type="net.malta.beans.ItemForm"/>
+    <form-bean name="managePurchaseForm" type="net.malta.model.crud.PurchaseForm"/>
+    <form-bean name="PurchaseForm" type="net.malta.beans.PurchaseForm"/>
+    <form-bean name="manageProductForm" type="net.malta.model.crud.ProductForm"/>
+    <form-bean name="ProductForm" type="net.malta.beans.ProductForm"/>
+    <form-bean name="manageChoiseForm" type="net.malta.model.crud.ChoiseForm"/>
+    <form-bean name="ChoiseForm" type="net.malta.beans.ChoiseForm"/>
+    <form-bean name="manageCategoryForm" type="net.malta.model.crud.CategoryForm"/>
+    <form-bean name="CategoryForm" type="net.malta.beans.CategoryForm"/>
+    <form-bean name="manageDeliveryAddressForm" type="net.malta.model.crud.DeliveryAddressForm"/>
+    <form-bean name="DeliveryAddressForm" type="net.malta.beans.DeliveryAddressForm"/>
+    <form-bean name="manageDeliveryAddressChoiseForm" type="net.malta.model.crud.DeliveryAddressChoiseForm"/>
+    <form-bean name="DeliveryAddressChoiseForm" type="net.malta.beans.DeliveryAddressChoiseForm"/>
+    <form-bean name="manageGiftCardForm" type="net.malta.model.crud.GiftCardForm"/>
+    <form-bean name="GiftCardForm" type="net.malta.beans.GiftCardForm"/>
+    <form-bean name="manageStaticDataForm" type="net.malta.model.crud.StaticDataForm"/>
+    <form-bean name="StaticDataForm" type="net.malta.beans.StaticDataForm"/>
+    <form-bean name="manageCarriageForm" type="net.malta.model.crud.CarriageForm"/>
+    <form-bean name="CarriageForm" type="net.malta.beans.CarriageForm"/>
+    <form-bean name="managePaymentMethodForm" type="net.malta.model.crud.PaymentMethodForm"/>
+    <form-bean name="PaymentMethodForm" type="net.malta.beans.PaymentMethodForm"/>
+    <form-bean name="managePrefectureForm" type="net.malta.model.crud.PrefectureForm"/>
+    <form-bean name="PrefectureForm" type="net.malta.beans.PrefectureForm"/>
+    <form-bean name="managePaymentForm" type="net.malta.model.crud.PaymentForm"/>
+    <form-bean name="PaymentForm" type="net.malta.beans.PaymentForm"/>
+  </form-beans>
+  <global-exceptions/>
+  <global-forwards/>
+  <action-mappings>
+    <action path="/Admin" type="net.malta.web.app.AdminAction">
+      <forward name="success" path="/pages/app/Admin.jsp"/>
+    </action>
+    <action path="/ShowPurchaseForConfirmation" type="net.malta.web.app.ShowPurchaseForConfirmationAction">
+      <forward name="success" path="/pages/app/ShowPurchaseForConfirmation.jsp"/>
+    </action>
+    <action path="/ShowPublicUserForPassword" type="net.malta.web.app.ShowPublicUserForPasswordAction">
+      <forward name="success" path="/pages/app/ShowPublicUserForPassword.jsp"/>
+    </action>
+    <action path="/DeletePublicUser" type="net.malta.web.app.DeletePublicUserAction"/>
+    <action path="/PostPurchaseDetailChoosingPaymentMethod" type="net.malta.web.app.PostPurchaseDetailChoosingPaymentMethodAction">
+      <forward name="success" path="/pages/app/PostPurchaseDetailChoosingPaymentMethod.jsp"/>
+    </action>
+    <action path="/DeleteChoise" type="net.malta.web.app.DeleteChoiseAction"/>
+    <action path="/UpdatePurchaseForOrdernum" type="net.malta.web.app.UpdatePurchaseForOrdernumAction"/>
+    <action path="/DeliveryAddressList" type="net.malta.web.app.DeliveryAddressListAction">
+      <forward name="success" path="/pages/app/DeliveryAddressList.jsp"/>
+    </action>
+    <action path="/PostPublicUserVP" name="PublicUserForm" type="net.malta.web.app.PostPublicUserVPAction">
+      <forward name="error" path="/PostPublicUserDetail.do"/>
+    </action>
+    <action path="/ShowPurchaseForThanks" type="net.malta.web.app.ShowPurchaseForThanksAction">
+      <forward name="success" path="/pages/app/ShowPurchaseForThanks.jsp"/>
+    </action>
+    <action path="/PostItemDetail" type="net.malta.web.app.PostItemDetailAction">
+      <forward name="success" path="/pages/app/PostItemDetail.jsp"/>
+    </action>
+    <action path="/PostPurchaseDetailForSettingNonTemp" type="net.malta.web.app.PostPurchaseDetailForSettingNonTempAction">
+      <forward name="success" path="/pages/app/PostPurchaseDetailForSettingNonTemp.jsp"/>
+    </action>
+    <action path="/DeleteProduct" type="net.malta.web.app.DeleteProductAction"/>
+    <action path="/ShowImage" type="net.malta.web.app.ShowImage"/>
+    <action path="/ShowPurchase" type="net.malta.web.app.ShowPurchaseAction">
+      <forward name="success" path="/pages/app/ShowPurchase.jsp"/>
+    </action>
+    <action path="/ShowDeliveryAddressChoise" type="net.malta.web.app.ShowDeliveryAddressChoiseAction">
+      <forward name="success" path="/pages/app/ShowDeliveryAddressChoise.jsp"/>
+    </action>
+    <action path="/PublicUsers" type="net.malta.web.app.PublicUsersAction">
+      <forward name="success" path="/pages/app/PublicUsers.jsp"/>
+    </action>
+    <action path="/Purchases" type="net.malta.web.app.PurchasesAction">
+      <forward name="success" path="/pages/app/Purchases.jsp"/>
+    </action>
+    <action path="/DeleteDeliveryAddress" type="net.malta.web.app.DeleteDeliveryAddressAction"/>
+    <action path="/PostPublicUserDetailForPassword" type="net.malta.web.app.PostPublicUserDetailForPasswordAction">
+      <forward name="success" path="/pages/app/PostPublicUserDetailForPassword.jsp"/>
+    </action>
+    <action path="/PostCarriageVP" name="CarriageForm" type="net.malta.web.app.PostCarriageVPAction"/>
+    <action path="/PostProductDetail" type="net.malta.web.app.PostProductDetailAction">
+      <forward name="success" path="/pages/app/PostProductDetail.jsp"/>
+    </action>
+    <action path="/ProductList" type="net.malta.web.app.ProductListAction">
+      <forward name="success" path="/pages/app/ProductList.jsp"/>
+    </action>
+    <action path="/PostCarriageDetail" type="net.malta.web.app.PostCarriageDetailAction">
+      <forward name="success" path="/pages/app/PostCarriageDetail.jsp"/>
+    </action>
+    <action path="/Products" type="net.malta.web.app.ProductsAction">
+      <forward name="success" path="/pages/app/Products.jsp"/>
+    </action>
+    <action path="/UpdatePurchaseForTotal" type="net.malta.web.app.UpdatePurchaseForTotalAction"/>
+    <action path="/PostPurchaseVPForSettingNonTemp" name="PurchaseForm" type="net.malta.web.app.PostPurchaseVPForSettingNonTempAction"/>
+    <action path="/PostPublicUserDetail" type="net.malta.web.app.PostPublicUserDetailAction">
+      <forward name="success" path="/pages/app/PostPublicUserDetail.jsp"/>
+    </action>
+    <action path="/PostDeliveryAddressVP" name="DeliveryAddressForm" type="net.malta.web.app.PostDeliveryAddressVPAction">
+      <forward name="error" path="/PostDeliveryAddressDetail.do"/>
+    </action>
+    <action path="/GiftCardList" type="net.malta.web.app.GiftCardListAction">
+      <forward name="success" path="/pages/app/GiftCardList.jsp"/>
+    </action>
+    <action path="/PostItemVP" name="ItemForm" type="net.malta.web.app.PostItemVPAction">
+      <forward name="error" path="/PostItemDetail.do"/>
+    </action>
+    <action path="/PostDeliveryAddressDetail" type="net.malta.web.app.PostDeliveryAddressDetailAction">
+      <forward name="success" path="/pages/app/PostDeliveryAddressDetail.jsp"/>
+    </action>
+    <action path="/PostProductVP" name="ProductForm" type="net.malta.web.app.PostProductVPAction">
+      <forward name="error" path="/PostProductDetail.do"/>
+    </action>
+    <action path="/UpdateDeliveryAddressChoise" type="net.malta.web.app.UpdateDeliveryAddressChoiseAction"/>
+    <action path="/PostPublicUserVPForPassword" name="PublicUserForm" type="net.malta.web.app.PostPublicUserVPForPasswordAction"/>
+    <action path="/PostPurchaseVPChoosingPaymentMethod" name="PurchaseForm" type="net.malta.web.app.PostPurchaseVPChoosingPaymentMethodAction"/>
+    <action path="/AttachmentFormFileUploadAddingToProductForThumnail" name="AttachmentForm" type="net.malta.web.app.AttachmentFormFileUploadAddingToProductForThumnailAction">
+      <forward name="success" path="/pages/app/AttachmentFormFileUploadAddingToProductForThumnail.jsp"/>
+    </action>
+    <action path="/AttachmentFormFileUploadAddingToItemForDefault" name="AttachmentForm" type="net.malta.web.app.AttachmentFormFileUploadAddingToItemForDefaultAction">
+      <forward name="success" path="/pages/app/AttachmentFormFileUploadAddingToItemForDefault.jsp"/>
+    </action>
+    <action path="/AttachmentFormFileUploadAddingToItemForSubDetailed" name="AttachmentForm" type="net.malta.web.app.AttachmentFormFileUploadAddingToItemForSubDetailedAction">
+      <forward name="success" path="/pages/app/AttachmentFormFileUploadAddingToItemForSubDetailed.jsp"/>
+    </action>
+    <action path="/AttachmentFormFileUploadAddingToProductForSlideShow" name="AttachmentForm" type="net.malta.web.app.AttachmentFormFileUploadAddingToProductForSlideShowAction">
+      <forward name="success" path="/pages/app/AttachmentFormFileUploadAddingToProductForSlideShow.jsp"/>
+    </action>
+    <action path="/DeleteItem" type="net.malta.web.app.DeleteItemAction"/>
+    <action path="/DeliveryAddressChoiseList" type="net.malta.web.app.DeliveryAddressChoiseListAction">
+      <forward name="success" path="/pages/app/DeliveryAddressChoiseList.jsp"/>
+    </action>
+    <action path="/UpdateChoiseForOrdernum" type="net.malta.web.app.UpdateChoiseForOrdernumAction"/>
+    <action path="/AttachmentFormFileUploadAddingToItem" name="AttachmentForm" type="net.malta.web.app.AttachmentFormFileUploadAddingToItemAction">
+      <forward name="success" path="/pages/app/AttachmentFormFileUploadAddingToItem.jsp"/>
+    </action>
+    <action path="/AttachmentFormFileUploadAddingToItemForDetailed" name="AttachmentForm" type="net.malta.web.app.AttachmentFormFileUploadAddingToItemForDetailedAction">
+      <forward name="success" path="/pages/app/AttachmentFormFileUploadAddingToItemForDetailed.jsp"/>
+    </action>
+    <action path="/DeletePurchase" type="net.malta.web.app.DeletePurchaseAction"/>
+    <action path="/PostPaymentMethodDetail" type="net.malta.web.app.PostPaymentMethodDetailAction">
+      <forward name="success" path="/pages/app/PostPaymentMethodDetail.jsp"/>
+    </action>
+    <action path="/PostPaymentMethodVP" name="PaymentMethodForm" type="net.malta.web.app.PostPaymentMethodVPAction"/>
+    <action path="/DeletePaymentMethod" type="net.malta.web.app.DeletePaymentMethodAction"/>
+    <action path="/DeleteCategory" type="net.malta.web.app.DeleteCategoryAction"/>
+    <action path="/PaymentMethods" type="net.malta.web.app.PaymentMethodsAction">
+      <forward name="success" path="/pages/app/PaymentMethods.jsp"/>
+    </action>
+    <action path="/PostCategoryVP" name="CategoryForm" type="net.malta.web.app.PostCategoryVPAction"/>
+    <action path="/Categorys" type="net.malta.web.app.CategorysAction">
+      <forward name="success" path="/pages/app/Categorys.jsp"/>
+    </action>
+    <action path="/PostCategoryDetail" type="net.malta.web.app.PostCategoryDetailAction">
+      <forward name="success" path="/pages/app/PostCategoryDetail.jsp"/>
+    </action>
+    <action path="/Carriages" type="net.malta.web.app.CarriagesAction">
+      <forward name="success" path="/pages/app/Carriages.jsp"/>
+    </action>
+    <action path="/PostChoiseDetail" type="net.malta.web.app.PostChoiseDetailAction">
+      <forward name="success" path="/pages/app/PostChoiseDetail.jsp"/>
+    </action>
+    <action path="/PostChoiseVP" name="ChoiseForm" type="net.malta.web.app.PostChoiseVPAction"/>
+    <action path="/ProductsForScenesXml" type="net.malta.web.app.ProductsForScenesXmlAction">
+      <forward name="success" path="/pages/app/ProductsForScenesXml.jsp"/>
+    </action>
+    <action path="/Login" name="PublicUserForm" type="net.malta.web.app.LoginAction">
+      <forward name="success" path="/pages/app/Login.jsp"/>
+    </action>
+    <action path="/Logout" type="net.malta.web.app.LogoutAction"/>
+    <action path="/MailAboutPublicUserForPassword" type="net.malta.web.app.MailAboutPublicUserForPasswordAction">
+      <forward name="success" path="/pages/app/MailAboutPublicUserForPassword.jsp"/>
+    </action>
+    <action path="/XlsShowItem" type="net.malta.web.app.XlsShowItemAction"/>
+    <action path="/ShowItemXml" type="net.malta.web.app.ShowItemXmlAction">
+      <forward name="success" path="/pages/app/ShowItemXml.jsp"/>
+    </action>
+    <action path="/ProductsForSlideshowXml" type="net.malta.web.app.ProductsForSlideshowXmlAction">
+      <forward name="success" path="/pages/app/ProductsForSlideshowXml.jsp"/>
+    </action>
+    <action path="/ShowPurchaseForError" type="net.malta.web.app.ShowPurchaseForErrorAction">
+      <forward name="success" path="/pages/app/ShowPurchaseForError.jsp"/>
+    </action>
+    <action path="/ShowPurchaseForResults" type="net.malta.web.app.ShowPurchaseForResultsAction">
+      <forward name="success" path="/pages/app/ShowPurchaseForResults.jsp"/>
+    </action>
+    <action path="/RedirctBack" type="net.malta.web.app.RedirctBack">
+      <forward name="success" path="/pages/app/RedirctBack.jsp"/>
+    </action>
+    <action path="/MailAboutPurchaseToAdmin" type="net.malta.web.app.MailAboutPurchaseToAdminAction"/>
+    <action path="/MailAboutPurchaseToPublicUser" type="net.malta.web.app.MailAboutPurchaseToPublicUserAction"/>
+    <action path="/DeleteAttachment" type="net.malta.web.app.DeleteAttachmentAction"/>
+    <action path="/ShowProduct" type="net.malta.web.app.ShowProductAction">
+      <forward name="success" path="/pages/app/ShowProduct.jsp"/>
+    </action>
+    <action path="/ProductsForThumnailsXml" type="net.malta.web.app.ProductsForThumnailsXmlAction">
+      <forward name="success" path="/pages/app/ProductsForThumnailsXml.jsp"/>
+    </action>
+    <action path="/ProductsForScenesXm2" type="net.malta.web.app.ProductsForScenesXm2Action">
+      <forward name="success" path="/pages/app/ProductsForScenesXm2.jsp"/>
+    </action>
+    <action path="/PostGiftCardDetail" type="net.malta.web.app.PostGiftCardDetailAction">
+      <forward name="success" path="/pages/app/PostGiftCardDetail.jsp"/>
+    </action>
+    <action path="/PostGiftCardVP" type="net.malta.web.app.PostGiftCardVPAction" name="GiftCardForm"/>
+    <action path="/GiftCards" type="net.malta.web.app.GiftCardsAction">
+      <forward name="success" path="/pages/app/GiftCards.jsp"/>
+    </action>
+     <action path="/PostPaymentDetail" type="net.malta.web.app.PostPaymentDetailAction">
+      <forward name="success" path="/pages/app/PostPaymentDetail.jsp"/>
+    </action>
+    <action path="/PostPaymentVP" type="net.malta.web.app.PostPaymentVPAction" name="PaymentForm"/>
+    <action path="/Payments" type="net.malta.web.app.PaymentsAction">
+      <forward name="success" path="/pages/app/Payments.jsp"/>
+    </action>
+    <action path="/ShowPayment" type="net.malta.web.app.ShowPaymentAction">
+      <forward name="success" path="/pages/app/ShowPayment.jsp"/>
+    </action>
+  </action-mappings>
+  <!-- <controller processorClass="net.gasbooknet.web.app.CustomRequestProcessor"/> -->
+  <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+  <message-resources parameter="MessageResources"/>
+  <plug-in className="org.apache.struts.tiles.TilesPlugin">
+    <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml"/>
+    <set-property property="moduleAware" value="true"/>
+  </plug-in>
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+  </plug-in>
+</struts-config>
