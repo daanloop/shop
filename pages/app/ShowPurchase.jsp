@@ -44,19 +44,6 @@
 			
 				<td>￥<fmt:formatNumber value="${choise.pricewithtax}" pattern="###,###,###"/></td>
 				<td>
-                        <select name="ordernum_${choise.id}" id="select">
-                        	<c:forEach var="i" begin="1" end="${choise.item.stocknum}" step="1">
-                            	<c:choose>
-                                	<c:when test="${i eq choise.ordernum}">
-                                    	<option value="${i}" selected="selected">${i}</option>
-                                    </c:when>
-                            	    <c:otherwise>
-	    		                        <option value="${i}">${i}</option>
-		        	                </c:otherwise>
-	        	                </c:choose>
-	        	            </c:forEach>
-                        </select>
-						<br />
 
 				</td>
 				<td>￥<fmt:formatNumber value="${choise.item.carriage.value}" pattern="###,###,###"/></td>
@@ -70,7 +57,7 @@
 		<tr class="total">
 				<td colspan="5" class="title">商品合計（税込）</td>
 				<td >￥<fmt:formatNumber value="${purchase.total}" pattern="###,###,###"/></td>
-				<td><a href="#" onclick="document.frm.submit();"><!--<img src="images/bt_sum.gif" alt="再計算" width="51" height="20" class="total" />-->再計算</a></td>
+				<td><!--<a href="#" onclick="document.frm.submit();"><img src="images/bt_sum.gif" alt="再計算" width="51" height="20" class="total" />再計算</a>--></td>
 			</tr>
 		</tbody>
 		</form>

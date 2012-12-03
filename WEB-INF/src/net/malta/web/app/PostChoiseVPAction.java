@@ -101,7 +101,6 @@ public class PostChoiseVPAction extends Action{
 			transaction.commit();
 			session.flush();
 		}
-
 		
 		new HTTPGetRedirection(req, res, "ShowPurchase.do", null);
 		return null;
@@ -110,22 +109,22 @@ public class PostChoiseVPAction extends Action{
 	}
 
 	private String getImgOf(int wp_posts_id, Session session) {
-		 SQLQuery query = session.createSQLQuery("SELECT meta_value rate FROM wp_postmeta where meta_key = 'rate' and post_id = 773");
+		 SQLQuery query = session.createSQLQuery("SELECT meta_value rate FROM wp_postmeta where meta_key = 'rate' and post_id = " + wp_posts_id);
 		 Object result = query.uniqueResult();
-		 // TODO 
+		 // TODO this sql should be changed to get the image url
 		return "http://africaandleo.com/wp-content/uploads/2012/11/Catlalog_AL_FA12-306-Edit1.jpg";
 	}
 
 	private String getNameOf(int wp_posts_id, Session session) {
-		 SQLQuery query = session.createSQLQuery("SELECT meta_value rate FROM wp_postmeta where meta_key = 'rate' and post_id = 773");
+		 SQLQuery query = session.createSQLQuery("SELECT post_title rate FROM wp_posts where ID = " + wp_posts_id);
 		 Object result = query.uniqueResult();
 
-		// TODO Auto-generated method stub
-		return "test producgt name";
+		 //TODO this sql should be changed to get the name of the product.
+		return "Biker Leather";
 	}
 
 	private int getPriceOf(int wp_posts_id,Session session) {
-		 SQLQuery query = session.createSQLQuery("SELECT meta_value rate FROM wp_postmeta where meta_key = 'rate' and post_id = 773");
+		 SQLQuery query = session.createSQLQuery("SELECT meta_value rate FROM wp_postmeta where meta_key = 'rate' and post_id = " + wp_posts_id);
 		 Object result = query.uniqueResult();
 		 
 		 //how to remove yen mark, and . mark in the middle.

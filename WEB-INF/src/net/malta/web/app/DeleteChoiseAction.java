@@ -56,7 +56,8 @@ public class DeleteChoiseAction extends Action{
 		int total = 0;
 		for (Iterator iterator = purchase.getChoises().iterator(); iterator.hasNext();) {
 			Choise choise2 = (Choise) iterator.next();
-			total += choise2.getItem().getPricewithtax() * choise2.getOrdernum();
+			total += choise2.getPricewithtax();
+//			total += choise2.getPricewithtax() * choise2.getOrdernum();
 		}
 		
 //		PurchaseForm purchaseform = new PurchaseForm();
