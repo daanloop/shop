@@ -110,11 +110,10 @@ public class PostChoiseVPAction extends Action{
 	}
 
 	private int getPriceOf(int wp_posts_id,Session session) {
-		 SQLQuery query = session.createSQLQuery("SELECT meta_value FROM wp_postmeta where meta_key = 'rate' and post_id = 773");
+		 SQLQuery query = session.createSQLQuery("SELECT meta_value rate FROM wp_postmeta where meta_key = 'rate' and post_id = 773");
 		 Object result = query.uniqueResult();
 		 
-		 
-
+		 //how to remove yen mark, and . mark in the middle.
 		// TODO Auto-generated method stub 
 		// here the codes to get the price of wp_post using wp_post_id 
 		return 0;
