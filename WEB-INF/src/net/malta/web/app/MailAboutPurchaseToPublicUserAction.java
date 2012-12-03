@@ -65,87 +65,6 @@ public class MailAboutPurchaseToPublicUserAction extends Action{
 		StringBuilder builder = new StringBuilder();
 		Criteria criteriaDeliveryAddressChoise = session.createCriteria(DeliveryAddressChoise.class);
 		criteriaDeliveryAddressChoise.createCriteria("choise").add(Restrictions.eq("purchase", purchase));
-		if(criteriaDeliveryAddressChoise.list().size() > 0) {
-			int i = 1;
-			for (Iterator iter = criteriaDeliveryAddressChoise.list().iterator(); iter.hasNext();) {
-				DeliveryAddressChoise addressChoise = (DeliveryAddressChoise) iter.next();
-				DeliveryAddress deliveryAddress = addressChoise.getDeliveryAddress();
-				
-				builder.append("▼配送先情報("+i+")");
-				builder.append("\r\n");
-				builder.append("================================================================");
-				builder.append("\r\n");
-				builder.append("お名前　　　　　　：" );
-				builder.append(deliveryAddress.getName() +  "様");
-				builder.append("\r\n");
-				builder.append("フリガナ　　　　　：" );
-				builder.append(deliveryAddress.getKana());
-				builder.append("\r\n");
-				builder.append("郵便番号　　　　　："  );
-				builder.append(deliveryAddress.getZipfour());
-				builder.append("\r\n");
-				builder.append("ご住所　　　　　　：" );
-				if(deliveryAddress.getPrefecture()!=null){
-					builder.append(deliveryAddress.getPrefecture().getName() + " " + deliveryAddress.getAddress() + " " + deliveryAddress.getBuildingname());
-				}
-				builder.append("\r\n");
-				builder.append("電話番号　　　　　：" );
-				builder.append( deliveryAddress.getPhone());
-				builder.append("\r\n");
-				builder.append("ギフトカード　　　　　：" );
-				if(deliveryAddress.isHasgiftcard()){
-					builder.append( "ギフトカード有り");
-				}else{
-					builder.append( "ギフトカード無し");
-				}
-				builder.append("\r\n");
-				builder.append("ギフトカードの種類	　　　　　：" );
-				if(deliveryAddress.getGiftCard()!=null){
-					builder.append( deliveryAddress.getGiftCard().getName());
-				}
-				builder.append("\r\n");
-				builder.append("お届け希望日　　　　　：" );
-				if(deliveryAddress.getPreferreddatedate()!=null && deliveryAddress.getPreferreddatedate().getTime() > 0){
-					builder.append( new SimpleDateFormat("yyyy/MM/dd").format(deliveryAddress.getPreferreddatedate()));
-				}
-				builder.append("\r\n");
-				builder.append("お届け希望時間帯　　　　　：" );
-				builder.append(deliveryAddress.getPreferredtime());
-				builder.append("\r\n");
-				
-//				builder = new StringBuilder();
-				Choise choise = addressChoise.getChoise();
-				builder.append("----------------------------------------------------------------");
-				builder.append("\r\n");
-				builder.append("商品詳細" );
-				builder.append("\r\n");
-				builder.append("商品番号　　　　　：");
-				builder.append(choise.getItem().getNo());
-				builder.append("\r\n");
-				builder.append("商品名　　　　　　：");
-				builder.append(choise.getItem().getName());
-				builder.append("\r\n");
-				builder.append("価格（税込）　　　：");
-				builder.append(choise.getItem().getPricewithtax()+"円");
-				builder.append("\r\n");
-				builder.append("数量　　　　　　　：");
-				builder.append(addressChoise.getOrdernum());
-				builder.append("\r\n");
-				builder.append("----------------------------------------------------------------");
-				builder.append("\r\n");
-				builder.append("送料　　　　　　　：");
-				builder.append(choise.getItem().getCarriage().getValue()+"円");
-				builder.append("\r\n");
-				builder.append("----------------------------------------------------------------");
-				builder.append("\r\n");
-				builder.append("\r\n");
-				i++;
-			}
-			
-			model.put("deliveryaddress",builder.toString().replaceAll("～", " - "));
-			
-		}else{
-			if(deliverymethod == 1){
 				//when there are no delivery address ( direct to public User)
 				builder.append("▼配送先情報（1）");
 				builder.append("\r\n");
@@ -170,76 +89,6 @@ public class MailAboutPurchaseToPublicUserAction extends Action{
 				builder.append("電話番号　　　　　：" );
 				builder.append( purchase.getPublicUser().getPhone());
 				builder.append("\r\n");
-				builder.append("ギフトカード　　　　：" );
-				if(purchase.getPublicUser().isHasgiftcard()){
-					builder.append( "ギフトカード有り");
-				}else{
-					builder.append( "ギフトカード無し");
-				}
-				builder.append("\r\n");
-				builder.append("ギフトカードの種類	　　　　　：" );
-				if(purchase.getPublicUser().getGiftCard()!=null){
-					builder.append( purchase.getPublicUser().getGiftCard().getName());
-				}
-				builder.append("\r\n");
-				builder.append("お届け希望日　　　　　：" );
-				if(purchase.getPublicUser().getPreferreddatedate().getTime() >0){
-					builder.append( new SimpleDateFormat("yyyy/MM/dd").format(purchase.getPublicUser().getPreferreddatedate()));
-				}
-				builder.append("\r\n");
-				builder.append("お届け希望時間帯　　　　　：" );
-				builder.append(purchase.getPublicUser().getPreferredtime());
-				builder.append("\r\n");
-			}else if(deliverymethod == 2){
-				//when there are no delivery address ( direct to public User)
-				Criteria criteriaDeliveryAddress = session
-						.createCriteria(DeliveryAddress.class);
-				criteriaDeliveryAddress.add(Restrictions.eq("publicUser", purchase.getPublicUser()));
-				criteriaDeliveryAddress.addOrder(Order.desc("id"));
-				criteriaDeliveryAddress.setMaxResults(1);
-				DeliveryAddress deliveryAddress = (DeliveryAddress) criteriaDeliveryAddress.uniqueResult();
-				
-				builder.append("▼配送先情報");
-				builder.append("\r\n");
-				builder.append("================================================================");
-				builder.append("\r\n");
-				builder.append("お名前　　　　　　：" );
-				builder.append(deliveryAddress.getName() +  "様");
-				builder.append("\r\n");
-				builder.append("フリガナ　　　　　：" );
-				builder.append(deliveryAddress.getKana());
-				builder.append("\r\n");
-				builder.append("郵便番号　　　　　："  );
-				builder.append(deliveryAddress.getZipfour());
-				builder.append("\r\n");
-				builder.append("ご住所　　　　　　：" );
-				builder.append(deliveryAddress.getAddress() + " " + deliveryAddress.getBuildingname());
-				builder.append("\r\n");
-				builder.append("電話番号　　　　　：" );
-				builder.append( deliveryAddress.getPhone());
-				builder.append("\r\n");
-				builder.append("ギフトカード　　　　：" );
-				if(deliveryAddress.isHasgiftcard()){
-					builder.append( "ギフトカード有り");
-				}else{
-					builder.append( "ギフトカード無し");
-				}
-				builder.append("\r\n");
-				builder.append("ギフトカードの種類	　　　　　：" );
-				if(deliveryAddress.getGiftCard()!=null){
-					builder.append( deliveryAddress.getGiftCard().getName());
-				}
-				builder.append("\r\n");
-				builder.append("お届け希望日　　　　　：" );
-				if(deliveryAddress.getPreferreddatedate().getTime() > 0 ){
-					builder.append( new SimpleDateFormat("yyyy/MM/dd").format(deliveryAddress.getPreferreddatedate()));
-				}
-				builder.append("\r\n");
-				builder.append("お届け希望時間帯　　　　　：" );
-				builder.append(deliveryAddress.getPreferredtime());
-				builder.append("\r\n");
-				
-			}
 			builder.append("\r\n");
 			for (Iterator iterator = purchase.getChoises().iterator(); iterator.hasNext();) {
 				Choise choise = (Choise) iterator.next();
@@ -271,10 +120,9 @@ public class MailAboutPurchaseToPublicUserAction extends Action{
 				builder.append("\r\n");
 			}
 			model.put("deliveryaddress",builder.toString().replaceAll("～", " - "));
-		}
 //
 		try {
-			model.put("fromstring", MimeUtility.encodeText("明るい部屋ネットショップ", "ISO-2022-JP", "B") + "<"+staticData.getFromaddress()+">");
+			model.put("fromstring", MimeUtility.encodeText("AFRICA & LEO", "ISO-2022-JP", "B") + "<"+staticData.getFromaddress()+">");
 		} catch (UnsupportedEncodingException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

@@ -59,8 +59,8 @@ public class PostPurchaseVPChoosingPaymentMethodAction extends Action {
 		
 		Purchase purchase = (Purchase)req.getSession().getAttribute("purchase");
 		if(StringUtils.isNotBlank(req.getParameter("deliverymethod"))){
-			Integer deliverymethodInteger = Integer.valueOf(req.getParameter("deliverymethod"));
-			req.getSession().setAttribute("deliverymethod", deliverymethodInteger);
+//			Integer deliverymethodInteger = Integer.valueOf(req.getParameter("deliverymethod"));
+//			req.getSession().setAttribute("deliverymethod", deliverymethodInteger);
 		}
 
 

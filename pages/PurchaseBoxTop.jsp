@@ -28,11 +28,11 @@
 		<c:set var="purchase" value="<%= request.getSession().getAttribute(\"purchase\") %>"></c:set>
 		<c:forEach items="${purchase.choises}" var="choise">
 			<tr>
-				<td class="photo"><img src="ShowImage.do?id=${choise.item.defaultattachment.id}" alt="" width="60" height="60" /></td>
-				<td>${choise.item.no}<br/>${choise.item.product.name}/${choise.item.name}</td>
-				<td >￥<fmt:formatNumber value="${choise.item.pricewithtax}" pattern="###,###,###"/></td>
-				<td >${choise.ordernum}</td>
-				<td>￥<fmt:formatNumber value="${choise.item.carriage.value}" pattern="###,###,###"/></td>
+				<td class="photo"><img src="${choise.img}" alt="" width="155"  /></td>
+				<td><br/>${choise.name}</td>
+				<td >￥<fmt:formatNumber value="${choise.pricewithtax}" pattern="###,###,###"/></td>
+				<td >1</td>
+				<td>￥<fmt:formatNumber value="${choise.carriage}" pattern="###,###,###"/></td>
 				<td >￥<bean:write name="choise" property="pricewithtax" format="###,###,###"/></td>
 			</tr>
 		</c:forEach>

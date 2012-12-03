@@ -81,18 +81,18 @@ public class PostPurchaseVPForSettingNonTempAction extends Action {
 		transaction.commit();
 		session.flush();
 		
-		for (Iterator iter = purchase.getChoises().iterator(); iter.hasNext();) {
-			Choise ch = (Choise) iter.next();
-			Criteria criteriaItem = session.createCriteria(Item.class);
-			criteriaItem.add(Restrictions.idEq(ch.getItem().getId()));
-			Item item = (Item) criteriaItem.uniqueResult();
-			item.setStocknum((item.getStocknum()-ch.getOrdernum()));
-			
-			transaction = session.beginTransaction();
-			session.saveOrUpdate(item);
-			transaction.commit();
-			session.flush();
-		}
+//		for (Iterator iter = purchase.getChoises().iterator(); iter.hasNext();) {
+//			Choise ch = (Choise) iter.next();
+//			Criteria criteriaItem = session.createCriteria(Item.class);
+//			criteriaItem.add(Restrictions.idEq(ch.getItem().getId()));
+//			Item item = (Item) criteriaItem.uniqueResult();
+//			item.setStocknum((item.getStocknum()-ch.getOrdernum()));
+//			
+//			transaction = session.beginTransaction();
+//			session.saveOrUpdate(item);
+//			transaction.commit();
+//			session.flush();
+//		}
 		if (StringUtils.isNotBlank(req.getParameter("ajax"))) {
 			req.setAttribute("message", "success");
 			return mapping.findForward("success");
@@ -105,17 +105,17 @@ public class PostPurchaseVPForSettingNonTempAction extends Action {
 			return null;
 		}
 		
-		if(StringUtils.isNotBlank(req.getParameter("deliverymethod"))){
-			int deliverymethod = Integer.parseInt(req.getParameter("deliverymethod"));
+//		if(StringUtils.isNotBlank(req.getParameter("deliverymethod"))){
+//			int deliverymethod = Integer.parseInt(req.getParameter("deliverymethod"));
+//			MailAboutPurchaseToPublicUserAction aboutPurchaseToPublicUserAction 
+//			= new  MailAboutPurchaseToPublicUserAction();
+//			aboutPurchaseToPublicUserAction.execute(purchase.getId(),session,deliverymethod);
+//		}else{
+//			Integer deliverymethodInt = (Integer)req.getSession().getAttribute("deliverymethod");
 			MailAboutPurchaseToPublicUserAction aboutPurchaseToPublicUserAction 
 			= new  MailAboutPurchaseToPublicUserAction();
-			aboutPurchaseToPublicUserAction.execute(purchase.getId(),session,deliverymethod);
-		}else{
-			Integer deliverymethodInt = (Integer)req.getSession().getAttribute("deliverymethod");
-			MailAboutPurchaseToPublicUserAction aboutPurchaseToPublicUserAction 
-			= new  MailAboutPurchaseToPublicUserAction();
-			aboutPurchaseToPublicUserAction.execute(purchase.getId(),session,deliverymethodInt.intValue());
-		}
+			aboutPurchaseToPublicUserAction.execute(purchase.getId(),session,1);
+//		}
 //		MailAboutPurchaseToAdminAction aboutPurchaseToAdminAction 
 //		= new  MailAboutPurchaseToAdminAction();
 //		aboutPurchaseToAdminAction.execute(purchase.getId(),session);

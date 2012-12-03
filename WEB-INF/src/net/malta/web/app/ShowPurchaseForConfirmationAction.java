@@ -35,7 +35,8 @@ public class ShowPurchaseForConfirmationAction extends Action {
 		
 		Purchase purchase = (Purchase)req.getSession().getAttribute("purchase");
 		
-		if(((Integer)req.getSession().getAttribute("deliverymethod")).intValue() == 3){
+		if(req.getSession().getAttribute("deliverymethod")!=null &&
+				((Integer)req.getSession().getAttribute("deliverymethod")).intValue() == 3){
 			String error = "";
 			boolean flag = true;
 			for (Iterator iter = purchase.getChoises().iterator(); iter.hasNext();) {

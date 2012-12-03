@@ -193,12 +193,14 @@ public class PostPublicUserVPAction extends Action{
 		    Integer key=prefectureInt;//publicUserform.getPrefecture();
 		   	 
 	        int value=(Integer) map.get(key);
-			choise.getItem().getCarriage().setValue(value);
+	        
+	        //please add carriage to choise.
+			choise.setCarriage(value);
 			
 			/*int value = Integer.parseInt(req.getParameter("ordernum_"+choise.getId()));
 			choise.setOrdernum(value);*/
 			//choise.setPricewithtax( ( choise.getItem().getPricewithtax() + choise.getItem().getCarriage().getValue()) * choise.getOrdernum());
-			choise.setPricewithtax((choise.getItem().getPricewithtax() * choise.getOrdernum())+ choise.getItem().getCarriage().getValue());
+			choise.setPricewithtax((choise.getPricewithtax())+ choise.getCarriage());
 			//Transaction transaction = session.beginTransaction();
 		    Transaction	transaction = session.beginTransaction();
 			session.saveOrUpdate(choise);
@@ -206,7 +208,7 @@ public class PostPublicUserVPAction extends Action{
 			session.flush();
 		//	total += choise.getPricewithtax();
 //			total += choise.getItem().getPricewithtax() * choise.getOrdernum() + choise.getItem().getCarriage().getValue()*choise.getOrdernum();
-			total += (choise.getItem().getPricewithtax() * choise.getOrdernum())+ choise.getItem().getCarriage().getValue();	
+			total += (choise.getPricewithtax())+ choise.getCarriage();	
 		}
 		
 		

@@ -29,8 +29,8 @@
 		<tr>
 			<th colspan="2" class="fontSmaller">商品</th>
 			<th class="fontSmaller">単価（税込）</th>
-			<th class="fontSmaller">数量</th>
-			<th class="fontSmaller">送料</th>
+			<th class="fontSmaller">&nbsp;数量</th>
+<!-- 			<th class="fontSmaller">送料</th> -->
 			<th class="fontSmaller">小計（税込）</th>
 			<th class="del fontSmaller">削除</th>
 		</tr>
@@ -43,10 +43,9 @@
 				<td>&npsp;<br/>${choise.name}</td>
 			
 				<td>￥<fmt:formatNumber value="${choise.pricewithtax}" pattern="###,###,###"/></td>
-				<td>
-
+				<td>1
 				</td>
-				<td>￥<fmt:formatNumber value="${choise.item.carriage.value}" pattern="###,###,###"/></td>
+<%-- 				<td>￥<fmt:formatNumber value="${choise.item.carriage.value}" pattern="###,###,###"/></td> --%>
 				<td>￥<fmt:formatNumber value="${choise.pricewithtax}" pattern="###,###,###"/></td>
 				<td>
 					<a href="#" onClick="javascript:if(window.confirm('削除してもよろしいですか？')){location.href='DeleteChoise.do?id=${choise.id}';}">
@@ -55,9 +54,9 @@
 			</tr>
 		</c:forEach>
 		<tr class="total">
-				<td colspan="5" class="title">商品合計（税込）</td>
+				<td colspan="4" class="title">商品合計（税込）</td>
 				<td >￥<fmt:formatNumber value="${purchase.total}" pattern="###,###,###"/></td>
-				<td><!--<a href="#" onclick="document.frm.submit();"><img src="images/bt_sum.gif" alt="再計算" width="51" height="20" class="total" />再計算</a>--></td>
+				<td><!--<<a href="#" onclick="document.frm.submit();"><img src="images/bt_sum.gif" alt="再計算" width="51" height="20" class="total" />再計算</a>--></td>
 			</tr>
 		</tbody>
 		</form>

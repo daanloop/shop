@@ -21,9 +21,20 @@ public abstract class Choise
     private int wp_posts_id = 0;
     private String name = "";
     private String img = "";
+    private int carriage = 0;
     
     
-    public String getImg() {
+    
+    
+    public int getCarriage() {
+		return carriage;
+	}
+
+	public void setCarriage(int carriage) {
+		this.carriage = carriage;
+	}
+
+	public String getImg() {
 		return img;
 	}
 

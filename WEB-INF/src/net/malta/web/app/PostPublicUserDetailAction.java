@@ -55,10 +55,9 @@ public class PostPublicUserDetailAction extends Action {
 			if(publicUser.getPrefecture()!=null){
 				publicUserform.setPrefecture(publicUser.getPrefecture().getId());
 			}
-			if(publicUser.getGiftCard()!=null){
-				publicUserform.setGiftCard(publicUser.getGiftCard().getId());
-				
-			}
+//			if(publicUser.getGiftCard()!=null){
+//				publicUserform.setGiftCard(publicUser.getGiftCard().getId());
+//			}
 		} else if (req.getAttribute("form") != null) {
 			publicUserform = (PublicUserForm) req.getAttribute("form");
 			criteria.add(Restrictions.idEq(publicUserform.getId()));
@@ -70,10 +69,10 @@ public class PostPublicUserDetailAction extends Action {
 			if(publicUser.getPrefecture()!=null){
 				publicUserform.setPrefecture(publicUser.getPrefecture().getId());
 			}
-			if(publicUser.getGiftCard()!=null){
-				publicUserform.setGiftCard(publicUser.getGiftCard().getId());
-				
-			}
+//			if(publicUser.getGiftCard()!=null){
+//				publicUserform.setGiftCard(publicUser.getGiftCard().getId());
+//				
+//			}
 		}
 		Criteria criteriaGiftCard = session.createCriteria(GiftCard.class);
 		req.setAttribute("GiftCards", criteriaGiftCard.list());

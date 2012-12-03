@@ -19,6 +19,9 @@
         <property name="pricewithtax" type="int">
             <column name="PRICEWITHTAX" not-null="true" unique="false" sql-type="INTEGER"/>
         </property>
+        <property name="carriage" type="int">
+            <column name="CARRIAGE" not-null="true" unique="false" sql-type="INTEGER"/>
+        </property>
         <property name="wrapping" type="boolean">
             <column name="WRAPPING" not-null="true" unique="false" sql-type="TINYINT"/>
         </property>
