@@ -1,7 +1,5 @@
 package net.malta.web.app;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -79,7 +77,7 @@ public class PostChoiseVPAction extends Action{
 		Purchase purchase = (Purchase)req.getSession().getAttribute("purchase");
 	
 		Criteria criteriaChoise = session.createCriteria(Choise.class);
-		criteriaChoise.add(Restrictions.eq("wp_post_id", itemInt));
+		criteriaChoise.add(Restrictions.eq("wp_posts_id", itemInt));
 		criteriaChoise.add(Restrictions.eq("purchase", purchase));
 		Choise ch = (Choise) criteriaChoise.uniqueResult();
 		if(ch == null) {
@@ -87,6 +85,8 @@ public class PostChoiseVPAction extends Action{
 			//choise.setPricewithtax(item.getPricewithtax());
 			//////////////////////////////////here the codes to get the price of wp_post using wp_post_id 
 			choise.setPricewithtax(getPriceOf(choise.getWp_posts_id(), session));
+			choise.setName(getNameOf(choise.getWp_posts_id(), session));
+			choise.setImg(getImgOf(choise.getWp_posts_id(), session));;
 //			choise.setPricewithtax( ( item.getPricewithtax() + choise.getItem().getCarriage().getValue()) );
 			if(choise.getOrdernum()==0)
 				choise.setOrdernum(1);
@@ -109,14 +109,30 @@ public class PostChoiseVPAction extends Action{
 		
 	}
 
+	private String getImgOf(int wp_posts_id, Session session) {
+		 SQLQuery query = session.createSQLQuery("SELECT meta_value rate FROM wp_postmeta where meta_key = 'rate' and post_id = 773");
+		 Object result = query.uniqueResult();
+		 // TODO 
+		return "http://africaandleo.com/wp-content/uploads/2012/11/Catlalog_AL_FA12-306-Edit1.jpg";
+	}
+
+	private String getNameOf(int wp_posts_id, Session session) {
+		 SQLQuery query = session.createSQLQuery("SELECT meta_value rate FROM wp_postmeta where meta_key = 'rate' and post_id = 773");
+		 Object result = query.uniqueResult();
+
+		// TODO Auto-generated method stub
+		return "test producgt name";
+	}
+
 	private int getPriceOf(int wp_posts_id,Session session) {
 		 SQLQuery query = session.createSQLQuery("SELECT meta_value rate FROM wp_postmeta where meta_key = 'rate' and post_id = 773");
 		 Object result = query.uniqueResult();
 		 
 		 //how to remove yen mark, and . mark in the middle.
 		// TODO Auto-generated method stub 
-		// here the codes to get the price of wp_post using wp_post_id 
-		return 0;
+		// here the codes to get the price of wp_post using wp_post_id
+		 //now returning test price....
+		return 500;
 	}
 	
 	

@@ -39,10 +39,10 @@
 		<tbody>
 		<c:forEach items="${purchase.choises}" var="choise">
 			<tr>
-				<td class="photo"><img src="ShowImage.do?id=${choise.item.defaultattachment.id}" alt="" width="60" height="60" /></td>
-				<td>${choise.item.no}<br/>${choise.item.product.name}/${choise.item.name}</td>
+				<td class="photo"><img src="${choise.img}" alt="" width="60" height="60" /></td>
+				<td>&npsp;<br/>${choise.name}</td>
 			
-				<td>￥<fmt:formatNumber value="${choise.item.pricewithtax}" pattern="###,###,###"/></td>
+				<td>￥<fmt:formatNumber value="${choise.pricewithtax}" pattern="###,###,###"/></td>
 				<td>
                         <select name="ordernum_${choise.id}" id="select">
                         	<c:forEach var="i" begin="1" end="${choise.item.stocknum}" step="1">

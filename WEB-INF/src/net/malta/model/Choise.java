@@ -19,8 +19,27 @@ public abstract class Choise
     
     
     private int wp_posts_id = 0;
+    private String name = "";
+    private String img = "";
+    
+    
+    public String getImg() {
+		return img;
+	}
 
-    private java.lang.Integer id;
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	private java.lang.Integer id;
 
     /**
      * 

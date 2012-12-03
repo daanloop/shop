@@ -22,9 +22,17 @@
         <property name="wrapping" type="boolean">
             <column name="WRAPPING" not-null="true" unique="false" sql-type="TINYINT"/>
         </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" not-null="false" unique="false" sql-type="VARCHAR(255) BINARY"/>
+        </property>
+        
         <many-to-one name="purchase" class="net.malta.model.PurchaseImpl" foreign-key="CHOISE_PURCHASE_FKC" lazy="proxy" fetch="select">
             <column name="PURCHASE_FK" not-null="true" sql-type="INTEGER"/>
         </many-to-one>
+        <property name="img" type="java.lang.String">
+            <column name="IMG" not-null="false" unique="false" sql-type="VARCHAR(255) BINARY"/>
+        </property>
+
         <many-to-one name="item" class="net.malta.model.ItemImpl" foreign-key="CHOISE_ITEM_FKC" lazy="proxy" fetch="select">
             <column name="ITEM_FK" not-null="false" sql-type="INTEGER"/>
         </many-to-one>
