@@ -31,6 +31,7 @@
         <property name="wp_posts_id" type="int">
             <column name="wp_posts_id" not-null="false" unique="false" sql-type="INTEGER"/>
         </property>
+        
         <set name="deliveryAddressChoises" order-by="CHOISE_FK" lazy="true" fetch="select" inverse="true">
             <key foreign-key="DELIVERY_ADDRESS_CHOISE_CHOISC">
                 <column name="CHOISE_FK" sql-type="INTEGER"/>
