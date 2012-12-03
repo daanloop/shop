@@ -16,6 +16,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -107,31 +108,46 @@ public class PostChoiseVPAction extends Action{
 
 		
 	}
-
+ 
 	private String getImgOf(int wp_posts_id, Session session) {
-		 SQLQuery query = session.createSQLQuery("SELECT meta_value rate FROM wp_postmeta where meta_key = 'rate' and post_id = " + wp_posts_id);
-		 Object result = query.uniqueResult();
+		 SQLQuery query = session.createSQLQuery("SELECT meta_value value FROM wp_postmeta where meta_key = 'product-thumbnail' and post_id = " + wp_posts_id);
+		 query.addScalar( "value", Hibernate.STRING); 
+		 String result = (String)query.uniqueResult();
+		 System.err.println(result);
 		 // TODO this sql should be changed to get the image url
-		return "http://africaandleo.com/wp-content/uploads/2012/11/Catlalog_AL_FA12-306-Edit1.jpg";
+		 String name =result.split("\\]")[1];
+		 System.err.println(name);
+		 return name;
 	}
-
+ 
 	private String getNameOf(int wp_posts_id, Session session) {
-		 SQLQuery query = session.createSQLQuery("SELECT post_title rate FROM wp_posts where ID = " + wp_posts_id);
-		 Object result = query.uniqueResult();
-
+		 SQLQuery query = session.createSQLQuery("SELECT post_title value FROM wp_posts where ID = " + wp_posts_id);
+		 query.addScalar( "value", Hibernate.STRING); 
+ 
+		 String result = (String)query.uniqueResult();
+		 System.err.println(result);
+		 return result;
 		 //TODO this sql should be changed to get the name of the product.
-		return "Biker Leather";
 	}
 
 	private int getPriceOf(int wp_posts_id,Session session) {
-		 SQLQuery query = session.createSQLQuery("SELECT meta_value rate FROM wp_postmeta where meta_key = 'rate' and post_id = " + wp_posts_id);
-		 Object result = query.uniqueResult();
+		 SQLQuery query = session.createSQLQuery("SELECT meta_value value FROM wp_postmeta where meta_key = 'rate' and post_id = " + wp_posts_id);
+		 query.addScalar( "value", Hibernate.STRING); 
+		  
+		 
+		 String result = (String)query.uniqueResult();
+		 String rate = result.replaceAll("￥", "");
+		 rate = rate.replaceAll("\\.", "");
+		 rate= rate.trim();
+		 System.err.println(rate);
+		 return Integer.valueOf(rate);
+		 
 		 
 		 //how to remove yen mark, and . mark in the middle.
 		// TODO Auto-generated method stub 
 		// here the codes to get the price of wp_post using wp_post_id
 		 //now returning test price....
-		return 500;
+//		return 500;
 	}
 	
 	

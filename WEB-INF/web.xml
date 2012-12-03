@@ -9,7 +9,6 @@
 		classpath:applicationContext.xml
 	  	classpath:applicationContext-dataSource.xml
 <!--	  	classpath:applicationContext-localDataSource.xml -->
-	  	classpath:applicationContext-manageable.xml
 		</param-value>
 	</context-param> 
 
