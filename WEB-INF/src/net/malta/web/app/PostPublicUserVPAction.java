@@ -94,9 +94,13 @@ public class PostPublicUserVPAction extends Action{
 		map.put(new Integer(47), new Integer(1160)); // Okinawa
 		
 		
+		
+		
+		
 		PublicUser publicUser = new PublicUserImpl();
 		PublicUserForm publicUserform = (PublicUserForm) form;
 
+		
         String error = "";
 		if(StringUtils.isBlank(publicUserform.getName())){
 		   error += "名前は空にはできません。<br />"; 
@@ -105,11 +109,7 @@ public class PostPublicUserVPAction extends Action{
 		if(StringUtils.isBlank(publicUserform.getKana())){
 		   error += "カナは空にはできません。<br />"; 
 		}
-		
-		if(publicUserform.getPrefecture()==null){
-			   error += "県は空にすることはできません<br />"; 
-			}
-		
+			
 //		if(StringUtils.isBlank(req.getParameter("zipthree"))){
 //		   error += "郵便番号3桁は空にはできません。<br />"; 
 //		}
@@ -121,8 +121,12 @@ public class PostPublicUserVPAction extends Action{
 		   error += "郵便番号4桁は空にはできません。<br />"; 
 		}
 		
+		if(publicUserform.getPrefecture()==0){
+		   error += "県は空にすることはできません<br />"; 
+		}
+		
 		if(!StringUtils.isNumeric(req.getParameter("zipfour"))){
-		    error += "郵便番号4桁には数値のみを入れてください。<br />";
+		   error += "郵便番号4桁には数値のみを入れてください。<br />";
 		}
 		if(StringUtils.isBlank(publicUserform.getMail())){
 		   error += "メールは空にはできません。<br />"; 
