@@ -98,14 +98,11 @@ public class MailAboutPurchaseToPublicUserAction extends Action{
 				builder.append("\r\n");
 				builder.append("----------------------------------------------------------------");
 				builder.append("\r\n");
-				builder.append("商品番号　　　　　：");
-				builder.append(choise.getItem().getNo());
-				builder.append("\r\n");
 				builder.append("商品名　　　　　　：");
-				builder.append(choise.getItem().getProduct().getName() + choise.getItem().getName());
+				builder.append(choise.getName());
 				builder.append("\r\n");
 				builder.append("価格（税込）　　　：");
-				builder.append(choise.getItem().getPricewithtax()+"円");
+				builder.append(choise.getPricewithtax()+"円");
 				builder.append("\r\n");
 				builder.append("数量　　　　　　　：");
 				builder.append(choise.getOrdernum());
@@ -113,7 +110,7 @@ public class MailAboutPurchaseToPublicUserAction extends Action{
 				builder.append("----------------------------------------------------------------");
 				builder.append("\r\n");
 				builder.append("送料　　　　　　　：");
-				builder.append(choise.getItem().getCarriage().getValue()+"円");
+				builder.append(choise.getCarriage()+"円");
 				builder.append("\r\n");
 				builder.append("----------------------------------------------------------------");
 				builder.append("\r\n");
