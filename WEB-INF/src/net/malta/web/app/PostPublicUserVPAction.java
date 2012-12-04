@@ -184,15 +184,17 @@ public class PostPublicUserVPAction extends Action{
 	    Purchase purchase = (Purchase)req.getSession().getAttribute("purchase");
 	    session.evict(purchase);
 		session.refresh(purchase);
-		
+	    Integer key=prefectureInt;//publicUserform.getPrefecture();
         int value=(Integer) map.get(key);
+        
+        value=value>20000?0:value;
+        
         purchase.setCarriage(value);
 		
 		int total = 0;
 		for (Iterator iterator = purchase.getChoises().iterator(); iterator.hasNext();) {
 			Choise choise = (Choise) iterator.next();
 		
-		    Integer key=prefectureInt;//publicUserform.getPrefecture();
 		   	 
 	        
 	        //please add carriage to choise.
