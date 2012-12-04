@@ -19,7 +19,7 @@
 			<th colspan="2" class="fontSmaller">商品</th>
 			<th class="fontSmaller">単価（税込）</th>
 			<th class="fontSmaller">数量</th>
-			<th class="fontSmaller">送料</th>
+			<!-- <th class="fontSmaller">送料</th> -->
 			<th class="fontSmaller">小計（税込）</th>
 			
 		</tr>
@@ -32,10 +32,15 @@
 				<td><br/>${choise.name}</td>
 				<td >￥<fmt:formatNumber value="${choise.pricewithtax}" pattern="###,###,###"/></td>
 				<td >1</td>
-				<td>￥<fmt:formatNumber value="${choise.carriage}" pattern="###,###,###"/></td>
+				<!-- <td></td> -->
 				<td >￥<bean:write name="choise" property="pricewithtax" format="###,###,###"/></td>
 			</tr>
 		</c:forEach>
+		￥<fmt:formatNumber value="${choise.carriage}" pattern="###,###,###"/>
+		<tr class="total">
+				<td colspan="5" class="title">送料</td>
+				<td >￥<fmt:formatNumber value="${purchase.carriage}" pattern="###,###,###"/></td>
+		</tr>
 		<tr class="total">
 				<td colspan="5" class="title">商品合計（税込）</td>
 				<td >￥<fmt:formatNumber value="${purchase.total}" pattern="###,###,###"/></td>

@@ -185,6 +185,8 @@ public class PostPublicUserVPAction extends Action{
 	    session.evict(purchase);
 		session.refresh(purchase);
 		
+        int value=(Integer) map.get(key);
+        purchase.setCarriage(value);
 		
 		int total = 0;
 		for (Iterator iterator = purchase.getChoises().iterator(); iterator.hasNext();) {
@@ -192,10 +194,9 @@ public class PostPublicUserVPAction extends Action{
 		
 		    Integer key=prefectureInt;//publicUserform.getPrefecture();
 		   	 
-	        int value=(Integer) map.get(key);
 	        
 	        //please add carriage to choise.
-			choise.setCarriage(value);
+			choise.setCarriage(0);
 			
 			/*int value = Integer.parseInt(req.getParameter("ordernum_"+choise.getId()));
 			choise.setOrdernum(value);*/
@@ -214,6 +215,7 @@ public class PostPublicUserVPAction extends Action{
 		
 		Transaction transaction = session.beginTransaction();
 		session.saveOrUpdate(publicUser);
+		session.saveOrUpdate(purchase);
 		transaction.commit();
 		session.flush();
 		session.evict(publicUser);
