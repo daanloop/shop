@@ -100,8 +100,7 @@ $(document).ready(function() {
                 
  </div>
 			</div><!-- #branding -->
-           
-   <div id="access" role="navigation">
+            <div id="access" role="navigation">
               <div class="menu-header"><ul id="menu-main" class="menu"><li id="menu-item-37" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-37"><a href="http://africaandleo.com/?page_id=7">About Us</a></li>
 <li id="menu-item-191" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-191"><a href="http://africaandleo.com/?page_id=44">News</a></li>
 <li id="menu-item-192" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-192"><a href="http://africaandleo.com/?page_id=11">Press</a></li>
@@ -110,9 +109,12 @@ $(document).ready(function() {
 	<li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-240"><a href="http://africaandleo.com/?page_id=231">Accessory</a></li>
 	<li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="http://africaandleo.com/?page_id=226">Clothing</a></li>
 	<li id="menu-item-239" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-239"><a href="http://africaandleo.com/?page_id=233">Jewelry</a></li>
+	<li id="menu-item-1176" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1176"><a href="http://africaandleo.com/?page_id=235">Art</a></li>
+	<li id="menu-item-1177" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1177"><a href="http://africaandleo.com/?page_id=228">Kids clothing</a></li>
+	<li id="menu-item-1175" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1175"><a href="http://africaandleo.com/?page_id=249">Home</a></li>
 </ul>
 </li>
-<li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33"><a href="http://africaandleo.com/?page_id=15">Designers</a></li>
+<li id="menu-item-1173" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1173"><a href="http://africaandleo.com/?page_id=1105">Designers</a></li>
 <li id="menu-item-323" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-323"><a href="http://africayleo.tumblr.com/">Blogs</a></li>
 </ul></div>            </div>
              
@@ -121,7 +123,7 @@ $(document).ready(function() {
 	</div><!-- #header -->
 		<div id="main">
 								<% 
-				   if(new String(request.getRequestURL()).contains("ProductList") && request.getParameter("demo")==null){
+				  if(new String(request.getRequestURL()).contains("ProductList") && request.getParameter("demo")==null){
 				 %>
 				<pre>
 				

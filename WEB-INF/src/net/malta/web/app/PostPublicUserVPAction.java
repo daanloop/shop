@@ -106,6 +106,10 @@ public class PostPublicUserVPAction extends Action{
 		   error += "カナは空にはできません。<br />"; 
 		}
 		
+		if(publicUserform.getPrefecture()==null){
+			   error += "県は空にすることはできません<br />"; 
+			}
+		
 //		if(StringUtils.isBlank(req.getParameter("zipthree"))){
 //		   error += "郵便番号3桁は空にはできません。<br />"; 
 //		}
