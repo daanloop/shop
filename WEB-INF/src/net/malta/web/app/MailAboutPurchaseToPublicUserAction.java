@@ -66,7 +66,7 @@ public class MailAboutPurchaseToPublicUserAction extends Action{
 		Criteria criteriaDeliveryAddressChoise = session.createCriteria(DeliveryAddressChoise.class);
 		criteriaDeliveryAddressChoise.createCriteria("choise").add(Restrictions.eq("purchase", purchase));
 				//when there are no delivery address ( direct to public User)
-				builder.append("▼配送先情報（1）");
+				builder.append("▼配送先情報");
 				builder.append("\r\n");
 				builder.append("================================================================");
 				builder.append("\r\n");
@@ -106,11 +106,6 @@ public class MailAboutPurchaseToPublicUserAction extends Action{
 				builder.append("\r\n");
 				builder.append("数量　　　　　　　：");
 				builder.append(choise.getOrdernum());
-				builder.append("\r\n");
-				builder.append("----------------------------------------------------------------");
-				builder.append("\r\n");
-				builder.append("送料　　　　　　　：");
-				builder.append(choise.getCarriage()+"円");
 				builder.append("\r\n");
 				builder.append("----------------------------------------------------------------");
 				builder.append("\r\n");
