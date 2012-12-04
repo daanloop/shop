@@ -17,6 +17,7 @@ public abstract class Purchase
     private static final long serialVersionUID = -7552945486378059660L;
 
     private java.lang.Integer id;
+    
 
     /**
      * 
