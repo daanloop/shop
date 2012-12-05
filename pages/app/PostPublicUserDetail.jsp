@@ -47,61 +47,8 @@
 	<tiles:put name="content" direct="true">
 
 
-<!-- 
-        <div id="log_in_form">
-			<c:if test="${!empty purchase}">
-				<div class="cartTxt clearfix">
-					<p class="txt">現在、カートには以下の商品が入っています。ご確認ください。</p>
-					<ul class="clearfix">
-					<li class="change"><a href="ShowPurchase.do"><img src="images/bt_cartchange.gif" alt="カート内容の変更" width="125" height="22" /></a></li>
-					<li><a href="index.jsp"><img src="images/bt_shopping.gif" alt="お買い物を続ける" width="125" height="22" /></a></li>
-					</ul>
-					</div>
-					<%@ include file="/pages/PurchaseBoxTop.jsp" %>
-			</c:if>	
-
-			<c:if test="${(empty u || u.temp) && !u.registed}">
-				<div class="cartTxt">
-				<h2><strong>お客様情報の入力</strong></h2>
-				<p>ユーザー登録をされている方は、ログインして下さい。</p>
-				</div>
-				
-				<c:if test="${!empty authenticationerr}">
-					<font color="red">
-						<st:error key="authenticationerr"/>
-					</font>
-				</c:if>
-		
-				<html:form action="/Login.do" method="post">
-					<table class="formArea">
-						<thead>
-						<tr>
-							<th colspan="6" class="fontSmaller">ログイン</th>
-						</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th>メールアドレス</th>
-								<td><html:text   name="form" property="mail" styleClass="longForm"/></td>
-							</tr>
-							<tr>
-								<th>パスワード</th>
-								<td><html:password   name="form" property="password" styleClass="shortForm"/>
-								<a href="ShowPublicUserForPassword.do" class="fontSmaller">パスワードを忘れた方はこちら</a></td>
-							</tr>
-						<tr>
-							<td colspan="2" align="right">
-								<input type="submit" name="submit" id="button" value="ログイン" />
-							</td>
-						</tr>
-						</tbody>
-					</table>
-				</html:form>
-			</c:if>		
-			 -->	
+	
 			<div class="cartTxt" style="margin-left:10px">
-			<!-- <p>初めてご利用いただく方、ユーザ登録されていない方は、以下のフォームにご入力ください。<br />
-			（＊必須項目）</p>-->
 			<c:if test="${!empty error}">
 			<font color="red">
 				<st:error key="error"/>
@@ -109,14 +56,6 @@
 		    </c:if>
 			</div>
 
-	<%-- 	<div class="cartTxt">
-		<p>初めてご利用いただく方、ユーザ登録されていない方は、以下のフォームにご入力ください。<br />
-			（＊必須項目）</p><c:if test="${!empty error}">
-			<font color="red">
-				<st:error key="error"/>
-			</font>
-		</c:if>
-	   </div>--%>
 	   
 			<html:form method="POST" action="/PostPublicUserVP" >
 			<html:hidden name="form" property="id"/>
