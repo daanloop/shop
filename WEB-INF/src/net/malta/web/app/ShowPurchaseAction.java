@@ -26,20 +26,18 @@ public class ShowPurchaseAction extends Action {
 				.getServlet().getServletContext());
 //
 //		Purchase purchase = new PurchaseImpl();
-//		Criteria criteria = session.createCriteria(Purchase.class);
-//		if (req.getParameter("id") != null
-//				&& !req.getParameter("id").equals("")) {
-//			criteria.add(Restrictions.idEq(Integer.valueOf(req
-//					.getParameter("id"))));
-//			purchase = (Purchase) criteria.uniqueResult();
-//
-//		} else if (req.getAttribute("id") != null
-//				&& !req.getAttribute("id").equals("")) {
-//			criteria.add(Restrictions.idEq(req.getAttribute("id")));
-//			purchase = (Purchase) criteria.uniqueResult();
-//		}
 //		
 		Purchase purchase = (Purchase)req.getSession().getAttribute("purchase");
+		if (req.getParameter("id") != null
+				&& !req.getParameter("id").equals("")) {
+			Criteria criteria = session.createCriteria(Purchase.class);
+			criteria.add(Restrictions.idEq(Integer.valueOf(req
+					.getParameter("id"))));
+			purchase = (Purchase) criteria.uniqueResult();
+			req.setAttribute("purchase", purchase);
+		}
+
+//}
 		
 //		Criteria criteriaitem=session.createCriteria(Item.class);
 //		criteriaitem.createCriteria("choises").add(Restrictions.eq("purchase", purchase));

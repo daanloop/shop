@@ -124,8 +124,8 @@ public class MailAboutPurchaseToPublicUserAction extends Action{
 		try {
 	    	System.err.println("email sending to the admin---------------------------------------------");
 			mail.send("MailAboutPurchaseToPublicUser.eml", purchase.getPublicUser().getMail(), model);
-			mail.send("MailAboutPurchaseToAdmin.eml", "order@akaruiheya.com", model);
-			mail.send("MailAboutPurchaseToAdmin.eml", "toukubo+admin@gmail.com", model);
+			mail.send("MailAboutPurchaseToAdmin.eml", "info@africaandleo.com", model);
+			mail.send("MailAboutPurchaseToAdmin.eml", "toukubo+africaandleo@gmail.com", model);
 	    	System.err.println("email sent to the --------------------------------------------- " + purchase.getPublicUser().getMail());
 
 		} catch (Exception e) {
