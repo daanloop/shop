@@ -29,7 +29,7 @@
 ご注文のご確認の自動配信メールを、お客様に設定して頂きましたメールアドレスに配信させて頂いております。<br />
 万が一、自動配信メールが届いていない場合は、お手数でございますが、 <a href="mailto:info@africaandleo.com;">info@africaandleo.com</a>へ<br />
 ご連絡頂きますようお願い申し上げます。</p>
-<p class="actionLink"><a href="http://africaandleo.com/?page_id=2">Net Shop</a><a href="/index.html"></a></p>
+
 </div>
 
 	</tiles:put>

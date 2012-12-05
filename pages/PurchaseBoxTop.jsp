@@ -19,7 +19,6 @@
 			<th colspan="2" class="fontSmaller">商品</th>
 			<th class="fontSmaller">単価（税込）</th>
 			<th class="fontSmaller">数量</th>
-			<!-- <th class="fontSmaller">送料</th> -->
 			<th class="fontSmaller">小計（税込）</th>
 			
 		</tr>

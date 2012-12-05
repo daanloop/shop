@@ -9,49 +9,129 @@
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@ page isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xml:lang="ja" lang="ja">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title><tiles:get name="title" /></title>
-		<link href="<html:rewrite page="/base.css" />" rel="stylesheet" type="text/css" />	  
-		<link href="<html:rewrite page="/css/lightbox.css" />" rel="stylesheet" type="text/css" />
-		<script src="<html:rewrite page="/js/prototype.js" />" type="text/javascript"></script>
-		<script src="<html:rewrite page="/js/scriptaculous.js?load=effects,builder" />" type="text/javascript"></script>
-		<script src="<html:rewrite page="/js/tabs.js"/>" type="text/javascript"></script>
-		<script src="<html:rewrite page="/js/searchform.js"/>" type="text/javascript"></script>
-		<script src="<html:rewrite page="/js/lightbox.js"/>" type="text/javascript"></script>
-		<script src="<html:rewrite page="/js/common.js" />" type="text/javascript"></script>
-		<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-8036873-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-		
-		
-		
-		<tiles:get name="head" ignore="true" />
-	</head>
-	<body  class="yui-skin-sam"  >
-			<div id="wrapper">
+<html xmlns="
+	
+	
 
-						<div id="header">
-						<h1><img src="images/logo.gif"  /></h1>
-						<%--<h1><img src="images/logo.gif" alt="MALTA" width="850" height="108" /></h1>--%>
-						<p id="logout"><input name="" type="button" value="ログアウト" /></p>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<title>africaandleo</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link href="/shop/style.css" rel="stylesheet" type="text/css" />
+<link rel="pingback" href="http://africaandleo.com/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="africaandleo &raquo; Feed" href="http://africaandleo.com/?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="africaandleo &raquo; Comments Feed" href="http://africaandleo.com/?feed=comments-rss2" />
+<link rel="alternate" type="application/rss+xml" title="africaandleo &raquo; Home Comments Feed" href="http://africaandleo.com/?feed=rss2&#038;page_id=2" />
+<link rel='stylesheet' id='login-with-ajax-css'  href='http://africaandleo.com/wp-content/plugins/login-with-ajax/widget/widget.css?ver=3.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='simplr-forms-style-css'  href='http://africaandleo.com/wp-content/plugins/simplr-registration-form/simplr_reg.css?ver=3.4.2' type='text/css' media='all' />
+<script type='text/javascript' src='http://africaandleo.com/wp-includes/js/jquery/jquery.js?ver=1.7.2'></script>
+<script type='text/javascript' src='http://africaandleo.com/wp-content/plugins/login-with-ajax/widget/login-with-ajax.js?ver=3.4.2'></script>
+<script type='text/javascript' src='http://africaandleo.com/wp-includes/js/comment-reply.js?ver=3.4.2'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://africaandleo.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://africaandleo.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='next' title='About Us' href='http://africaandleo.com/?page_id=7' />
+<meta name="generator" content="WordPress 3.4.2" />
+<link rel='canonical' href='http://africaandleo.com/' />
+ <!-- Add 27 Nov -->
+    <link href="/shop/contents.css" rel="stylesheet" type="text/css" />
+<!-- End -->
+<script src="http://africaandleo.com/wp-content/themes/africaandleo/js2/jquery-1.6.js" type="text/javascript"></script>
+<script src="http://africaandleo.com/wp-content/themes/africaandleo/js2/jquery.jqzoom-core.js" type="text/javascript"></script>
+<link rel="stylesheet" href="http://africaandleo.com/wp-content/themes/africaandleo/css/jquery.jqzoom.css" type="text/css">
+
+<style type="text/css">
+   .clearfix:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden;}
+.clearfix{display:block;zoom:1}
+
+ul#thumblist {
+    display: block;
+    margin: 10px 0 0;
+}
+ul#thumblist li{float:left;margin-right:2px;list-style:none;}
+ul#thumblist li a{display:block;}
+ul#thumblist li a.zoomThumbActive{
+   
+}
+
+.jqzoom{
+
+    text-decoration:none;
+    float:left;
+}		
+	
+		
+</style>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    $('.jqzoom').jqzoom({
+            zoomType: 'standard',
+            lens:true,
+            preloadImages: false,
+            alwaysOn:false
+        });
+    
+});
+
+
+</script>
+</head>
+
+<body>
+<div id="wrapper" class="hfeed">
+	<div id="header">
+		<div id="masthead">
+			<div id="branding" role="banner">
+				<div id="logo">
+						<a href="http://africaandleo.com/" title="africaandleo" rel="home"><img src="http://africaandleo.com/wp-content/themes/africaandleo/images/logo.jpg" alt="africaandleo"/></a>
+					</div>
+				
+  <div id="leftMenu">     
+ <!-- <div id="topMenu" class="menu-top-container"> 
+ <ul id="menu-top" class="menu">
+<li id="menu-item-102" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-102"><a href="http://africaandleo.com/?page_id=97">Shopping Bag</a></li>
+<li id="menu-item-103" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-103"><a href="http://africaandleo.com/?page_id=99">Check Out</a></li>
+</ul></div> -->
+
+             <!--     <div class="search"><form role="search" method="get" id="searchform" action="http://africaandleo.com/">
+    <div><label class="screen-reader-text" for="s">Search for:</label>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="Search" />
+    </div>
+</form></div>-->
+                
+ </div>
+			</div><!-- #branding -->
+            <div id="access" role="navigation">
+              <div class="menu-header">
 						<ul class="clearfix">
-						<li class="first"><a href="Products.do">商品一覧</a></li>
-						<li><a href="PostProductDetail.do">商品登録</a></li>
-						<li><a href="PostCarriageDetail.do">送料設定</a></li>
 						<li><a href="Purchases.do">購入履歴一覧</a></li>
 						<li><a href="PublicUsers.do">顧客一覧</a></li>
 						</ul>
 
-				<tiles:get name="header" />
 			</div>
+	</div>
+             
+			<!-- #access -->
+		</div><!-- #masthead -->
+	</div><!-- #header -->
+
+
+
+
+				<tiles:get name="header" />
 			<div id="contentsArea" >
 				<tiles:get name="content" />
 		     </div>

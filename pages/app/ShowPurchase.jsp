@@ -18,12 +18,17 @@
 <c:if test="${!empty param.zerostock}">
     <p style="color:red"><b>その商品は売り切れです。</b></p>
 </c:if>
-
-<h2></h2>
+		<c:choose>
+			<c:when test="${empty param.id}">
 <p>ご注文内容をご確認の上、[購入手続きへ進む]ボタンをクリックしてください。<br />
 他の商品もご注文されるお客さまは、[お買い物を続ける]をクリックして前のページに戻ってお選びください。</p>
-
-
+			</c:when>
+			<c:otherwise>
+			受注番号：${purchase.id}<br/>
+			購入者ID${purchase.publicUser.id}<br/>
+			購入者名：${purchase.publicUser.name}<br/>
+			</c:otherwise>
+		</c:choose>
 	<table class="purchaseTbl">
 		<thead>
 		<tr>
@@ -61,25 +66,24 @@
 		</tbody>
 		</form>
 	</table>
-	
+<c:if test="${empty param.id}">	
 	<div class="action clearfix">
 		<a href="http://africaandleo.com/?page_id=2"> お買い物を続ける</a>
 		<c:choose>
-			<c:when test="${empty purchase.choises}">
-				お買い物を続ける				
+			<c:when test="${!empty purchase.choises}">
+					<a href="PostPublicUserDetail.do">購入手続きに進む</a>			
 			</c:when>
 			<c:otherwise>
-					<a href="PostPublicUserDetail.do">購入手続きに進む</a>			
+				購入手続きに進む
 			</c:otherwise>
 		</c:choose>
-		
-		</ul></div>
-		</form>
+	</div>
+	<p class="catch fontSmaller">※商品をショッピングカートから削除する場合は、一番右の削除欄にある[削除]ボタンをクリックしてください。<br />
+	※数量を変更した場合は、[再計算]ボタンをクリックしてください。<br />
+	</p>
+	
+</c:if>
 
-
-<p class="catch fontSmaller">※商品をショッピングカートから削除する場合は、一番右の削除欄にある[削除]ボタンをクリックしてください。<br />
-※数量を変更した場合は、[再計算]ボタンをクリックしてください。<br />
-</p>
 
 <!-- 
 <div id="sslTxt">
