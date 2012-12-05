@@ -23,6 +23,31 @@
 
 <%@ include file="/pages/PurchaseBoxTop.jsp" %>
 	
+	<head>
+	<script>
+     function submitForm(){
+     var paymentMethod =  findPaymentSelection();
+         if(paymentMethod==5){
+        	 document.forms[1].submit();
+          }
+         else{
+        	 document.forms[0].submit();
+         }
+       }
+
+      function findPaymentSelection() {
+    	  var sizes = document.forms[0].paymentMethod;
+    	 for (var i=0; i < sizes.length; i++) {
+    	  if (sizes[i].checked==true) {   
+    	        return sizes[i].value;
+    	      }
+    	    }
+         }
+	</script>
+	
+	</head>
+	
+	
 	<div class="cartTxt clearfix">
 	<c:if test="${!empty error}">
 		<font color="red">
@@ -142,7 +167,7 @@
 					<tr>
 					<td class="price" width="5px" ><input type="radio" name="paymentMethod" value="${paymentMethod.id}"  id="card" /></td>
 					<td style="padding-top:6px"><label for="card">${paymentMethod.name}</label></td>
-					<td ><a href="./terms/index.html#pay" target="_blank">${paymentMethod.note}</a></td>
+					<td ><a href="http://africaandleo.com/?page_id=253" target="_blank">${paymentMethod.note}</a></td>
 					</tr>
 				</tbody>
 		</c:forEach>
@@ -153,7 +178,7 @@
 			<!--<li class="rev">-->
 			<input name="" type="button" onclick="location.href='PostPublicUserDetail.do'" value="前へ戻る" />
 			<!-- </li>-->
-			<!--<li class="nxt">--><input name="" type="submit" value="先に進む" /><!--</li>-->
+			<!--<li class="nxt">--><!--<input name="" type="submit" value="先に進む" />--><input name="" type="button" value="先に進む" onclick="submitForm()"/><!--</li>-->
 			<!-- </ul>-->
 		</div>				
 	
@@ -164,17 +189,17 @@
 --%>			</html:form>
 		
   <div class="paypal_btn">
-		     <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" name="frm2" target="_blank" >
+		     <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" name="frm2" target="_top" >
              <input type="hidden" name="cmd" value="_cart">
              <input type="hidden" name="upload" value="1">
              <input type="hidden" name="business" value="ppp_1353760180_biz@hotmail.com">
              <input type="hidden" name="currency_code" value="US">
              <c:forEach items="${purchase.choises}" var="choise" varStatus="loop"> 
-             <input type="hidden" name="item_name_${loop.index+1}" value="${choise.item.product.name}">
+             <input type="hidden" name="item_name_${loop.index+1}" value="${choise.name}">
              <input type="hidden" name="quantity_${loop.index+1}" value="1">
              <input type="hidden" name="amount_${loop.index+1}" value="${choise.pricewithtax}">
-              </c:forEach> 
-             <input type="hidden" name="return" value="http://africaandleo.com/shop/ShowPurchaseForThanks.do">
+              </c:forEach>
+             <input type="hidden" name="return" value="http://africaandleo.com/shop/PostPurchaseVPChoosingPaymentMethod.do?deliverymethod=null&paymentMethod=5">
              &nbsp;<input type="image" src="http://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" onclick="document.frm2.submit();" height="22" alt="Paypal CheckOut">
              </form>
   </div>
