@@ -4,7 +4,7 @@ From:$staticData.fromaddress
 
 
 
-$様
+$purchase.publicUser.name 様
 
 ※このメールは、ご注文いただきますと自動的に送信されます。
 このメールに心当たりのない場合や、ご不明な点がございましたら、
@@ -19,17 +19,16 @@ info@africaandleo.com までご連絡ください。
 宜しくお願い申し上げます。
 
 
-【　受　注　番　号　】$
+【　受　注　番　号　】$purchase.id
 
 ▼お客様情報
 ================================================================
 【　お　　名　　前　】$purchase.publicUser.name 様
-【　フ　リ　ガ　ナ】$purchase.publicUser.kana 
+【　フ　リ　ガ　ナ　】$purchase.publicUser.kana 
 【　郵　便　番　号　】$purchase.publicUser.zipthree
 【　ご　　住　　所　】$purchase.publicUser.address
 【　電　話　番　号　】$purchase.publicUser.phone 
 【Ｆ　Ａ　Ｘ　番　号】$purchase.publicUser.fax 
-【　携　帯　番　号　】$purchase.publicUser.keitai 
 【　メールアドレス　】$purchase.publicUser.mail 
 【　注　文　日　】$purchase.date 
 【　決　済　方　法　】$purchase.paymentMethod.name 
@@ -40,8 +39,9 @@ $deliveryaddress
 ================================================================
 
 ▼総合計
+
 ================================================================
-【　合計（税込）　】$円
+【　合計（税込）　】$purchase.total 円　（内送料：$purchase.carriage　円）
 ================================================================
 
 尚、ご不明な点がございましたらお気軽にお問い合わせください
@@ -53,8 +53,6 @@ mail address:info@africaandleo.com
 AFRICA & LEO / 鳥羽玲美
 電話番号 ０４６７−３９−６８０３
 info@africaandleo.com
-http://africaandleo.com/
-
-------------------------------------------------------------
+http://africaandleo.com
 
 ------------------------------------------------------------

@@ -139,6 +139,11 @@
                         <img src="images/icons/table_delete.png">
                         </a>
                         </display:column>--%>
+ <display:column media="html" sortable="true" title="ID"><nobr>
+ <a href="ShowPurchase.do?id=${row.id}">
+${row.id}
+</a>
+</display:column>
  <display:column media="html" sortable="true" title="受注日"><nobr>
 <st:date date="${row.date}" /> </nobr>
 </display:column>
@@ -147,15 +152,6 @@
 ${row.publicUser.name}</nobr>
 </display:column>
 
-<display:column media="html" sortable="true" title="商品No"><nobr>
-	<c:forEach var="ch" items="${row.choises}" varStatus="status">
-		<c:if test="${status.index ne 0}">
-			,
-		</c:if>
-		${ch.item.no}
-	</c:forEach>
-	</nobr>
-</display:column>
 
 <display:column media="html" sortable="true" title="購入金額"><nobr>
 ${row.total}</nobr>

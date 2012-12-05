@@ -193,11 +193,8 @@ public class PostPublicUserVPAction extends Action{
 	    session.evict(purchase);
 		session.refresh(purchase);
 	    Integer key=prefectureInt;//publicUserform.getPrefecture();
-        int value=(Integer) map.get(key);
+        int carriage=(Integer) map.get(key);
         
-        value=value>20000?0:value;
-        
-        purchase.setCarriage(value);
 		
 		int total = 0;
 		for (Iterator iterator = purchase.getChoises().iterator(); iterator.hasNext();) {
@@ -217,11 +214,15 @@ public class PostPublicUserVPAction extends Action{
 			session.saveOrUpdate(choise);
 			transaction.commit();
 			session.flush();
-		//	total += choise.getPricewithtax();
+			total += choise.getPricewithtax();
 //			total += choise.getItem().getPricewithtax() * choise.getOrdernum() + choise.getItem().getCarriage().getValue()*choise.getOrdernum();
-			total += (choise.getPricewithtax())+ choise.getCarriage();	
+//			total += (choise.getPricewithtax())+ choise.getCarriage();	
 		}
-		
+        carriage=total>20000?0:carriage;
+        purchase.setCarriage(carriage);
+		total+=carriage;
+
+		purchase.setTotal(total);
 		
 		Transaction transaction = session.beginTransaction();
 		session.saveOrUpdate(publicUser);

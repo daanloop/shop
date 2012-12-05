@@ -66,7 +66,7 @@ public class MailAboutPurchaseToPublicUserAction extends Action{
 		Criteria criteriaDeliveryAddressChoise = session.createCriteria(DeliveryAddressChoise.class);
 		criteriaDeliveryAddressChoise.createCriteria("choise").add(Restrictions.eq("purchase", purchase));
 				//when there are no delivery address ( direct to public User)
-				builder.append("▼配送先情報（1）");
+				builder.append("▼配送先情報");
 				builder.append("\r\n");
 				builder.append("================================================================");
 				builder.append("\r\n");
@@ -109,11 +109,6 @@ public class MailAboutPurchaseToPublicUserAction extends Action{
 				builder.append("\r\n");
 				builder.append("----------------------------------------------------------------");
 				builder.append("\r\n");
-				builder.append("送料　　　　　　　：");
-				builder.append(choise.getCarriage()+"円");
-				builder.append("\r\n");
-				builder.append("----------------------------------------------------------------");
-				builder.append("\r\n");
 				builder.append("\r\n");
 			}
 			model.put("deliveryaddress",builder.toString().replaceAll("～", " - "));
@@ -129,8 +124,8 @@ public class MailAboutPurchaseToPublicUserAction extends Action{
 		try {
 	    	System.err.println("email sending to the admin---------------------------------------------");
 			mail.send("MailAboutPurchaseToPublicUser.eml", purchase.getPublicUser().getMail(), model);
-			mail.send("MailAboutPurchaseToAdmin.eml", "order@akaruiheya.com", model);
-			mail.send("MailAboutPurchaseToAdmin.eml", "toukubo+admin@gmail.com", model);
+			mail.send("MailAboutPurchaseToAdmin.eml", "info@africaandleo.com", model);
+			mail.send("MailAboutPurchaseToAdmin.eml", "toukubo+africaandleo@gmail.com", model);
 	    	System.err.println("email sent to the --------------------------------------------- " + purchase.getPublicUser().getMail());
 
 		} catch (Exception e) {

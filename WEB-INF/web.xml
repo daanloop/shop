@@ -77,7 +77,7 @@
 -->
 
   <security-constraint>
-    <display-name>Malta Admin Pages Security</display-name>
+    <display-name>Admin Pages Security</display-name>
     <web-resource-collection>
       <web-resource-name>Protected Area</web-resource-name>
       <!-- Define the context-relative URL(s) to be protected -->
