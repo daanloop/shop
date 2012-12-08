@@ -35,7 +35,7 @@
 			<th colspan="2" class="fontSmaller">商品</th>
 			<th class="fontSmaller">単価（税込）</th>
 			<th class="fontSmaller">&nbsp;数量</th>
-<!-- 			<th class="fontSmaller">送料</th> -->
+ 			<th class="fontSmaller">サイズ</th> 
 			<th class="fontSmaller">小計（税込）</th>
 			<th class="del fontSmaller">削除</th>
 		</tr>
@@ -50,7 +50,7 @@
 				<td>￥<fmt:formatNumber value="${choise.pricewithtax}" pattern="###,###,###"/></td>
 				<td>1
 				</td>
-<%-- 				<td>￥<fmt:formatNumber value="${choise.item.carriage.value}" pattern="###,###,###"/></td> --%>
+ 				<td>${choise.varietychoise}</td> 
 				<td>￥<fmt:formatNumber value="${choise.pricewithtax}" pattern="###,###,###"/></td>
 				<td>
 					<a href="#" onClick="javascript:if(window.confirm('削除してもよろしいですか？')){location.href='DeleteChoise.do?id=${choise.id}';}">

@@ -22,11 +22,18 @@ public abstract class Choise
     private String name = "";
     private String img = "";
     private int carriage = 0;
+    private String varietychoise = "";
     
     
-    
-    
-    public int getCarriage() {
+    public String getVarietychoise() {
+		return varietychoise;
+	}
+
+	public void setVarietychoise(String varietychoise) {
+		this.varietychoise = varietychoise;
+	}
+
+	public int getCarriage() {
 		return carriage;
 	}
 

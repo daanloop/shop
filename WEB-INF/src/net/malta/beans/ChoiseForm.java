@@ -7,6 +7,14 @@ public class ChoiseForm
     implements java.io.Serializable
 {
 private static final java.text.DateFormat simpleformat = new java.text.SimpleDateFormat("yyyy/MM/dd");private static final java.text.DateFormat format = new java.text.SimpleDateFormat("yyyy/MM/dd hh:mm:ss");static { format.setLenient(true); }private Integer id;
+private String varietychoise = "";
+
+public String getVarietychoise() {
+	return varietychoise;
+}
+public void setVarietychoise(String varietychoise) {
+	this.varietychoise = varietychoise;
+}
 public void setId(Integer id){
 this.id = id;
 }

@@ -58,7 +58,8 @@ public class PostChoiseVPAction extends Action{
 		choise.setOrdernum(choiseform.getOrdernum());
 		choise.setPricewithtax(choiseform.getPricewithtax());
 		choise.setWrapping(choiseform.isWrapping());
-		
+		choise.setVarietychoise(choiseform.getVarietychoise());
+
 		StringFullfiller.fullfil(choise);
         
 //		criteria2.add(Restrictions.idEq(purchaseInt));

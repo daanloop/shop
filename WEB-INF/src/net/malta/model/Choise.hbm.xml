@@ -28,6 +28,9 @@
         <property name="name" type="java.lang.String">
             <column name="NAME" not-null="false" unique="false" sql-type="VARCHAR(255) BINARY"/>
         </property>
+        <property name="varietychoise" type="java.lang.String">
+            <column name="VARIETYCHOISE" not-null="false" unique="false" sql-type="VARCHAR(255) BINARY"/>
+        </property>
         
         <many-to-one name="purchase" class="net.malta.model.PurchaseImpl" foreign-key="CHOISE_PURCHASE_FKC" lazy="proxy" fetch="select">
             <column name="PURCHASE_FK" not-null="true" sql-type="INTEGER"/>
