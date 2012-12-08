@@ -59,7 +59,7 @@
 			</tr>
 		</c:forEach>
 		<tr class="total">
-				<td colspan="4" class="title">商品合計（税込）</td>
+				<td colspan="5" class="title">商品合計（税込）</td>
 				<td >￥<fmt:formatNumber value="${purchase.total}" pattern="###,###,###"/></td>
 				<td><!--<<a href="#" onclick="document.frm.submit();"><img src="images/bt_sum.gif" alt="再計算" width="51" height="20" class="total" />再計算</a>--></td>
 			</tr>
