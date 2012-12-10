@@ -12,7 +12,6 @@
 <%@ taglib uri="/clientsidevalidation.tld" prefix="f" %> 
 
 <%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
-
 <table>
 		<thead>
 		<tr>
@@ -38,7 +37,7 @@
 				<td align="center">￥<bean:write name="choise" property="pricewithtax" format="###,###,###"/></td>
 			</tr>
 		</c:forEach>
-		￥<fmt:formatNumber value="${choise.carriage}" pattern="###,###,###"/>
+		<fmt:formatNumber value="${choise.carriage}" pattern="###,###,###"/>
 		<tr class="total">
 				<td colspan="5" class="title">送料</td>
 				<td align="center">￥<fmt:formatNumber value="${purchase.carriage}" pattern="###,###,###"/></td>
