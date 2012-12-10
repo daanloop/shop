@@ -27,7 +27,7 @@
 <p class="finishTitle">お申し込み完了<p>
 <p class="thanksTxt">この度は、AFRICA & LEOネットショップをご利用頂きまして誠にありがとうございます。<br />
 ご注文のご確認の自動配信メールを、お客様に設定して頂きましたメールアドレスに配信させて頂いております。<br />
-万が一、自動配信メールが届いていない場合は、お手数でございますが、 <a href="mailto:info@africaandleo.com;">info@africaandleo.com</a>へ<br />
+万が一、自動配信メールが届いていない場合は、お手数でございますが、 <a href="mailto:aandl.order@gmail.com;">aandl.order@gmail.com</a>へ<br />
 ご連絡頂きますようお願い申し上げます。</p>
 
 </div>
