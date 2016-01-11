@@ -1,18 +1,13 @@
 // license-header java merge-point
 package net.malta.model.crud;
 
+import org.apache.commons.lang.StringUtils;
+import org.apache.struts.action.*;
 import org.apache.struts.actions.DispatchAction;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForward;
-import org.apache.struts.action.ActionMessage;
-import org.apache.struts.action.ActionMessages;
 
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.lang.StringUtils;
+import javax.servlet.http.HttpSession;
 
 public final class ManageProduct extends DispatchAction
 {
@@ -41,10 +36,11 @@ public final class ManageProduct extends DispatchAction
             , (StringUtils.isBlank(request.getParameter("stocknum"))) ? 0 : form.getStocknum()
             , (StringUtils.isBlank(request.getParameter("removed"))) ? false : form.isRemoved()
             , (StringUtils.isBlank(request.getParameter("mainitemname"))) ? null : form.getMainitemname()
-            , (StringUtils.isBlank(request.getParameter("items"))) ? null : form.getItems()
-            , (StringUtils.isBlank(request.getParameter("category"))) ? null : form.getCategory()
+            , (StringUtils.isBlank(request.getParameter("items"))) ? null : String.valueOf(form.getItems())
+            , (StringUtils.isBlank(request.getParameter("category"))) ? null : new Integer[]{form.getCategory()}
             , (StringUtils.isBlank(request.getParameter("thumnail"))) ? null : form.getThumnail()
             , (StringUtils.isBlank(request.getParameter("slideshow"))) ? null : form.getSlideshow()
+                , (StringUtils.isBlank(request.getParameter("slideshow"))) ? null : form.getSlideshow()
         );
 
         return preload(mapping, actionForm, request, response);
@@ -69,10 +65,11 @@ public final class ManageProduct extends DispatchAction
             , (StringUtils.isBlank(request.getParameter("stocknum"))) ? 0 : form.getStocknum()
             , (StringUtils.isBlank(request.getParameter("removed"))) ? false : form.isRemoved()
             , (StringUtils.isBlank(request.getParameter("mainitemname"))) ? null : form.getMainitemname()
-            , (StringUtils.isBlank(request.getParameter("items"))) ? null : form.getItems()
-            , (StringUtils.isBlank(request.getParameter("category"))) ? null : form.getCategory()
+            , (StringUtils.isBlank(request.getParameter("items"))) ? null : String.valueOf(form.getItems())
+            , (StringUtils.isBlank(request.getParameter("category"))) ? null : new Integer[]{form.getCategory()}
             , (StringUtils.isBlank(request.getParameter("thumnail"))) ? null : form.getThumnail()
-            , (StringUtils.isBlank(request.getParameter("slideshow"))) ? null : form.getSlideshow()
+            , (StringUtils.isBlank(request.getParameter("slideshow"))) ? null : form.getSlideshow() ,
+                (StringUtils.isBlank(request.getParameter("slideshow"))) ? null : form.getSlideshow()
         );
         form.setManageableList(list);
 
@@ -154,10 +151,11 @@ public final class ManageProduct extends DispatchAction
             , (StringUtils.isBlank(request.getParameter("stocknum"))) ? 0 : form.getStocknum()
             , (StringUtils.isBlank(request.getParameter("removed"))) ? false : form.isRemoved()
             , (StringUtils.isBlank(request.getParameter("mainitemname"))) ? null : form.getMainitemname()
-            , (StringUtils.isBlank(request.getParameter("items"))) ? null : form.getItems()
-            , (StringUtils.isBlank(request.getParameter("category"))) ? null : form.getCategory()
+            , (StringUtils.isBlank(request.getParameter("items"))) ? null : String.valueOf(form.getItems())
+            , (StringUtils.isBlank(request.getParameter("category"))) ? null : new Integer[]{form.getCategory()}
             , (StringUtils.isBlank(request.getParameter("thumnail"))) ? null : form.getThumnail()
             , (StringUtils.isBlank(request.getParameter("slideshow"))) ? null : form.getSlideshow()
+                ,(StringUtils.isBlank(request.getParameter("slideshow"))) ? null : form.getSlideshow()
         );
 
         return preload(mapping, actionForm, request, response);

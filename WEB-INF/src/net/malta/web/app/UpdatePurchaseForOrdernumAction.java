@@ -1,28 +1,23 @@
 package net.malta.web.app;
 
-import net.malta.model.*;
-import net.malta.beans.*;
-
-import java.io.File;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import net.enclosing.util.StringFullfiller;
-import net.enclosing.util.HTTPGetRedirection;
 import net.enclosing.util.HibernateSession;
-
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.lang.StringUtils;
-
+import net.malta.beans.PurchaseForm;
+import net.malta.model.Purchase;
+import net.malta.model.PurchaseImpl;
+import net.storyteller.desktop.CopyProperties;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 
 public class UpdatePurchaseForOrdernumAction extends Action{
@@ -54,7 +49,7 @@ public class UpdatePurchaseForOrdernumAction extends Action{
                    
                 execute(purchase,session);
 
-
+	return new ActionForward();
 	}
 	public static void main(String[] args) {
 		try {

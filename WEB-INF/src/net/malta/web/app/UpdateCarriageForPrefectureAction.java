@@ -1,44 +1,26 @@
 package net.malta.web.app;
 
+import net.enclosing.util.HTTPGetRedirection;
+import net.enclosing.util.HibernateSession;
+import net.enclosing.util.StringFullfiller;
+import net.malta.beans.PublicUserForm;
 import net.malta.model.*;
 import net.malta.web.utils.DeliveryMethodUtils;
 import net.malta.web.utils.SessionData;
-import net.malta.beans.*;
-import net.storyteller.desktop.CopyProperties;
-
-import java.io.File;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import net.enclosing.util.StringFullfiller;
-import net.enclosing.util.HTTPGetRedirection;
-import net.enclosing.util.HibernateSession;
-
-import net.malta.model.GiftCard;
-import net.malta.model.Prefecture;
-import net.malta.model.PublicUser;
-import net.malta.model.PublicUserImpl;
-import net.malta.model.Purchase;
-
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.lang.StringUtils;
-
-import org.apache.poi.poifs.property.Child;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 
 public class UpdateCarriageForPrefectureAction extends Action{
@@ -164,10 +146,10 @@ public class UpdateCarriageForPrefectureAction extends Action{
 			publicUser.setRegisted(publicUserform.isRegisted());
 		}
 		publicUser.setTemp(new Boolean(false));
-		publicUser.setHasgiftcard(publicUserform.isHasgiftcard());
-		publicUser.setPreferredtime(publicUserform.getPreferredtime());
+		//publicUser.setsetHasgiftcard(publicUserform.isHasgiftcard());
+		//publicUser.setsetPreferredtime(publicUserform.getPreferredtime());
 		publicUser.setPref(publicUserform.getPref());
-		publicUser.setPreferreddatedate(publicUserform.getPreferreddatedate());
+		//publicUser.setPreferreddatedate(publicUserform.getPreferreddatedate());
 		StringFullfiller.fullfil(publicUser);
                 
 		Integer prefectureInt = publicUserform.getPrefecture();
@@ -182,7 +164,7 @@ public class UpdateCarriageForPrefectureAction extends Action{
 		criteria2 = session.createCriteria(GiftCard.class);
 		criteria2.add(Restrictions.idEq(giftcardInt));
 		GiftCard giftcard = (GiftCard) criteria2.uniqueResult();
-		publicUser.setGiftCard(giftcard);
+		//publicUser.setGiftCard(giftcard);
 		purchase.setTotal(total);
 		
 		Transaction transaction = session.beginTransaction();

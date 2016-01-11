@@ -1,33 +1,25 @@
 package net.malta.web.app;
 
-import net.malta.model.*;
-import net.malta.beans.*;
-
-
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import net.enclosing.util.HTTPGetRedirection;
+import net.enclosing.util.HibernateSession;
 import net.enclosing.util.StringFullfiller;
-
-import org.apache.commons.beanutils.BeanUtils;
+import net.malta.beans.AttachmentForm;
+import net.malta.model.Attachment;
+import net.malta.model.AttachmentImpl;
+import net.malta.model.DbFile;
+import net.malta.model.Item;
+import net.malta.web.utils.AttachmentUtils;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.upload.FormFile;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class AttachmentFormFileUploadAddingToItemAction extends Action{
 	public ActionForward execute(
@@ -43,7 +35,7 @@ public class AttachmentFormFileUploadAddingToItemAction extends Action{
 		if(! (attachmentform.getFormFiles()[0].getFileName().endsWith(".jpg") || attachmentform.getFormFiles()[0].getFileName().endsWith(".JPG") || attachmentform.getFormFiles()[0].getFileName().endsWith(".JPEG") )){
 			req.getSession().setAttribute("systemmessage","画像はJPEG画像のみアップロード可能です。");
 //			new HTTPGetRedirection(req, res, "##secoundmodelclass##Detail.do", attachmentform.getItem().toString());
-			req.setAttribute("id",attachmentform.getItem());
+		//	req.setAttribute("id",attachmentform.getItem());
 			return mapping.findForward("error");
 		}
 		
@@ -58,7 +50,7 @@ public class AttachmentFormFileUploadAddingToItemAction extends Action{
 		Item item = (Item) criteria2
 				.uniqueResult();
 //		attachment.setItem(item);
-                  item.setAttachment(attachment);
+      //            item.setAttachment(attachment);
 
 		DbFile dbFile =  AttachmentUtils.createDbFileFromFormFile(attachmentform.getFormFiles()[0]);
 		attachment.setDbFile(dbFile);

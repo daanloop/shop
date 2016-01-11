@@ -3,6 +3,10 @@ package net.malta.web.app;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.enclosing.util.HibernateSession;
 import net.malta.model.Category;
 import net.malta.model.Product;
@@ -31,6 +35,9 @@ public class ProductListAction extends Action{
 
 		Session session = new HibernateSession().currentSession(this
 				.getServlet().getServletContext());
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
 
 		Criteria criteria = session.createCriteria(Product.class);
 		criteria.addOrder(Order.desc("id"));
@@ -72,21 +79,25 @@ public class ProductListAction extends Action{
         }
         
 		int max=pagination.getMax(criteria.list().size(), pagesize);
-		req.setAttribute("max", max);
+
+		JsonObject maxProducts = new JsonObject();
+		maxProducts.addProperty("max", max);
+		jsonElements.add(maxProducts);
 
 //		criteria.setMaxResults(pagesize);
 		criteria.setFirstResult(offset);
-		
-		
-		req.setAttribute("products",criteria.list());
-		
+
 		/*Criteria criteriaAward = session.createCriteria(Award.class);
 		req.setAttribute("pages", 1 + ( (int ) ( criteriaAward.list().size() / pagesize ) ));*/
-		
 
+		JsonObject products = new JsonObject();
+		products.addProperty("products", gson.toJson(criteria.list()));
+		jsonElements.add(products);
 
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
 
-		return mapping.findForward("success");
+		return null;
 /*
 				
 		<c:forEach var="page" begin="1" end="${pages}">

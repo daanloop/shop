@@ -1,20 +1,11 @@
 package net.malta.web.app;
 
-import net.malta.model.*;
-import net.malta.beans.*;
-
-import java.io.File;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import net.enclosing.util.StringFullfiller;
 import net.enclosing.util.HTTPGetRedirection;
 import net.enclosing.util.HibernateSession;
-
-import org.apache.commons.beanutils.BeanUtils;
+import net.enclosing.util.StringFullfiller;
+import net.malta.beans.DeliveryAddressForm;
+import net.malta.model.*;
 import org.apache.commons.lang.StringUtils;
-
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -23,6 +14,9 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 
 public class PostDeliveryAddressVPAction extends Action{
@@ -110,7 +104,7 @@ public class PostDeliveryAddressVPAction extends Action{
 		deliveryAddress.setPref(deliveryAddressform.getPref());
 		deliveryAddress.setBuildingname(deliveryAddressform.getBuildingname());
 		deliveryAddress.setPhone(deliveryAddressform.getPhone());
-		deliveryAddress.setPreferreddatedate(deliveryAddressform.getPreferreddatedate());
+		deliveryAddress.setPreferreddate(deliveryAddressform.getPreferreddate());
 		deliveryAddress.setPreferredtime(deliveryAddressform.getPreferredtime());
 		deliveryAddress.setHasgiftcard(deliveryAddressform.isHasgiftcard());
 		deliveryAddress.setAddress(deliveryAddressform.getAddress());

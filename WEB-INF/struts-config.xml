@@ -92,9 +92,7 @@
     <action path="/PostProductDetail" type="net.malta.web.app.PostProductDetailAction">
       <forward name="success" path="/pages/app/PostProductDetail.jsp"/>
     </action>
-    <action path="/ProductList" type="net.malta.web.app.ProductListAction">
-      <forward name="success" path="/pages/app/ProductList.jsp"/>
-    </action>
+    <action path="/ProductList" type="net.malta.web.app.ProductListAction"/>
     <action path="/PostCarriageDetail" type="net.malta.web.app.PostCarriageDetailAction">
       <forward name="success" path="/pages/app/PostCarriageDetail.jsp"/>
     </action>
@@ -200,9 +198,7 @@
     <action path="/MailAboutPurchaseToAdmin" type="net.malta.web.app.MailAboutPurchaseToAdminAction"/>
     <action path="/MailAboutPurchaseToPublicUser" type="net.malta.web.app.MailAboutPurchaseToPublicUserAction"/>
     <action path="/DeleteAttachment" type="net.malta.web.app.DeleteAttachmentAction"/>
-    <action path="/ShowProduct" type="net.malta.web.app.ShowProductAction">
-      <forward name="success" path="/pages/app/ShowProduct.jsp"/>
-    </action>
+    <action path="/ShowProduct" type="net.malta.web.app.ShowProductAction"/>
     <action path="/ProductsForThumnailsXml" type="net.malta.web.app.ProductsForThumnailsXmlAction">
       <forward name="success" path="/pages/app/ProductsForThumnailsXml.jsp"/>
     </action>

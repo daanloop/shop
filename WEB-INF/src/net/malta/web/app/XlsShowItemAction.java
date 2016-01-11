@@ -1,20 +1,9 @@
 package net.malta.web.app;
 
-import net.malta.model.*;
-import net.malta.beans.*;
-
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import net.enclosing.util.HibernateSession;
 import net.enclosing.util.MergeXls;
-
+import net.malta.model.Item;
+import net.malta.model.ItemImpl;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -23,7 +12,12 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import filters.pmcsm.HibernateSession;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class XlsShowItemAction extends Action{
 	public ActionForward execute(
@@ -50,7 +44,7 @@ public class XlsShowItemAction extends Action{
 		
 		Map map = new HashMap();
 		map.put("item.name",item.getName());
-		map.put("item.attr1",item.getAttr1());
+		//map.put("item.attr1",item.getAttr1());
 		
 		
 		File file = new File(this.getServlet().getServletContext().getRealPath("XlsShowItem.xls"));
