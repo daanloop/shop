@@ -18,7 +18,15 @@ public class GMOPaymentWrapper {
 	 */
 	public void executePayment(PaymentGatewayConfiguration paymentGatewayConfiguration) throws PaymentException {
 		// 決済実行、実行内容はインターフェースの実装クラスによる
-		paymentGatewayConfiguration.executePaymentGateway();
+		try {
+			paymentGatewayConfiguration.executePaymentGateway();
+		} catch (PaymentException paymentException) {
+			// APIのエラーはそのままスローする
+			throw paymentException;
+		} catch (Exception exception) {
+			// その他のエラーはラップしてスローする
+			throw new PaymentException(exception);
+		}
 	}
 
 }
