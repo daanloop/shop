@@ -1,11 +1,12 @@
 package com.getsecual.shop.payment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.gmo_pg.g_pay.client.common.PaymentException;
 import com.gmo_pg.g_pay.client.impl.PaymentClientImpl;
-import com.gmo_pg.g_pay.client.input.ExecTranInput;
-import com.gmo_pg.g_pay.client.output.ExecTranOutput;
+import com.gmo_pg.g_pay.client.input.EntryExecTranInput;
+import com.gmo_pg.g_pay.client.output.EntryExecTranOutput;
 
 /**
  * ◇カード番号を入力して決済する＜本人認証サービスを未使用＞
@@ -15,11 +16,11 @@ import com.gmo_pg.g_pay.client.output.ExecTranOutput;
  * @author
  *
  */
-public class BankingPaymentGatewayConfiguration extends ExecTranInput implements
+public class BankingPaymentGatewayConfiguration extends EntryExecTranInput implements
 		PaymentGatewayConfiguration {
 
 	// エラー情報
-	private List errList = null;
+	private List entryErrList = null;
 
 	/**
 	 * 決済実行
@@ -28,12 +29,16 @@ public class BankingPaymentGatewayConfiguration extends ExecTranInput implements
 	@Override
 	public void executePaymentGateway() throws PaymentException {
 		PaymentClientImpl paymentClientImpl = new PaymentClientImpl();
+
 		// 決済実行
-		ExecTranOutput execTranOutput = paymentClientImpl.doExecTran(this);
+		EntryExecTranOutput entryExecTranOutput = paymentClientImpl.doEntryExecTran(this);
 
 		// 結果確認
-		if (execTranOutput.isErrorOccurred()) {
-			errList = execTranOutput.getErrList();
+		if (entryExecTranOutput.isErrorOccurred()) {
+			entryErrList = new ArrayList();
+			entryErrList.addAll(entryExecTranOutput.getEntryErrList());
+			entryErrList.addAll(entryExecTranOutput.getExecErrList());
+
 		}
 	}
 
@@ -44,7 +49,7 @@ public class BankingPaymentGatewayConfiguration extends ExecTranInput implements
 	 */
 	@Override
 	public List getErrList() {
-		return this.errList;
+		return this.entryErrList;
 	}
 
 }
