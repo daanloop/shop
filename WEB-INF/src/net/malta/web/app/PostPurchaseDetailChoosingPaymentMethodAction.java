@@ -47,14 +47,10 @@ public class PostPurchaseDetailChoosingPaymentMethodAction extends Action{
 			criteria.add(Restrictions.idEq(purchaseform.getId()));
 			purchase = (Purchase) criteria.uniqueResult();
 		}
-		
 
 		req.setAttribute("model",purchase);
 		req.setAttribute("form",purchaseform);
 
-
-                   
-		
 		return mapping.findForward("success");
 	}
 	

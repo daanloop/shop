@@ -3,6 +3,10 @@ package net.malta.web.app;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.malta.model.*;
 import net.malta.beans.*;
 
@@ -56,23 +60,34 @@ public class PostDeliveryAddressDetailAction extends Action{
 		}
 		
 		StringFullfiller.fullfil(deliveryAddressform);
-		
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
 		
 		req.setAttribute("model",deliveryAddress);
 		req.setAttribute("form",deliveryAddressform);
 		//req.setAttribute("publicUser", deliveryAddress.getPublicUser());
 		if(StringUtils.isNotBlank(req.getParameter("deliverymethod"))){
 			Integer deliverymethodInteger = Integer.valueOf(req.getParameter("deliverymethod"));
-			req.getSession().setAttribute("deliverymethod", deliverymethodInteger);
+
+			JsonObject deliverymethodJson = new JsonObject();
+			deliverymethodJson.addProperty("deliverymethod", deliverymethodInteger);
+			jsonElements.add(deliverymethodJson);
 		}
 
 
 		Criteria criteriaGiftCard= session.createCriteria(GiftCard.class);
-		req.setAttribute("GiftCards", criteriaGiftCard.list());
+		JsonObject giftCardsJson = new JsonObject();
+		giftCardsJson.addProperty("GiftCards", gson.toJson(criteriaGiftCard.list()));
+		jsonElements.add(giftCardsJson);
 
 		Criteria criteriaPrefecture = session.createCriteria(Prefecture.class);
-		req.setAttribute("Prefectures", criteriaPrefecture.list());
-		
+		JsonObject prefecturesJson = new JsonObject();
+		prefecturesJson.addProperty("Prefectures", gson.toJson(criteriaPrefecture.list()));
+		jsonElements.add(prefecturesJson);
+
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
 		return mapping.findForward("success");
 	}
 	

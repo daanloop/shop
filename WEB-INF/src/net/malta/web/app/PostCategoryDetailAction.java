@@ -32,7 +32,6 @@ public class PostCategoryDetailAction extends Action{
 		Session session = new HibernateSession().currentSession(this
 				.getServlet().getServletContext());
 
-
 		Category category = new CategoryImpl();
 		CategoryForm categoryform = new CategoryForm();
 		Criteria criteria = session.createCriteria(Category.class);
@@ -51,9 +50,6 @@ public class PostCategoryDetailAction extends Action{
 
 		req.setAttribute("model",category);
 		req.setAttribute("form",categoryform);
-
-
-                   
 		
 		return mapping.findForward("success");
 	}

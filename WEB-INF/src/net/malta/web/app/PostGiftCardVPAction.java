@@ -68,7 +68,7 @@ public class PostGiftCardVPAction extends Action{
 		}
 
 		
-		new HTTPGetRedirection(req, res, "PostGiftCardDetail.do", giftCard.getId().toString());
+		new HTTPGetRedirection(req, res, "PostGiftCardDetail.html", giftCard.getId().toString());
 		return null;
 
 		

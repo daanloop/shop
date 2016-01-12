@@ -7,6 +7,10 @@ import java.util.TreeMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.enclosing.util.HTTPGetRedirection;
 import net.enclosing.util.HibernateSession;
 import net.malta.model.Choise;
@@ -52,18 +56,16 @@ public class ShowPurchaseForConfirmationAction extends Action {
 				}
 			}
 			if(!flag){
-				new HTTPGetRedirection(req, res, "DeliveryAddressChoiseList.do", null,"notfixed=true");
+				new HTTPGetRedirection(req, res, "DeliveryAddressChoiseList.html", null,"notfixed=true");
 				return null;
 			}
 
 		}
-		
-		
-		
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
 
 		Criteria criteria = session.createCriteria(Purchase.class);
-
-
 		
 		System.err.println("----------------------------------------------------------------- mark 1000000000000000");
 		Criteria criteriadeliveryaddress=session.createCriteria(DeliveryAddress.class);
@@ -71,7 +73,11 @@ public class ShowPurchaseForConfirmationAction extends Action {
 		/*criteriadeliveryaddress.add(Restrictions.eq("publicUser",purchase.getPublicUser()));*/
 		if(req.getSession().getAttribute("deliverymethod")!=null){
 			Integer deliverymethodInteger = (Integer)req.getSession().getAttribute("deliverymethod");
-			req.getSession().setAttribute("deliverymethod", deliverymethodInteger);
+
+			JsonObject deliverymethodJson = new JsonObject();
+			deliverymethodJson.addProperty("deliverymethod", deliverymethodInteger);
+			jsonElements.add(deliverymethodJson);
+
 			if(deliverymethodInteger.intValue()==2){
 				criteriadeliveryaddress.setMaxResults(1);
 				criteriadeliveryaddress.addOrder(Order.desc("id"));
@@ -89,15 +95,23 @@ public class ShowPurchaseForConfirmationAction extends Action {
 					}
 				}
 				System.err.println("here --------------------------");
-				req.setAttribute("deliveryAddress", map.values());
+
+				JsonObject deliveryAddressJson = new JsonObject();
+				deliveryAddressJson.addProperty("deliveryAddress", gson.toJson(map.values()));
+				jsonElements.add(deliveryAddressJson);
 			}
 		}
 		
 		Criteria criteriaPaymentMethod = session.createCriteria(PaymentMethod.class);
-		req.setAttribute("PaymentMethods", criteriaPaymentMethod.list());
-		
+
+		JsonObject paymentMethodsJson = new JsonObject();
+		paymentMethodsJson.addProperty("PaymentMethods", gson.toJson(criteriaPaymentMethod.list()));
+		jsonElements.add(paymentMethodsJson);
+
 		//req.getSession().setAttribute("deliverymethod",req.getParameter("deliverymethod") );
 
-		return mapping.findForward("success");
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
+		return null;
 	}
 }

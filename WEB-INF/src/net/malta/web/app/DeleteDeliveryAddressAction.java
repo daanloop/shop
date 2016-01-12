@@ -27,7 +27,7 @@ public class DeleteDeliveryAddressAction extends Action{
 				.getServlet().getServletContext());
 		
 		if(req.getParameter("id")==null || req.getParameter("id").equals("")) {
-			new HTTPGetRedirection(req, res, "DeliveryAddressList.do",null);
+			new HTTPGetRedirection(req, res, "DeliveryAddressList.html",null);
 			return null;
 		}
 
@@ -40,7 +40,7 @@ public class DeleteDeliveryAddressAction extends Action{
 		transaction.commit();
 		session.flush();
 
-		new HTTPGetRedirection(req, res, "DeliveryAddressList.do",null);
+		new HTTPGetRedirection(req, res, "DeliveryAddressList.html",null);
 		return null;
 	}
 }

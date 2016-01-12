@@ -3,6 +3,8 @@ package net.malta.web.app;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import net.enclosing.util.HibernateSession;
 import net.malta.model.DeliveryAddress;
 import net.malta.model.PublicUser;
@@ -35,14 +37,16 @@ public class DeliveryAddressListAction extends Action {
 		// }
 		criteria.createCriteria("publicUser").add(Restrictions.eq("id", pu.getId()));
 
-		req.setAttribute("deliveryAddresss", criteria.list());
 		DeliveryMethodUtils.setIntoSesssion(req);
 
 		// Criteria criteriaAward = session.createCriteria(Award.class);
 		// req.setAttribute("pages", 1 + ( (int ) ( criteriaAward.list().size()
 		// / pagesize ) ));
 
-		return mapping.findForward("success");
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(criteria.list()));
+		return null;
 	}
 
 

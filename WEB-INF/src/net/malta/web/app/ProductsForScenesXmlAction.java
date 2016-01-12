@@ -1,5 +1,9 @@
 package net.malta.web.app;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.malta.model.*;
 import net.malta.beans.*;
 
@@ -38,22 +42,20 @@ public class ProductsForScenesXmlAction extends Action{
 			HttpServletRequest req,
 			HttpServletResponse res) throws Exception{
 
-
-
 		Session session = new HibernateSession().currentSession(this
 				.getServlet().getServletContext(),60);
 
-                Vector vector = new Vector();
+		Vector vector = new Vector();
 		Criteria criteria = session.createCriteria(Product.class);
         criteria.addOrder(Order.desc("id"));
 
-if(StringUtils.isNotBlank(req.getParameter("removed"))){   if(req.getParameter("removed").equals("true")){
-      criteria.add(Restrictions.eq("removed",true));
-   }else{
-      criteria.add(Restrictions.eq("removed",false));
-   }
-}
-
+		if(StringUtils.isNotBlank(req.getParameter("removed"))){
+			if(req.getParameter("removed").equals("true")){
+				criteria.add(Restrictions.eq("removed",true));
+			}else{
+				criteria.add(Restrictions.eq("removed",false));
+			}
+		}
 
 		if(StringUtils.isNotBlank(req.getParameter("category"))) {
 			Criteria criteria2 = session.createCriteria(Category.class);
@@ -61,11 +63,8 @@ if(StringUtils.isNotBlank(req.getParameter("removed"))){   if(req.getParameter("
 			Category category = (Category) criteria2.uniqueResult();
 			criteria.add(Restrictions.eq("category", category));
 		}
- 
 
-
-
-	      criteria.add(Restrictions.eq("pub",true));
+		criteria.add(Restrictions.eq("pub",true));
 //
 //
 //if(StringUtils.isNotBlank(req.getParameter("pub"))){   if(req.getParameter("pub").equals("true")){
@@ -75,21 +74,18 @@ if(StringUtils.isNotBlank(req.getParameter("removed"))){   if(req.getParameter("
 //   }
 //}
 
-
-
-
-
-
 		if(StringUtils.isNotBlank(req.getParameter("datestartdate")) && StringUtils.isNotBlank(req.getParameter("dateenddate"))){
 			Date  startDate = (new SimpleDateFormat("yyyy/MM/dd")).parse(req.getParameter("datestartdate"));
 			Date endDate = (new SimpleDateFormat("yyyy/MM/dd")).parse(req.getParameter("dateenddate"));
 			criteria.add(Restrictions.between("date", startDate, endDate));
 		}
 
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
 
-
-		req.setAttribute("products",criteria.list());
-
+		JsonObject productJson = new JsonObject();
+		productJson.addProperty("products", gson.toJson(criteria.list()));
+		jsonElements.add(productJson);
 
 //		for (Iterator iter = criteria.list().iterator(); iter.hasNext();) {
 //			Product product = (Product) iter.next();
@@ -110,25 +106,21 @@ if(StringUtils.isNotBlank(req.getParameter("removed"))){   if(req.getParameter("
 			criteria.add(Restrictions.idEq(productform.getId()));
 			product = (Product) criteria.uniqueResult();
 		}
-		
 
 		req.setAttribute("model",product);
 		req.setAttribute("form",productform);
 		
-		
+		Criteria criteriaCategory= session.createCriteria(Category.class);
+		JsonObject categories = new JsonObject();
+		categories.addProperty("Categories", gson.toJson(criteriaCategory.list()));
+		jsonElements.add(categories);
 
+		if(req.getParameter("displayexport") !=null){
+			return mapping.findForward("displayexport");
+		}
 
-                  Criteria criteriaCategory= session.createCriteria(Category.class);
-			req.setAttribute("Categorys", criteriaCategory.list());
-
- 
-
-		
-
-                if(req.getParameter("displayexport") !=null){
-     		    return mapping.findForward("displayexport");
-                }
-
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
 		return mapping.findForward("success");
 	}
 	

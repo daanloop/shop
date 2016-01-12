@@ -62,13 +62,13 @@ public class LoginAction extends Action{
 				req.setAttribute("message","ユーザが存在しないか、パスワードが間違っています。");
 			}
 			//return mapping.findForward("error");
-			new HTTPGetRedirection(req,res,"PostPublicUserDetail.do",null);
+			new HTTPGetRedirection(req,res,"PostPublicUserDetail.html",null);
 			return null;
 		}
 		//session.flush();
 		//new HTTPGetRedirection(req,res,"index.jsp","");
 		
-		new HTTPGetRedirection(req,res,"PostPublicUserDetail.do",null,"login=t");
+		new HTTPGetRedirection(req,res,"PostPublicUserDetail.html",null,"login=t");
 		return null;
 	}
 

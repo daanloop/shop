@@ -52,7 +52,7 @@ public class PostPurchaseVPChoosingPaymentMethodAction extends Action {
 		if(StringUtils.isNotBlank(error)){
 			req.getSession().setAttribute("error",error);
 			req.setAttribute("form",purchaseform);
-			new HTTPGetRedirection(req, res, "ShowPurchaseForConfirmation.do", null);
+			new HTTPGetRedirection(req, res, "ShowPurchaseForConfirmation.html", null);
 			return null;
 		}
 
@@ -173,13 +173,13 @@ public class PostPurchaseVPChoosingPaymentMethodAction extends Action {
 		if (StringUtils.isNotBlank(req.getParameter("from"))
 				&& !req.getParameter("from").equals("")) {
 			System.err.println("mark 1");
-			new HTTPGetRedirection(req, res, "PostPurchaseDetail.do", purchase
+			new HTTPGetRedirection(req, res, "PostPurchaseDetail.html", purchase
 					.getId().toString(),"deliverymethod="+req.getParameter("deliverymethod"));
 			return null;
 		}
 
 		System.err.println("mark 2, navigating to ForSettingNonTemp.");
-		new HTTPGetRedirection(req, res, "PostPurchaseVPForSettingNonTemp.do",
+		new HTTPGetRedirection(req, res, "PostPurchaseVPForSettingNonTemp.html",
 				purchase.getId().toString(),"temp=0&deliverymethod="+req.getParameter("deliverymethod"));
 		return null;
 	}

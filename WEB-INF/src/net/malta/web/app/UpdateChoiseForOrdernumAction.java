@@ -59,7 +59,7 @@ public class UpdateChoiseForOrdernumAction extends Action{
 		}
 		execute(choise,session);
 		
-		new HTTPGetRedirection(req, res, "ShowPurchase.do",null);
+		new HTTPGetRedirection(req, res, "ShowPurchase.html",null);
 		return null;
 	}
 	

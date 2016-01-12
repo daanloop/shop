@@ -246,10 +246,10 @@ public class PostPublicUserVPAction extends Action{
 		//new HTTPGetRedirection(req, res, "Login.do", null, "mail="+publicUser.getMail()+"&password="+publicUser.getPassword());
 		if (StringUtils.isNotBlank(req.getParameter("from"))
 				&& !req.getParameter("from").equals("")) {
-			new HTTPGetRedirection(req, res, "PostPublicUserDetail.do", publicUser.getId().toString());
+			new HTTPGetRedirection(req, res, "PostPublicUserDetail.html", publicUser.getId().toString());
 			return null;
 		}else{
-			new HTTPGetRedirection(req, res, "ShowPurchaseForConfirmation.do", null, "deliverymethod="+req.getParameter("deliverymethod"));
+			new HTTPGetRedirection(req, res, "ShowPurchaseForConfirmation.html", null, "deliverymethod="+req.getParameter("deliverymethod"));
 			return null;
 		}
 //		

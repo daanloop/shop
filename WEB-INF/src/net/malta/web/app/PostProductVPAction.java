@@ -135,11 +135,11 @@ public class PostProductVPAction extends Action{
 		}
 		
 		if(StringUtils.isNotBlank(req.getParameter("from")) && "detail".equals(req.getParameter("from"))){
-			new HTTPGetRedirection(req, res, "PostProductDetail.do", product.getId().toString());
+			new HTTPGetRedirection(req, res, "PostProductDetail.html", product.getId().toString());
 			return null;
 		}
 
-		new HTTPGetRedirection(req, res, "Products.do", null);
+		new HTTPGetRedirection(req, res, "Products.html", null);
 		return null;
 	}
 	

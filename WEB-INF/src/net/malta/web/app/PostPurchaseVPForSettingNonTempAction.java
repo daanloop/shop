@@ -100,7 +100,7 @@ public class PostPurchaseVPForSettingNonTempAction extends Action {
 
 		if (StringUtils.isNotBlank(req.getParameter("from"))
 				&& !req.getParameter("from").equals("")) {
-			new HTTPGetRedirection(req, res, "PostPurchaseDetail.do", purchase
+			new HTTPGetRedirection(req, res, "PostPurchaseDetail.html", purchase
 					.getId().toString());
 			return null;
 		}
@@ -143,7 +143,7 @@ public class PostPurchaseVPForSettingNonTempAction extends Action {
 		SessionData.update(publicUser,purchase2,req, res,session);
 
 		System.err.println("mark 6, navigated to ForSettingNonTemp.");
-		new HTTPGetRedirection(req, res, "ShowPurchaseForThanks.do");
+		new HTTPGetRedirection(req, res, "ShowPurchaseForThanks.html");
 		return null;
 	}
 }

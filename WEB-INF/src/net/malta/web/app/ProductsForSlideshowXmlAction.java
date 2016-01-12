@@ -1,5 +1,9 @@
 package net.malta.web.app;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.malta.model.*;
 import net.malta.beans.*;
 
@@ -86,10 +90,12 @@ if(StringUtils.isNotBlank(req.getParameter("removed"))){   if(req.getParameter("
 			criteria.add(Restrictions.between("date", startDate, endDate));
 		}
 
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
 
-
-		req.setAttribute("products",criteria.list());
-
+		JsonObject productJson = new JsonObject();
+		productJson.addProperty("products", gson.toJson(criteria.list()));
+		jsonElements.add(productJson);
 
 //		for (Iterator iter = criteria.list().iterator(); iter.hasNext();) {
 //			Product product = (Product) iter.next();
@@ -110,25 +116,22 @@ if(StringUtils.isNotBlank(req.getParameter("removed"))){   if(req.getParameter("
 			criteria.add(Restrictions.idEq(productform.getId()));
 			product = (Product) criteria.uniqueResult();
 		}
-		
 
 		req.setAttribute("model",product);
 		req.setAttribute("form",productform);
-		
-		
 
+		Criteria criteriaCategory= session.createCriteria(Category.class);
 
-                  Criteria criteriaCategory= session.createCriteria(Category.class);
-			req.setAttribute("Categorys", criteriaCategory.list());
+		JsonObject categories = new JsonObject();
+		categories.addProperty("Categories", gson.toJson(criteriaCategory.list()));
+		jsonElements.add(categories);
 
- 
+		if (req.getParameter("displayexport") != null) {
+			return mapping.findForward("displayexport");
+		}
 
-		
-
-                if(req.getParameter("displayexport") !=null){
-     		    return mapping.findForward("displayexport");
-                }
-
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
 		return mapping.findForward("success");
 	}
 	

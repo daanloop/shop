@@ -3,6 +3,10 @@ package net.malta.web.app;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.malta.model.*;
 import net.malta.model.crud.*;
 
@@ -45,11 +49,20 @@ public class ShowPurchaseForErrorAction extends Action{
 			purchase = (Purchase) criteria.uniqueResult();
 		}
 
-		req.setAttribute("purchase",purchase);
-		
-		req.setAttribute("error", "エラー！！決済システム上でエラーが発生いたしました。購入手続きは完了していません。お手数ですが、もう一度始めからご購入ください。");
-		
-		return mapping.findForward("success");
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
+
+		JsonObject purchaseJson = new JsonObject();
+		purchaseJson.addProperty("purchase", gson.toJson(purchase));
+		jsonElements.add(purchaseJson);
+
+		JsonObject errorJson = new JsonObject();
+		errorJson.addProperty("error", "エラー！！決済システム上でエラーが発生いたしました。購入手続きは完了していません。お手数ですが、もう一度始めからご購入ください。");
+		jsonElements.add(errorJson);
+
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
+		return null;
 	}
 	
 	

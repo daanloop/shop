@@ -113,7 +113,7 @@ public class UpdateDeliveryAddressChoiseAction extends Action{
 			}
 		}
 
-		new HTTPGetRedirection(req, res, "DeliveryAddressChoiseList.do",null);
+		new HTTPGetRedirection(req, res, "DeliveryAddressChoiseList.html",null);
 		return null;
 	}
 	

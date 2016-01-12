@@ -5,6 +5,10 @@ import java.util.Vector;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.enclosing.util.HibernateSession;
 import net.malta.beans.CategoryForm;
 import net.malta.model.Category;
@@ -29,7 +33,12 @@ public class CategorysAction extends Action {
 		Vector vector = new Vector();
 		Criteria criteria = session.createCriteria(Category.class);
 
-		req.setAttribute("categorys", criteria.list());
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
+
+		JsonObject categoriesJson = new JsonObject();
+		categoriesJson.addProperty("categories", gson.toJson(criteria.list()));
+		jsonElements.add(categoriesJson);
 
 		// for (Iterator iter = criteria.list().iterator(); iter.hasNext();) {
 		// Category category = (Category) iter.next();
@@ -57,6 +66,8 @@ public class CategorysAction extends Action {
 			return mapping.findForward("displayexport");
 		}
 
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
 		return mapping.findForward("success");
 	}
 }

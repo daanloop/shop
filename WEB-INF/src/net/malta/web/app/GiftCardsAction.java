@@ -1,5 +1,7 @@
 package net.malta.web.app;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import net.malta.model.*;
 import net.malta.beans.*;
 
@@ -47,9 +49,10 @@ public class GiftCardsAction extends Action{
 
 //                Vector vector = new Vector();
 		Criteria criteria = session.createCriteria(GiftCard.class);
-                
-		req.setAttribute("giftCards",criteria.list());
 
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(criteria.list()));
 
 //		for (Iterator iter = criteria.list().iterator(); iter.hasNext();) {
 //			GiftCard giftCard = (GiftCard) iter.next();
@@ -91,7 +94,7 @@ public class GiftCardsAction extends Action{
 //                }
 
 
-		return mapping.findForward("success");
+		return null;
 	}
 	
 	

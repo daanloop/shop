@@ -75,7 +75,7 @@ public class AttachmentFormFileUploadAddingToProductForThumnailAction extends Ac
 		transaction.commit();
 		session.flush();
 
-		new HTTPGetRedirection(req, res, "PostProductDetail.do", ProductInt.toString());
+		new HTTPGetRedirection(req, res, "PostProductDetail.html", ProductInt.toString());
 		return null;
 	}
 }

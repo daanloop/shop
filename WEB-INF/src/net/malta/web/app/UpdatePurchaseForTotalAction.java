@@ -81,7 +81,7 @@ public class UpdatePurchaseForTotalAction extends Action{
 		transaction.commit();
 		session.flush();
 
-		new HTTPGetRedirection(req, res, "ShowPurchase.do",null);
+		new HTTPGetRedirection(req, res, "ShowPurchase.html",null);
 		return null;
 	}
 	

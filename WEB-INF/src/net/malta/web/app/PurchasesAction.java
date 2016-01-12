@@ -1,5 +1,9 @@
 package net.malta.web.app;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.malta.model.*;
 import net.malta.beans.*;
 
@@ -59,12 +63,13 @@ public class PurchasesAction extends Action{
 		}
 		criteria.add(Restrictions.eq("temp", new Boolean(false)));
 		criteria.add(Restrictions.eq("removed", new Boolean(false)));
- 
 
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
 
-
-		req.setAttribute("purchases",criteria.list());
-
+		JsonObject purchasesJson = new JsonObject();
+		purchasesJson.addProperty("purchases", gson.toJson(criteria.list()));
+		jsonElements.add(purchasesJson);
 
 //		for (Iterator iter = criteria.list().iterator(); iter.hasNext();) {
 //			Purchase purchase = (Purchase) iter.next();
@@ -73,7 +78,6 @@ public class PurchasesAction extends Action{
 		Purchase purchase = new PurchaseImpl();
 		PurchaseForm purchaseform = new PurchaseForm();
 		criteria = session.createCriteria(Purchase.class);
-
 
 		if (req.getAttribute("form")== null && req.getParameter("id")!=null){
 			criteria.add(Restrictions.idEq(Integer.valueOf(req
@@ -85,17 +89,16 @@ public class PurchasesAction extends Action{
 			criteria.add(Restrictions.idEq(purchaseform.getId()));
 			purchase = (Purchase) criteria.uniqueResult();
 		}
-		
 
 		req.setAttribute("model",purchase);
 		req.setAttribute("form",purchaseform);
-		
-		
 
-                if(req.getParameter("displayexport") !=null){
-     		    return mapping.findForward("displayexport");
-                }
+		if(req.getParameter("displayexport") !=null){
+			return mapping.findForward("displayexport");
+		}
 
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
 		return mapping.findForward("success");
 	}
 	

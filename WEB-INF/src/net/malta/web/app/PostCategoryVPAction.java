@@ -56,14 +56,12 @@ public class PostCategoryVPAction extends Action {
 			return mapping.findForward("success");
 		}
 
-		if (StringUtils.isNotBlank(req.getParameter("from"))
-				&& !req.getParameter("from").equals("")) {
-			new HTTPGetRedirection(req, res, "PostCategoryDetail.do", category
-					.getId().toString());
+		if (StringUtils.isNotBlank(req.getParameter("from")) && !req.getParameter("from").equals("")) {
+			new HTTPGetRedirection(req, res, "PostCategoryDetail.html", category.getId().toString());
 			return null;
 		}
 
-		new HTTPGetRedirection(req, res, "Categorys.do", null);
+		new HTTPGetRedirection(req, res, "Categorys.html", null);
 		return null;
 	}
 }

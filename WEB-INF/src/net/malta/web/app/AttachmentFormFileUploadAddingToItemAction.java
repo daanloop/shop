@@ -64,13 +64,8 @@ public class AttachmentFormFileUploadAddingToItemAction extends Action{
 		session.saveOrUpdate(item);
 		transaction.commit();
 		session.flush();
-
-
 		
-		
-		
-		
-		new HTTPGetRedirection(req, res, "PostItemDetail.do", ItemInt.toString());
+		new HTTPGetRedirection(req, res, "PostItemDetail.html", ItemInt.toString());
 		return null;
 		
 	}

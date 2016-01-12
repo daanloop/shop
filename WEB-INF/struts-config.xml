@@ -43,21 +43,15 @@
     <action path="/Admin" type="net.malta.web.app.AdminAction">
       <forward name="success" path="/pages/app/Admin.jsp"/>
     </action>
-    <action path="/ShowPurchaseForConfirmation" type="net.malta.web.app.ShowPurchaseForConfirmationAction">
-      <forward name="success" path="/pages/app/ShowPurchaseForConfirmation.jsp"/>
-    </action>
-    <action path="/ShowPublicUserForPassword" type="net.malta.web.app.ShowPublicUserForPasswordAction">
-      <forward name="success" path="/pages/app/ShowPublicUserForPassword.jsp"/>
-    </action>
+    <action path="/ShowPurchaseForConfirmation" type="net.malta.web.app.ShowPurchaseForConfirmationAction"/>
+    <action path="/ShowPublicUserForPassword" type="net.malta.web.app.ShowPublicUserForPasswordAction"/>
     <action path="/DeletePublicUser" type="net.malta.web.app.DeletePublicUserAction"/>
     <action path="/PostPurchaseDetailChoosingPaymentMethod" type="net.malta.web.app.PostPurchaseDetailChoosingPaymentMethodAction">
       <forward name="success" path="/pages/app/PostPurchaseDetailChoosingPaymentMethod.jsp"/>
     </action>
     <action path="/DeleteChoise" type="net.malta.web.app.DeleteChoiseAction"/>
     <action path="/UpdatePurchaseForOrdernum" type="net.malta.web.app.UpdatePurchaseForOrdernumAction"/>
-    <action path="/DeliveryAddressList" type="net.malta.web.app.DeliveryAddressListAction">
-      <forward name="success" path="/pages/app/DeliveryAddressList.jsp"/>
-    </action>
+    <action path="/DeliveryAddressList" type="net.malta.web.app.DeliveryAddressListAction"/>
     <action path="/PostPublicUserVP" name="PublicUserForm" type="net.malta.web.app.PostPublicUserVPAction">
       <forward name="error" path="/PostPublicUserDetail.do"/>
     </action>
@@ -72,12 +66,8 @@
     </action>
     <action path="/DeleteProduct" type="net.malta.web.app.DeleteProductAction"/>
     <action path="/ShowImage" type="net.malta.web.app.ShowImage"/>
-    <action path="/ShowPurchase" type="net.malta.web.app.ShowPurchaseAction">
-      <forward name="success" path="/pages/app/ShowPurchase.jsp"/>
-    </action>
-    <action path="/ShowDeliveryAddressChoise" type="net.malta.web.app.ShowDeliveryAddressChoiseAction">
-      <forward name="success" path="/pages/app/ShowDeliveryAddressChoise.jsp"/>
-    </action>
+    <action path="/ShowPurchase" type="net.malta.web.app.ShowPurchaseAction"/>
+    <action path="/ShowDeliveryAddressChoise" type="net.malta.web.app.ShowDeliveryAddressChoiseAction"/>
     <action path="/PublicUsers" type="net.malta.web.app.PublicUsersAction">
       <forward name="success" path="/pages/app/PublicUsers.jsp"/>
     </action>
@@ -172,26 +162,18 @@
     <action path="/ProductsForScenesXml" type="net.malta.web.app.ProductsForScenesXmlAction">
       <forward name="success" path="/pages/app/ProductsForScenesXml.jsp"/>
     </action>
-    <action path="/Login" name="PublicUserForm" type="net.malta.web.app.LoginAction">
-      <forward name="success" path="/pages/app/Login.jsp"/>
-    </action>
+    <action path="/Login" name="PublicUserForm" type="net.malta.web.app.LoginAction"/>
     <action path="/Logout" type="net.malta.web.app.LogoutAction"/>
     <action path="/MailAboutPublicUserForPassword" type="net.malta.web.app.MailAboutPublicUserForPasswordAction">
       <forward name="success" path="/pages/app/MailAboutPublicUserForPassword.jsp"/>
     </action>
     <action path="/XlsShowItem" type="net.malta.web.app.XlsShowItemAction"/>
-    <action path="/ShowItemXml" type="net.malta.web.app.ShowItemXmlAction">
-      <forward name="success" path="/pages/app/ShowItemXml.jsp"/>
-    </action>
+    <action path="/ShowItemXml" type="net.malta.web.app.ShowItemXmlAction"/>
     <action path="/ProductsForSlideshowXml" type="net.malta.web.app.ProductsForSlideshowXmlAction">
       <forward name="success" path="/pages/app/ProductsForSlideshowXml.jsp"/>
     </action>
-    <action path="/ShowPurchaseForError" type="net.malta.web.app.ShowPurchaseForErrorAction">
-      <forward name="success" path="/pages/app/ShowPurchaseForError.jsp"/>
-    </action>
-    <action path="/ShowPurchaseForResults" type="net.malta.web.app.ShowPurchaseForResultsAction">
-      <forward name="success" path="/pages/app/ShowPurchaseForResults.jsp"/>
-    </action>
+    <action path="/ShowPurchaseForError" type="net.malta.web.app.ShowPurchaseForErrorAction"/>
+    <action path="/ShowPurchaseForResults" type="net.malta.web.app.ShowPurchaseForResultsAction"/>
     <action path="/RedirctBack" type="net.malta.web.app.RedirctBack">
       <forward name="success" path="/pages/app/RedirctBack.jsp"/>
     </action>
@@ -199,29 +181,25 @@
     <action path="/MailAboutPurchaseToPublicUser" type="net.malta.web.app.MailAboutPurchaseToPublicUserAction"/>
     <action path="/DeleteAttachment" type="net.malta.web.app.DeleteAttachmentAction"/>
     <action path="/ShowProduct" type="net.malta.web.app.ShowProductAction"/>
-    <action path="/ProductsForThumnailsXml" type="net.malta.web.app.ProductsForThumnailsXmlAction">
-      <forward name="success" path="/pages/app/ProductsForThumnailsXml.jsp"/>
-    </action>
-    <action path="/ProductsForScenesXm2" type="net.malta.web.app.ProductsForScenesXm2Action">
-      <forward name="success" path="/pages/app/ProductsForScenesXm2.jsp"/>
-    </action>
+    <action path="/ProductsForThumnailsXml" type="net.malta.web.app.ProductsForThumnailsXmlAction"/>
+    <action path="/ProductsForScenesXm2" type="net.malta.web.app.ProductsForScenesXm2Action"/>
     <action path="/PostGiftCardDetail" type="net.malta.web.app.PostGiftCardDetailAction">
       <forward name="success" path="/pages/app/PostGiftCardDetail.jsp"/>
     </action>
     <action path="/PostGiftCardVP" type="net.malta.web.app.PostGiftCardVPAction" name="GiftCardForm"/>
-    <action path="/GiftCards" type="net.malta.web.app.GiftCardsAction">
-      <forward name="success" path="/pages/app/GiftCards.jsp"/>
-    </action>
-     <action path="/PostPaymentDetail" type="net.malta.web.app.PostPaymentDetailAction">
+    <action path="/GiftCards" type="net.malta.web.app.GiftCardsAction"/>
+
+    <!-- action with empty pages -->
+     <!--<action path="/PostPaymentDetail" type="net.malta.web.app.PostPaymentDetailAction">
       <forward name="success" path="/pages/app/PostPaymentDetail.jsp"/>
-    </action>
-    <action path="/PostPaymentVP" type="net.malta.web.app.PostPaymentVPAction" name="PaymentForm"/>
-    <action path="/Payments" type="net.malta.web.app.PaymentsAction">
+    </action>-->
+    <!--<action path="/PostPaymentVP" type="net.malta.web.app.PostPaymentVPAction" name="PaymentForm"/>-->
+    <!--<action path="/Payments" type="net.malta.web.app.PaymentsAction">
       <forward name="success" path="/pages/app/Payments.jsp"/>
-    </action>
-    <action path="/ShowPayment" type="net.malta.web.app.ShowPaymentAction">
+    </action>-->
+    <!--<action path="/ShowPayment" type="net.malta.web.app.ShowPaymentAction">
       <forward name="success" path="/pages/app/ShowPayment.jsp"/>
-    </action>
+    </action>-->
   </action-mappings>
   <!-- <controller processorClass="net.gasbooknet.web.app.CustomRequestProcessor"/> -->
   <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

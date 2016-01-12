@@ -48,7 +48,7 @@ public class DeletePublicUserAction extends Action{
 		transaction.commit();
 		session.flush();
 
-		new HTTPGetRedirection(req, res, "PublicUsers.do",null);
+		new HTTPGetRedirection(req, res, "PublicUsers.html",null);
 		return null;
 	}
 }

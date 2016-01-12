@@ -3,6 +3,10 @@ package net.malta.web.app;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.enclosing.util.HibernateSession;
 import net.malta.beans.CarriageForm;
 import net.malta.model.Carriage;
@@ -51,15 +55,24 @@ public class PostCarriageDetailAction extends Action{
 //			carriage = (Carriage) criteria.uniqueResult();
 //		}
 //		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
 
-		req.setAttribute("carriagea",carriagea);
-		req.setAttribute("carriageb",carriageb);
-		req.setAttribute("carriagec",carriagec);
+		JsonObject carriageaJson = new JsonObject();
+		carriageaJson.addProperty("carriagea", gson.toJson(carriagea));
+		jsonElements.add(carriageaJson);
 
+		JsonObject carriagebJson = new JsonObject();
+		carriagebJson.addProperty("carriageb", gson.toJson(carriageb));
+		jsonElements.add(carriagebJson);
 
-                   
-		
-		return mapping.findForward("success");
+		JsonObject carriagecJson = new JsonObject();
+		carriagecJson.addProperty("carriagec", gson.toJson(carriagec));
+		jsonElements.add(carriagecJson);
+
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
+		return null;
 	}
 	
 	

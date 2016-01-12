@@ -41,7 +41,7 @@ public class DeleteProductAction extends Action{
 		transaction.commit();
 		session.flush();
 		
-		new HTTPGetRedirection(req, res, "Products.do",null);
+		new HTTPGetRedirection(req, res, "Products.html",null);
 		return null;
 	}
 }

@@ -3,6 +3,10 @@ package net.malta.web.app;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.enclosing.util.HibernateSession;
 import net.malta.model.DeliveryAddress;
 import net.malta.model.DeliveryAddressChoise;
@@ -54,8 +58,13 @@ public class DeliveryAddressChoiseListAction extends Action {
 
 		}
 
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
+
 		int max = pagination.getMax(criteria.list().size(), pagesize);
-		req.setAttribute("max", max);
+		JsonObject maxJson = new JsonObject();
+		maxJson.addProperty("max", gson.toJson(max));
+		jsonElements.add(maxJson);
 
 		criteria.setMaxResults(pagesize);
 		criteria.setFirstResult(offset);
@@ -64,22 +73,33 @@ public class DeliveryAddressChoiseListAction extends Action {
 		if(purchase.getChoises().size()!=0) {
 			criteria.add(Restrictions.in("choise", purchase.getChoises()));
 		}
-		req.setAttribute("deliveryAddressChoises", criteria.list());
+
+		JsonObject deliveryAddressJson = new JsonObject();
+		deliveryAddressJson.addProperty("deliveryAddressChoises", gson.toJson(criteria.list()));
+		jsonElements.add(deliveryAddressJson);
 
 		Criteria criteriaDeliveryAddressChoise = session
 				.createCriteria(DeliveryAddressChoise.class);
-		req.setAttribute("pages", 1 + ((int) (criteriaDeliveryAddressChoise
-				.list().size() / pagesize)));
-		
+
+		int pages = 1 + ((int) (criteriaDeliveryAddressChoise.list().size() / pagesize));
+		JsonObject pagesJson = new JsonObject();
+		pagesJson.addProperty("pages", gson.toJson(pages));
+		jsonElements.add(pagesJson);
+
 		Criteria criteriaDeliveryAddress = session.createCriteria(DeliveryAddress.class);
 		criteriaDeliveryAddress.add(Restrictions.eq("publicUser", publicUser));
-		req.setAttribute("DeliveryAddresss", criteriaDeliveryAddress.list());
-		
+
+		JsonObject deliveryAddressesJson = new JsonObject();
+		deliveryAddressesJson.addProperty("DeliveryAddresss", gson.toJson(criteriaDeliveryAddress.list()));
+		jsonElements.add(deliveryAddressesJson);
+
 //		new DeliveryAddress().getDeliveryAddressChoises();
 //		new DeliveryAddressChoise().getChoise().getItem().getName();
 //		new DeliveryAddressChoise().getOrdernum();
-		
-		return mapping.findForward("success");
+
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
+		return null;
 		/*
 		 * 
 		 * <c:forEach var="page" begin="1" end="${pages}"> <a

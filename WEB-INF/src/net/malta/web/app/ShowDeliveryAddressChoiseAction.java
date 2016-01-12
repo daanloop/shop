@@ -3,6 +3,9 @@ package net.malta.web.app;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import net.malta.model.*;
 import net.malta.model.crud.*;
 
@@ -45,8 +48,9 @@ public class ShowDeliveryAddressChoiseAction extends Action{
 			deliveryAddressChoise = (DeliveryAddressChoise) criteria.uniqueResult();
 		}
 
-		req.setAttribute("deliveryAddressChoise",deliveryAddressChoise);
-		
-		return mapping.findForward("success");
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(deliveryAddressChoise));
+		return null;
 	}
 }

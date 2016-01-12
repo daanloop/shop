@@ -1,5 +1,8 @@
 package net.malta.web.app;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import net.malta.model.*;
 import net.malta.beans.*;
 
@@ -84,9 +87,6 @@ public class ProductsForThumnailsXmlAction extends Action{
 //
 
 
-		req.setAttribute("products",criteria.list());
-
-
 //		for (Iterator iter = criteria.list().iterator(); iter.hasNext();) {
 //			Product product = (Product) iter.next();
 //			vector.add(product);
@@ -105,7 +105,10 @@ public class ProductsForThumnailsXmlAction extends Action{
      		    return mapping.findForward("displayexport");
                 }
 
-		return mapping.findForward("success");
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(criteria.list()));
+		return null;
 	}
 	
 	

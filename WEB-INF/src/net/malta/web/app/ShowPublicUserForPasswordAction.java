@@ -3,6 +3,8 @@ package net.malta.web.app;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import net.enclosing.util.HibernateSession;
 import net.malta.model.PublicUser;
 import net.malta.model.PublicUserImpl;
@@ -37,8 +39,9 @@ public class ShowPublicUserForPasswordAction extends Action {
 			publicUser = (PublicUser) criteria.uniqueResult();
 		}
 
-		req.setAttribute("publicUser", publicUser);
-
-		return mapping.findForward("success");
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(publicUser));
+		return null;
 	}
 }

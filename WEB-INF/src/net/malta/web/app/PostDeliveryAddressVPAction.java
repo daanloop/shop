@@ -138,7 +138,7 @@ public class PostDeliveryAddressVPAction extends Action{
 		 *  then send back to PostDeliveryAddressDetail.do
 		 */
 		if(((Integer)req.getSession().getAttribute("deliverymethod")).intValue() == 2){
-			new HTTPGetRedirection(req, res, "ShowPurchaseForConfirmation.do",null,"deliverymethod=" +  req.getParameter("deliverymethod") );
+			new HTTPGetRedirection(req, res, "ShowPurchaseForConfirmation.html",null,"deliverymethod=" +  req.getParameter("deliverymethod") );
 			return null;
 		}
 		
@@ -149,7 +149,7 @@ public class PostDeliveryAddressVPAction extends Action{
 //			}
 //		}
 		
-		new HTTPGetRedirection(req, res, "DeliveryAddressList.do", null);
+		new HTTPGetRedirection(req, res, "DeliveryAddressList.html", null);
 		return null;
 	}
 }

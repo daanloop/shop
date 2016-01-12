@@ -1,5 +1,9 @@
 package net.malta.web.app;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.malta.model.*;
 import net.malta.beans.*;
 
@@ -37,20 +41,18 @@ public class PaymentMethodsAction extends Action{
 			HttpServletRequest req,
 			HttpServletResponse res) throws Exception{
 
-
-
 		Session session = new HibernateSession().currentSession(this
 				.getServlet().getServletContext());
 
-                Vector vector = new Vector();
+		Vector vector = new Vector();
 		Criteria criteria = session.createCriteria(PaymentMethod.class);
-                
 
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
 
-
-
-		req.setAttribute("paymentMethods",criteria.list());
-
+		JsonObject paymentMethodsJson = new JsonObject();
+		paymentMethodsJson.addProperty("paymentMethods", gson.toJson(criteria.list()));
+		jsonElements.add(paymentMethodsJson);
 
 //		for (Iterator iter = criteria.list().iterator(); iter.hasNext();) {
 //			PaymentMethod paymentMethod = (PaymentMethod) iter.next();
@@ -59,7 +61,6 @@ public class PaymentMethodsAction extends Action{
 		PaymentMethod paymentMethod = new PaymentMethodImpl();
 		PaymentMethodForm paymentMethodform = new PaymentMethodForm();
 		criteria = session.createCriteria(PaymentMethod.class);
-
 
 		if (req.getAttribute("form")== null && req.getParameter("id")!=null){
 			criteria.add(Restrictions.idEq(Integer.valueOf(req
@@ -71,22 +72,16 @@ public class PaymentMethodsAction extends Action{
 			criteria.add(Restrictions.idEq(paymentMethodform.getId()));
 			paymentMethod = (PaymentMethod) criteria.uniqueResult();
 		}
-		
 
 		req.setAttribute("model",paymentMethod);
 		req.setAttribute("form",paymentMethodform);
-		
-		
 
+		if(req.getParameter("displayexport") !=null){
+			return mapping.findForward("displayexport");
+		}
 
-                   
-
-		
-
-                if(req.getParameter("displayexport") !=null){
-     		    return mapping.findForward("displayexport");
-                }
-
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
 		return mapping.findForward("success");
 	}
 	

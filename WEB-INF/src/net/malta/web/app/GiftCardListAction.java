@@ -1,5 +1,9 @@
 package net.malta.web.app;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.malta.model.*;
 import net.malta.model.crud.*;
 import net.malta.web.utils.Pagination;
@@ -62,20 +66,31 @@ public class GiftCardListAction extends Action{
         	}
         	
         }
-        
-        
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
+
 		int max=pagination.getMax(criteria.list().size(), pagesize);
-		req.setAttribute("max", max);
+		JsonObject maxJson = new JsonObject();
+		maxJson.addProperty("max", max);
+		jsonElements.add(maxJson);
 
 		criteria.setMaxResults(pagesize);
 		criteria.setFirstResult(offset);
-		
-		
-		req.setAttribute("giftCards",criteria.list());
-		
+
+		JsonObject giftCardsJson = new JsonObject();
+		giftCardsJson.addProperty("GiftCards", gson.toJson(criteria.list()));
+		jsonElements.add(giftCardsJson);
+
 		Criteria criteriaGiftCard = session.createCriteria(GiftCard.class);
-		req.setAttribute("pages", 1 + ( (int ) ( criteriaGiftCard.list().size() / pagesize ) ));
-		
+
+		int pages = 1 + ( (int ) ( criteriaGiftCard.list().size() / pagesize ) );
+		JsonObject pagesJson = new JsonObject();
+		pagesJson.addProperty("pages", pages);
+		jsonElements.add(pagesJson);
+
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
 		return mapping.findForward("success");
 /*
 				

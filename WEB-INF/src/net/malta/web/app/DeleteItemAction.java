@@ -33,7 +33,7 @@ public class DeleteItemAction extends Action {
 		transaction.commit();
 		session.flush();
 
-		new HTTPGetRedirection(req, res, "Items.do", null);
+		new HTTPGetRedirection(req, res, "Items.html", null);
 		return null;
 	}
 }

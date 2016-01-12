@@ -100,7 +100,7 @@ public class PostCarriageVPAction extends Action{
 		transaction.commit();
 		session.flush();
 
-		new HTTPGetRedirection(req, res, "PostCarriageDetail.do", null);
+		new HTTPGetRedirection(req, res, "PostCarriageDetail.html", null);
 		return null;
 	}
 }

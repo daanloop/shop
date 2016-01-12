@@ -5,6 +5,10 @@ import java.util.Vector;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.enclosing.util.HibernateSession;
 import net.malta.beans.ProductForm;
 import net.malta.model.Category;
@@ -49,7 +53,13 @@ public class ProductsAction extends Action {
 		}
 		criteria.add(Restrictions.eq("removed", new Boolean(false)));
 		criteria.addOrder(Order.desc("id"));
-		req.setAttribute("products", criteria.list());
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
+
+		JsonObject productsJson = new JsonObject();
+		productsJson.addProperty("products", gson.toJson(criteria.list()));
+		jsonElements.add(productsJson);
 
 		// for (Iterator iter = criteria.list().iterator(); iter.hasNext();) {
 		// Product product = (Product) iter.next();
@@ -73,13 +83,17 @@ public class ProductsAction extends Action {
 //		req.setAttribute("form", productform);
 
 		Criteria criteriaCategory = session.createCriteria(Category.class);
-		req.setAttribute("Categorys", criteriaCategory.list());
+		JsonObject categorysJson = new JsonObject();
+		categorysJson.addProperty("Categorys", gson.toJson(criteriaCategory.list()));
+		jsonElements.add(categorysJson);
 
 		if (req.getParameter("displayexport") != null) {
 			return mapping.findForward("displayexport");
 		}
 
-		return mapping.findForward("success");
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
+		return null;
 	}
 
 }

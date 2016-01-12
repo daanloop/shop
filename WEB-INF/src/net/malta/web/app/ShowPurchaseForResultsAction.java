@@ -3,6 +3,8 @@ package net.malta.web.app;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import net.enclosing.util.HTTPGetRedirection;
 import net.enclosing.util.HibernateSession;
 import net.malta.model.Purchase;
@@ -31,10 +33,10 @@ public class ShowPurchaseForResultsAction extends Action{
 		Criteria criteria = session.createCriteria(Purchase.class);
 		
 		if(req.getParameter("result")==null){
-			new HTTPGetRedirection(req, res, "ShowPurchaseForThanks.do?paymentMethod=2", null);
+			new HTTPGetRedirection(req, res, "ShowPurchaseForThanks.html?paymentMethod=2", null);
 			return null;
 		}else if(req.getParameter("result").equals("1")){
-			new HTTPGetRedirection(req, res, "ShowPurchaseForThanks.do", null);
+			new HTTPGetRedirection(req, res, "ShowPurchaseForThanks.html", null);
 			return null;
 		}
 		if (req.getParameter("id") != null
@@ -49,8 +51,10 @@ public class ShowPurchaseForResultsAction extends Action{
 			purchase = (Purchase) criteria.uniqueResult();
 		}
 
-		req.setAttribute("purchase",purchase);
-		return mapping.findForward("success");
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(purchase));
+		return null;
 	}
 	
 	

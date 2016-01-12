@@ -104,10 +104,8 @@ public class PostChoiseVPAction extends Action{
 			session.flush();
 		}
 		
-		new HTTPGetRedirection(req, res, "ShowPurchase.do", null);
+		new HTTPGetRedirection(req, res, "ShowPurchase.html", null);
 		return null;
-
-		
 	}
  
 	private String getImgOf(int wp_posts_id, Session session) {

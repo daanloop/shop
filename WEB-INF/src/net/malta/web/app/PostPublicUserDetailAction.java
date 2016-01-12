@@ -3,6 +3,10 @@ package net.malta.web.app;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.enclosing.util.HibernateSession;
 import net.malta.beans.PublicUserForm;
 import net.malta.model.GiftCard;
@@ -74,13 +78,25 @@ public class PostPublicUserDetailAction extends Action {
 //				
 //			}
 		}
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
+
 		Criteria criteriaGiftCard = session.createCriteria(GiftCard.class);
-		req.setAttribute("GiftCards", criteriaGiftCard.list());
+		JsonObject giftCardsJson = new JsonObject();
+		giftCardsJson.addProperty("GiftCards", gson.toJson(criteriaGiftCard.list()));
+		jsonElements.add(giftCardsJson);
+
 		Criteria criteriaprefecture = session.createCriteria(Prefecture.class);
-		req.setAttribute("Prefectures", criteriaprefecture.list());
+		JsonObject prefecturesJson = new JsonObject();
+		prefecturesJson.addProperty("Prefectures", gson.toJson(criteriaprefecture.list()));
+		jsonElements.add(prefecturesJson);
+
 		req.setAttribute("model", publicUser);
 		req.setAttribute("form", publicUserform);
-		
+
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
 		return mapping.findForward("success");
 	}
 

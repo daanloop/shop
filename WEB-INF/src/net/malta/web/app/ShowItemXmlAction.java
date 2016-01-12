@@ -3,6 +3,8 @@ package net.malta.web.app;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import net.malta.model.*;
 import net.malta.model.crud.*;
 
@@ -45,11 +47,10 @@ public class ShowItemXmlAction extends Action{
 			item = (Item) criteria.uniqueResult();
 		}
 
-		req.setAttribute("item",item);
-		
-		
-		
-		return mapping.findForward("success");
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(item));
+		return null;
 	}
 	
 	

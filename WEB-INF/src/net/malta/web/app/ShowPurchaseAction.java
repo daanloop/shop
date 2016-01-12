@@ -3,6 +3,8 @@ package net.malta.web.app;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import net.enclosing.util.HibernateSession;
 import net.malta.model.Item;
 import net.malta.model.Purchase;
@@ -34,7 +36,6 @@ public class ShowPurchaseAction extends Action {
 			criteria.add(Restrictions.idEq(Integer.valueOf(req
 					.getParameter("id"))));
 			purchase = (Purchase) criteria.uniqueResult();
-			req.setAttribute("purchase", purchase);
 		}
 
 //}
@@ -50,6 +51,10 @@ public class ShowPurchaseAction extends Action {
 
 //		req.setAttribute("purchase", purchase);
 //
-		return mapping.findForward("success");
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(purchase));
+		return null;
 	}
 }

@@ -32,7 +32,6 @@ public class PostPaymentMethodDetailAction extends Action{
 		Session session = new HibernateSession().currentSession(this
 				.getServlet().getServletContext());
 
-
 		PaymentMethod paymentMethod = new PaymentMethodImpl();
 		PaymentMethodForm paymentMethodform = new PaymentMethodForm();
 		Criteria criteria = session.createCriteria(PaymentMethod.class);
@@ -47,13 +46,9 @@ public class PostPaymentMethodDetailAction extends Action{
 			criteria.add(Restrictions.idEq(paymentMethodform.getId()));
 			paymentMethod = (PaymentMethod) criteria.uniqueResult();
 		}
-		
 
 		req.setAttribute("model",paymentMethod);
 		req.setAttribute("form",paymentMethodform);
-
-
-                   
 		
 		return mapping.findForward("success");
 	}

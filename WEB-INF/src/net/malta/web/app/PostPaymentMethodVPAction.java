@@ -35,11 +35,8 @@ public class PostPaymentMethodVPAction extends Action{
 		PaymentMethod paymentMethod = new PaymentMethodImpl();
 		PaymentMethodForm paymentMethodform = (PaymentMethodForm) form;
 
-                String error = "";
+		String error = "";
 
-
-                
-		
 		Session session = new HibernateSession().currentSession(this.getServlet().getServletContext());
 		if(paymentMethodform.getId() == null || paymentMethodform.getId().intValue() == 0){
 			paymentMethod.setId(null);
@@ -54,10 +51,7 @@ public class PostPaymentMethodVPAction extends Action{
                 		paymentMethod.setNote(paymentMethodform.getNote());
 		paymentMethod.setName(paymentMethodform.getName());
 
-
-		
 		StringFullfiller.fullfil(paymentMethod);
-                
 
 		Transaction transaction = session.beginTransaction();
 		session.saveOrUpdate(paymentMethod);
@@ -68,10 +62,8 @@ public class PostPaymentMethodVPAction extends Action{
 			return mapping.findForward("success");
 		}
 
-		
-		new HTTPGetRedirection(req, res, "PostPaymentMethodDetail.do", paymentMethod.getId().toString());
+		new HTTPGetRedirection(req, res, "PostPaymentMethodDetail.html", paymentMethod.getId().toString());
 		return null;
-
 		
 	}
 	

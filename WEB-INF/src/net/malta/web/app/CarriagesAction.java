@@ -1,5 +1,9 @@
 package net.malta.web.app;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.malta.model.*;
 import net.malta.beans.*;
 
@@ -44,13 +48,13 @@ public class CarriagesAction extends Action{
 
                 Vector vector = new Vector();
 		Criteria criteria = session.createCriteria(Carriage.class);
-                
 
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
 
-
-
-		req.setAttribute("carriages",criteria.list());
-
+		JsonObject carriagesJson = new JsonObject();
+		carriagesJson.addProperty("carriages", gson.toJson(criteria.list()));
+		jsonElements.add(carriagesJson);
 
 //		for (Iterator iter = criteria.list().iterator(); iter.hasNext();) {
 //			Carriage carriage = (Carriage) iter.next();
@@ -75,20 +79,13 @@ public class CarriagesAction extends Action{
 
 		req.setAttribute("model",carriage);
 		req.setAttribute("form",carriageform);
-		
-		
 
+		if(req.getParameter("displayexport") !=null){
+			return mapping.findForward("displayexport");
+		}
 
-                   
-
-		
-
-                if(req.getParameter("displayexport") !=null){
-     		    return mapping.findForward("displayexport");
-                }
-
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
 		return mapping.findForward("success");
 	}
-	
-	
 }

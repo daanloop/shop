@@ -1,5 +1,9 @@
 package net.malta.web.app;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.malta.model.*;
 import net.malta.beans.*;
 
@@ -38,34 +42,32 @@ public class ProductsForScenesXm2Action extends Action{
 			HttpServletRequest req,
 			HttpServletResponse res) throws Exception{
 
-
-
 		Session session = new HibernateSession().currentSession(this
 				.getServlet().getServletContext(),60);
 
-                Vector vector = new Vector();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonArray jsonElements = new JsonArray();
+
+		Vector vector = new Vector();
 		Criteria criteria = session.createCriteria(Product.class);
-        criteria.addOrder(Order.desc("id"));
+		criteria.addOrder(Order.desc("id"));
 
-if(StringUtils.isNotBlank(req.getParameter("removed"))){   if(req.getParameter("removed").equals("true")){
-      criteria.add(Restrictions.eq("removed",true));
-   }else{
-      criteria.add(Restrictions.eq("removed",false));
-   }
-}
+		if (StringUtils.isNotBlank(req.getParameter("removed"))) {
+			if (req.getParameter("removed").equals("true")) {
+				criteria.add(Restrictions.eq("removed", true));
+			} else {
+				criteria.add(Restrictions.eq("removed", false));
+			}
+		}
 
-
-		if(StringUtils.isNotBlank(req.getParameter("category"))) {
+		if (StringUtils.isNotBlank(req.getParameter("category"))) {
 			Criteria criteria2 = session.createCriteria(Category.class);
 			criteria2.add(Restrictions.idEq(Integer.valueOf(req.getParameter("category"))));
 			Category category = (Category) criteria2.uniqueResult();
 			criteria.add(Restrictions.eq("category", category));
 		}
- 
 
-
-
-	      criteria.add(Restrictions.eq("pub",true));
+		criteria.add(Restrictions.eq("pub",true));
 //
 //
 //if(StringUtils.isNotBlank(req.getParameter("pub"))){   if(req.getParameter("pub").equals("true")){
@@ -75,21 +77,15 @@ if(StringUtils.isNotBlank(req.getParameter("removed"))){   if(req.getParameter("
 //   }
 //}
 
-
-
-
-
-
 		if(StringUtils.isNotBlank(req.getParameter("datestartdate")) && StringUtils.isNotBlank(req.getParameter("dateenddate"))){
 			Date  startDate = (new SimpleDateFormat("yyyy/MM/dd")).parse(req.getParameter("datestartdate"));
 			Date endDate = (new SimpleDateFormat("yyyy/MM/dd")).parse(req.getParameter("dateenddate"));
 			criteria.add(Restrictions.between("date", startDate, endDate));
 		}
 
-
-
-		req.setAttribute("products",criteria.list());
-
+		JsonObject products = new JsonObject();
+		products.addProperty("products", gson.toJson(criteria.list()));
+		jsonElements.add(products);
 
 //		for (Iterator iter = criteria.list().iterator(); iter.hasNext();) {
 //			Product product = (Product) iter.next();
@@ -99,38 +95,35 @@ if(StringUtils.isNotBlank(req.getParameter("removed"))){   if(req.getParameter("
 		ItemForm itemform = new ItemForm();
 		criteria = session.createCriteria(Item.class);
 
-
 		if (req.getAttribute("form")== null && req.getParameter("id")!=null){
 			criteria.add(Restrictions.idEq(Integer.valueOf(req
 					.getParameter("id"))));
 			item = (Item) criteria.uniqueResult();
 			new CopyProperties(item,itemform);
 		} else if(req.getAttribute("form")!=null){
-                        itemform = (ItemForm)req.getAttribute("form");
+			itemform = (ItemForm)req.getAttribute("form");
 			criteria.add(Restrictions.idEq(itemform.getId()));
 			item = (Item) criteria.uniqueResult();
 		}
-		
 
-		req.setAttribute("mainitem",item);
-		req.setAttribute("form",itemform);
-		
-		
+		JsonObject mainItem = new JsonObject();
+		mainItem.addProperty("mainitem", gson.toJson(item));
+		mainItem.addProperty("form", gson.toJson(itemform));
+		jsonElements.add(mainItem);
 
+		Criteria criteriaCategory= session.createCriteria(Category.class);
+		JsonObject categories = new JsonObject();
+		categories.addProperty("Categories", gson.toJson(criteriaCategory.list()));
+		jsonElements.add(categories);
 
-                  Criteria criteriaCategory= session.createCriteria(Category.class);
-			req.setAttribute("Categorys", criteriaCategory.list());
+		if(req.getParameter("displayexport") != null){
+			return mapping.findForward("displayexport");
+		}
 
- 
-
-		
-
-                if(req.getParameter("displayexport") !=null){
-     		    return mapping.findForward("displayexport");
-                }
-
-		return mapping.findForward("success");
+		res.setContentType("application/json");
+		res.getWriter().print(gson.toJson(jsonElements));
+		return null;
 	}
-	
-	
+
+
 }
