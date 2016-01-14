@@ -26,7 +26,6 @@ public class BankingPaymentGatewayConfiguration extends EntryExecTranInput imple
 	 * 決済実行
 	 * @throws com.gmo_pg.g_pay.client.common.PaymentException
 	 */
-	@Override
 	public void executePaymentGateway() throws PaymentException {
 		PaymentClientImpl paymentClientImpl = new PaymentClientImpl();
 
@@ -47,7 +46,6 @@ public class BankingPaymentGatewayConfiguration extends EntryExecTranInput imple
 	/**
 	 * エラー情報を返却する
 	 */
-	@Override
 	public List getErrList() {
 		return this.entryErrList;
 	}
