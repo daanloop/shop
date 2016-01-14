@@ -1,0 +1,319 @@
+﻿@charset "UTF-8";
+
+@import url(reset.css);
+@import url(fonts.css);
+
+/*---------------------------基本設定*/
+/*IEのチラつき対応*/
+html { 
+    filter: expression(document.execCommand("BackgroundImageCache", false, true)); 
+}
+/*--- clearfix ---*/
+
+.clearfix:after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+
+.clearfix{
+	display:inline-block;
+	min-height:1%;  /* for IE 7*/
+}
+
+/* Hides from IE-mac \*/
+* html .clearfix{height: 1%;}
+.clearfix{display: block;}
+/* End hide from IE-mac */
+
+/*---- 強調 ---------------------------------------*/
+
+em{font-style:nomal;
+	color:#990000;}
+
+/*---- ロールオーバー ---------------------------------------*/
+a.overImg{
+	display:block;
+}
+
+a.overImg:hover{
+	background-color:transparent;
+}
+
+a.overImg:hover img{
+	visibility: hidden;
+}
+/*---- リンク ---------------------------------------*/
+a:link{
+	color:#00c154;
+	text-decoration:none;
+}
+
+a:visited{
+	color:#00c154;
+	text-decoration:none;
+}
+a:hover{
+	color:#00c154;
+	text-decoration:underline;
+}
+
+
+/*---------------------------index ---------------------------------------*/
+body{
+	text-align:center;
+	color:#888;
+}
+
+#wrapper{
+	width:850px;
+	margin:0 auto;
+	text-align:center;
+	padding-top:59px;
+	padding-bottom:20px;
+	font-size:85%;
+	*font-size:70%;
+}
+
+#contentsArea{
+	width:586px;
+	margin:0 auto;
+	text-align:left;
+
+}
+
+#contentsArea .cartTxt{
+	margin-top:15px;
+}
+#header{
+	width:850px;
+	margin:0 auto;
+}
+
+#header ul{
+	background:url("../images/navi_bg.gif") no-repeat left top;
+	padding:0 25px 48px 22px;
+}
+
+/*---- ナビゲーション ---------------------------------------*/
+
+#header ul li{
+	float:left;
+}
+
+#header ul li#n01{
+	background:url("../images/navi_01_on.gif") no-repeat left top;
+}
+
+#header ul li#n02{
+	background:url("../images/navi_02_on.gif") no-repeat left top;
+}
+
+#header ul li#n03{
+	background:url("../images/navi_03_on.gif") no-repeat left top;
+}
+
+#header ul li#n04{
+	background:url("../images/navi_04_on.gif") no-repeat left top;
+}
+
+#header ul li#n05{
+	background:url("../images/navi_05_on.gif") no-repeat left top;
+}
+
+#header ul li#n06{
+	background:url("../images/navi_06_on.gif") no-repeat left top;
+}
+
+#header ul li#n07{
+	background:url("../images/navi_07_on.gif") no-repeat left top;
+}
+
+#header ul li#n08{
+	background:url("../images/navi_08_on.gif") no-repeat left top;
+}
+
+/*---- コンテンツ ---------------------------------------
+#contentsArea h2{
+	margin-bottom:5px;
+}
+
+#contentsArea .catch{
+	margin-top:5px;
+}
+
+#contentsArea table{
+	margin-top:10px;
+	border-top:1px solid #CCC;
+	border-left:1px solid #CCC;
+	border-right:1px solid #CCC;
+	width:100%;
+}
+
+#contentsArea table thead th.del{
+	width:51px;
+}
+
+#contentsArea table th ,#contentsArea table td{
+	border-bottom:1px solid #CCC;
+	border-right:1px solid #CCC;
+	padding:2px 5px;
+	vertical-align:middle;
+}
+
+#contentsArea table thead th,#contentsArea table .price{
+	text-align:center;
+}
+
+#contentsArea table tr.total{
+	background-color:#8c8c8c;
+	color:#FFF;
+}
+
+#contentsArea table tr.postage{
+	background-color:#eee;
+}
+
+#contentsArea table td.photo{
+	border-right:none;
+	padding:0;
+	width:60px;
+}
+
+#contentsArea table tr .title{
+	text-align:right;
+}
+
+#contentsArea table tbody th{
+	width:130px;
+}
+
+#contentsArea table.formArea thead th{
+	text-align:left;
+}
+*/
+/*Formのサイズ
+#contentsArea table.formArea .longForm{
+	width:250px;
+	padding:2px 4px;
+	border:1px solid #999;
+}
+
+#contentsArea table.formArea .longFormEx{
+	width:400px;
+	height:80px;
+	padding:2px 4px;
+	border:1px solid #999;
+}
+
+#contentsArea table.formArea .shortForm{
+	width:125px;
+	padding:2px 4px;
+	border:1px solid #999;
+}*/
+/*//Formのサイズ
+
+#contentsArea table.formArea thead th p{
+	float:right;
+}
+
+#contentsArea table.formArea input{
+	vertical-align:middle;
+}
+#contentsArea .cartTxt .txt{
+	float:left;
+}
+
+#contentsArea .cartTxt ul{
+	float:right;
+}
+
+#contentsArea .cartTxt ul li{
+	float:left;
+}
+
+#contentsArea .cartTxt ul li.change{
+	margin-right:10px;
+}
+
+#contentsArea .cartTxt p.change{
+	float:right;
+}
+*/
+/*---- Action ---------------------------------------
+.action{
+	margin-top:10px;
+	text-align:center;
+}
+
+.action .caption{
+	text-align:right;
+}
+
+.action li.rev{
+	float:left;
+}
+
+.action li.nxt{
+	float:right;
+}*/
+
+/*---- SSLについて ---------------------------------------
+
+#sslTxt{
+	width:586px;
+	margin:30px auto;
+	text-align:left;
+}*/
+
+/*---- エラー ---------------------------------------
+
+.alertTxt{
+	width:586px;
+	margin:30px auto;
+	text-align:left;
+}
+
+
+.errorTxt{
+	width:586px;
+	text-align:left;
+	background-color:#ffd8d8;
+	padding:1px 3px;
+}
+*/
+/*---- フッター---------------------------------------*/
+
+#footer{
+	border-top:1px solid #b4b4b4;
+	margin-top:52px;
+	padding:0 10px 0 15px;
+}
+
+#footer ul {
+	float:left;
+	border-left:1px solid #b4b4b4;
+	padding-left:5px;
+	margin-top:10px;
+}
+
+#footer li{
+	float:left;
+	border-right:1px solid #b4b4b4;
+	margin-right:5px;
+	padding-right:5px;
+	height:13px;
+}
+
+
+#footer address{
+	float:right;
+	width:351px;
+	margin-top:10px;
+}
+
+#footer address img{
+	margin-left:8px;
+}
