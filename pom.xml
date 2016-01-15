@@ -22,6 +22,26 @@
         </dependency>
 
         <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
@@ -38,6 +58,16 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate</artifactId>
             <version>${hibernate.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-collections</groupId>
+                    <artifactId>commons-collections</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.transaction</groupId>
+                    <artifactId>jta</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -51,18 +81,32 @@
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
             <version>1.7.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.4</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>commons-digester</groupId>
             <artifactId>commons-digester</artifactId>
             <version>1.7</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-collections</groupId>
+                    <artifactId>commons-collections</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-beanutils</groupId>
+                    <artifactId>commons-beanutils</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -75,6 +119,30 @@
             <groupId>commons-httpclient</groupId>
             <artifactId>commons-httpclient</artifactId>
             <version>3.0.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging-api</artifactId>
+            <version>1.0.4</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.1</version>
         </dependency>
 
         <!-- Apache POI -->
@@ -99,26 +167,52 @@
 
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <version>${spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-beans</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-hibernate</artifactId>
             <version>${spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-orm</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>3.1.12</version>
         </dependency>
 
         <dependency>
@@ -129,48 +223,48 @@
 
         <!-- Local JARs -->
         <dependency>
-            <groupId>enclosing</groupId>
-            <artifactId>util</artifactId>
+            <groupId>net.enclosing.util</groupId>
+            <artifactId>net.enclosing.util</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/net.enclosing.util.jar</systemPath>
         </dependency>
 
         <dependency>
-            <groupId>com.gmo_pg.g_pay</groupId>
-            <artifactId>gpay-client</artifactId>
+            <groupId>gpay_client-3.0</groupId>
+            <artifactId>gpay_client-3.0</artifactId>
             <version>3.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/gpay_client-3.0.jar</systemPath>
         </dependency>
 
         <dependency>
-            <groupId>net.malta</groupId>
-            <artifactId>malta-core</artifactId>
+            <groupId>malta-core-1.0</groupId>
+            <artifactId>malta-core-1.0</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/malta-core-1.0.jar</systemPath>
         </dependency>
 
         <dependency>
-            <groupId>net.malta</groupId>
-            <artifactId>malta-common</artifactId>
+            <groupId>malta-common-1.0</groupId>
+            <artifactId>malta-common-1.0</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/malta-common-1.0.jar</systemPath>
         </dependency>
 
         <dependency>
-            <groupId>net.malta</groupId>
-            <artifactId>malta-worflow</artifactId>
+            <groupId>malta-workflow-1.0</groupId>
+            <artifactId>malta-workflow-1.0</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/malta-workflow-1.0.jar</systemPath>
         </dependency>
 
         <dependency>
-            <groupId>jp.storyteller</groupId>
-            <artifactId>storyteller-desktop</artifactId>
+            <groupId>jp.storyteller.desktop</groupId>
+            <artifactId>jp.storyteller.desktop</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/jp.storyteller.desktop.jar</systemPath>
@@ -178,7 +272,7 @@
     </dependencies>
 
     <build>
-        <finalName>SecualShop</finalName>
+        <finalName>ROOT</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
@@ -186,4 +280,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
