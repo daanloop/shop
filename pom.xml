@@ -272,7 +272,7 @@
     </dependencies>
 
     <build>
-        <finalName>ROOT</finalName>
+        <finalName>Shop</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
